@@ -41,7 +41,8 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 	 */
 	private Terminal terminal;
 	
-	
+	//usager qui utilise le systeme
+	Usager unUsager;
 	
 	
 	/**
@@ -71,7 +72,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 			if(!texte.equals("")) {
 				String tempo[] = texte.split(":");
 				
-				terminal.ajouterItem(new ItemMenu(Integer.parseInt(tempo[0]),tempo[1]));
+				terminal.ajouterItem(new ItemMenu(Double.parseDouble(tempo[0]),tempo[1]));
 			}
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {
@@ -89,6 +90,8 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 			String pw,verif1="master",verif2="chix",tempo[];
 			pw = JOptionPane.showInputDialog("Entrez Votre nom d'utilisateur suivi du mot de passe\nNomUsager:MotDePasse  ");
 			tempo = pw.split(":");
+			Role unRole = new Admin();
+			unUsager = new Usager("test1", "test2", "Test3", unRole);
 			if(tempo[0].equalsIgnoreCase(verif1) && tempo[1].equalsIgnoreCase(verif2)){
 			}
 		}
