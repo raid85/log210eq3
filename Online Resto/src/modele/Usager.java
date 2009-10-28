@@ -37,7 +37,13 @@ public class Usager {
 		this.infoDuDude = infoDuDude;
 	}
 
-	
+	public boolean compareTo(Usager autreUsager){
+		if(loginName.equals(autreUsager.getLoginName()) && password.equals(autreUsager.getPassword())){
+			return true;
+		}
+		else	
+		return false;
+	}
 	
 	
 
