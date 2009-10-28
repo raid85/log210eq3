@@ -64,7 +64,7 @@ public class Vue extends JFrame implements Observer {
 	private JTextField boiteTexte;
 	private JMenuBar barreMenu;
     private JMenu menuF, menuG, resto, menus, submenu;
-    private JMenuItem itemC, itemQ, itemAM, itemMM, itemSM;
+    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
     private boolean answer = false;
 	
 	/**
@@ -121,6 +121,8 @@ public class Vue extends JFrame implements Observer {
 		itemC.setActionCommand("CONNEXION"); 
         itemC.setEnabled(false);
 		
+        
+        
 		itemQ = new JMenuItem("Quitter");        
         menuF.add(itemQ);
         itemQ.addActionListener(controleur);

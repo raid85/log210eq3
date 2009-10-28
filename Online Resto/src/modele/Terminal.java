@@ -37,7 +37,8 @@ public class Terminal {
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterItem(ItemMenu item) {
+	public void ajouterItem(Double par1, String par2) {
+		ItemMenu item = new ItemMenu(par1,par2);
 		catalogue.ajouterItem(item);
 	}
 	

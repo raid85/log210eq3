@@ -12,7 +12,7 @@ public class ItemMenu {
 	}
 
 	public double getPrix() {
-		return prix;
+		return S;
 	}
 
 	public void setPrix(double prix) {
