@@ -16,6 +16,7 @@ public class Restaurant {
 		
 	}
 
+
 	public String getAdresse() {
 		return adresse;
 	}

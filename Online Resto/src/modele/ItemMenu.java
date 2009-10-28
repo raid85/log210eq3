@@ -2,20 +2,20 @@ package modele;
 
 public class ItemMenu {
 	
-	private int prix;
+	private double prix;
 	private String description;
 	
 	//Constructeur
-	public ItemMenu(int prix, String description) {		
+	public ItemMenu(double prix, String description) {		
 		this.prix = prix;
 		this.description = description;
 	}
 
-	public int getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(int prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
