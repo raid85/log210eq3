@@ -1,9 +1,9 @@
 package modele;
 
 
-public class Gerant implements Role{
+public class Admin implements Role{
 
-	final boolean GERANT=true, ADMIN=false, LIVREUR=true;
+	final boolean GERANT=true, ADMIN=true, LIVREUR=true;
 
 	public boolean isGerant() {
 		return GERANT;
