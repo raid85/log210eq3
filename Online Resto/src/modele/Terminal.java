@@ -28,6 +28,7 @@ public class Terminal {
 	 * @param observateur
 	 */
 	public Terminal(Observer observateur) {
+		
 		catalogue = new Menu(observateur);
 	}
 	
