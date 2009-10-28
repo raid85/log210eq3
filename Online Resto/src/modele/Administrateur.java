@@ -1,12 +1,19 @@
 package modele;
 
 
-public class Administrateur extends Usager{
+public class Administrateur implements Role{
 
-	public Administrateur(String loginName, String password, String infoDuDude) {
-		super(loginName, password, infoDuDude);
+	private String loginName; 
+	private String password; 
+	private String infoDuDude;
 	
+	public Administrateur(String loginName, String password, String infoDuDude) {
+		this.loginName = loginName;
+		this.password = password;
+		this.infoDuDude = infoDuDude;
 	}
+	
+
 
 	
 }
