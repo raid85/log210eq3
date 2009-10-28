@@ -3,12 +3,14 @@ package modele;
 public class Usager {
 
 	String loginName, password, infoDuDude;
+	Role droits;
 
-	public Usager(String loginName, String password, String infoDuDude) {
+	public Usager(String loginName, String password, String infoDuDude, Role droits) {
 		
 		this.loginName = loginName;
 		this.password = password;
 		this.infoDuDude = infoDuDude;
+		this.droits=droits;
 	}
 
 	public String getLoginName() {
