@@ -121,7 +121,11 @@ public class Vue extends JFrame implements Observer {
 		itemC.setActionCommand("CONNEXION"); 
         itemC.setEnabled(false);
 		
-        
+        itemDC = new JMenuItem("Deconnexion");        
+        menuF.add(itemDC);
+		itemDC.addActionListener(controleur);
+		itemDC.setActionCommand("DECONNEXION"); 
+        itemDC.setEnabled(false);        
         
 		itemQ = new JMenuItem("Quitter");        
         menuF.add(itemQ);
@@ -154,7 +158,7 @@ public class Vue extends JFrame implements Observer {
        resto = new JMenu("Restaurants");  
         menuG.add(resto);
         
-        
+        itemC.setEnabled(true);
         menus.setEnabled(false);
         itemSM.setEnabled(false);
         resto.setEnabled(false);
@@ -296,12 +300,10 @@ public class Vue extends JFrame implements Observer {
 	 * Point d'entrée de l'application.
 	 */
 	public static void main(String args[]) {
-		String pw,verif1="master",verif2="chix",tempo[];
-		pw = JOptionPane.showInputDialog("Entrez Votre nom d'utilisateur suivi du mot de passe\nNomUsager:MotDePasse  ");
-		tempo = pw.split(":");
-		if(tempo[0].equalsIgnoreCase(verif1) && tempo[1].equalsIgnoreCase(verif2)){
+	
+		
 			new Vue();
-		}
+		
 
 		
 		

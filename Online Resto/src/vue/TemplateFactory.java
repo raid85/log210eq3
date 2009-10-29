@@ -54,6 +54,7 @@ public class TemplateFactory extends JFrame implements Observer {
 	private JList liste;
 	private JTextField boiteTexte;
 	
+	
 	/**
 	 * Constructeur sans paramètre
 	 */
@@ -92,6 +93,7 @@ public class TemplateFactory extends JFrame implements Observer {
 		contraintes.gridy = 0;
 		contraintes.gridwidth = 2;
 		liste = new JList();
+		
 		/*
 		 * On ajouter un ListSelectionListener à la liste pour écouter
 		 * l'événement où un élément est sélectionné dans la liste. De plus, on
