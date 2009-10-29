@@ -22,6 +22,13 @@ public class Terminal {
 	 */
 	private Menu catalogue;
 	
+	//Section pour initier les variables des usagers
+	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
+	private Usager gerantTest = new Usager("gerant","1234","pas bo", new Gerant());
+	private Usager adminTest = new Usager("admin","1234","laid", new Admin());
+	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest};
+	private Usager lUsager;
+	
 	/**
 	 * Constructeur avec paramètre.
 	 * Lors de l'instanciation du Terminal, le Terminal instancie un Catalogue.
@@ -49,4 +56,37 @@ public class Terminal {
 	public void retirerItem(int index) {
 		catalogue.retirerItem(index);
 	}
+
+
+	public void authentifier() {
+		int sizeTab = 3;
+		boolean nomTrouver = false;
+		boolean connected=false;
+		String ligneEntrer,verif1="master",verif2="chix",tempo[];
+		
+		while(!connected){
+			ligneEntrer = JOptionPane.showInputDialog("Entrez Votre nom d'utilisateur suivi du mot de passe\nNomUsager:MotDePasse  ");
+			tempo = ligneEntrer.split(":");
+			
+		int compteur = 0;
+		
+		while(nomTrouver=false || compteur != 3-1){
+			if(listeUsager[compteur].getLoginName().equals(tempo[0]) ){
+				if(listeUsager[compteur].getPassword().equals(tempo[1])){
+					nomTrouver=true;
+					JOptionPane.showMessageDialog(null,"C chill");
+				}
+				else
+					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
+				
+			}
+		}
+		}
+		
+		
+		
+	}
+
+
+	
 }

@@ -138,8 +138,7 @@ public class Vue extends JFrame implements Observer {
         itemAM = new JMenuItem("Créer un Menu");    
         itemAM.addActionListener(controleur);
         itemAM.setActionCommand("ADDMENU");
-		menus.setEnabled(false);
-		
+				
         menus.add(itemAM);
         itemMM = new JMenuItem("Modifier un Menu");        
         itemMM.addActionListener(controleur);
@@ -149,11 +148,15 @@ public class Vue extends JFrame implements Observer {
         itemSM = new JMenuItem("Supprimer un Menu");        
         itemSM.addActionListener(controleur);
         itemSM.setActionCommand("SUPMENU");
-        itemSM.setEnabled(false);
+        
         menus.add(itemSM);
 		
        resto = new JMenu("Restaurants");  
         menuG.add(resto);
+        
+        
+        menus.setEnabled(false);
+        itemSM.setEnabled(false);
         resto.setEnabled(false);
  
 /*        
