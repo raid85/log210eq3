@@ -87,15 +87,12 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 			}
 		}
 		else if(action.equalsIgnoreCase("CONNEXION")) {
+		
 			
-			String pw,verif1="master",verif2="chix",tempo[];
-			pw = JOptionPane.showInputDialog("Entrez Votre nom d'utilisateur suivi du mot de passe\nNomUsager:MotDePasse  ");
-			tempo = pw.split(":");
-			Role unRole = new Admin();
-			unUsager = new Usager("test1", "test2", "Test3", unRole);
-			if(tempo[0].equalsIgnoreCase(verif1) && tempo[1].equalsIgnoreCase(verif2)){
-				
-			}
+			terminal.authentifier();
+		
+			
+			
 		}
 		
 		else if(action.equalsIgnoreCase("DECONNEXION")) {
