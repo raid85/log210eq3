@@ -82,8 +82,15 @@ public class Terminal {
 			}
 		}
 		}
+	
 		
 		
+	}
+		
+	public void deconnection(){
+		
+	lUsager = null;
+	
 		
 	}
 
