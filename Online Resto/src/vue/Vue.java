@@ -67,6 +67,7 @@ public class Vue extends JFrame implements Observer {
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
     private boolean answer = false;
 	
+    
 	/**
 	 * Constructeur sans paramètre
 	 */

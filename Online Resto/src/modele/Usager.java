@@ -1,6 +1,6 @@
 package modele;
 
-public class Usager {
+public class Usager  {
 
 	String loginName, password, infoDuDude;
 	Role droits;

@@ -22,7 +22,7 @@ public class Terminal {
 	 */
 	private Menu catalogue;
 	
-	//Section pour initier les variables des usagers
+	//Section pour initier les variables des usagers pour tests
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
 	private Usager gerantTest = new Usager("gerant","1234","pas bo", new Gerant());
 	private Usager adminTest = new Usager("admin","1234","laid", new Admin());
@@ -60,8 +60,8 @@ public class Terminal {
 
 	public void authentifier() {
 		int sizeTab = 3;
-		boolean nomTrouver = false;
 		boolean connected=false;
+		boolean mauvaisPW=false;
 		String ligneEntrer,verif1="master",verif2="chix",tempo[];
 		
 		while(!connected){
@@ -70,14 +70,27 @@ public class Terminal {
 			
 		int compteur = 0;
 		
-		while(nomTrouver=false || compteur != 3-1){
+		while(!connected && !mauvaisPW && compteur != (listeUsager.length)){
+				
+						
 			if(listeUsager[compteur].getLoginName().equals(tempo[0]) ){
+				
+				
+				
+				
 				if(listeUsager[compteur].getPassword().equals(tempo[1])){
-					nomTrouver=true;
+					connected=true;
 					JOptionPane.showMessageDialog(null,"C chill");
+					lUsager=listeUsager[compteur];
 				}
-				else
+				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
+					mauvaisPW=true;
+				}
+			}
+			else{
+			
+				compteur++;
 				
 			}
 		}
@@ -87,12 +100,14 @@ public class Terminal {
 		
 	}
 		
-	public void deconnection(){
+	public void deconnexion(){
 		
 	lUsager = null;
 	
 		
 	}
+
+
 
 
 	

@@ -96,7 +96,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 		}
 		
 		else if(action.equalsIgnoreCase("DECONNEXION")) {
-			
+			terminal.deconnexion();
 			
 		}
 		
