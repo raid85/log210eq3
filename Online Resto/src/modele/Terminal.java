@@ -20,7 +20,9 @@ public class Terminal {
 	 * Le catalogue est la classe intéressante de l'exemple. La vue veut
 	 * observer ce qui se passe avec le catalogue.
 	 */
-	private Menu catalogue;
+	
+	private ChaineRestaurants chaineResto;
+	private Restaurant unResto = new Restaurant("382 avenue des pins","(514)937-0707",1);
 	
 	//Section pour initier les variables des usagers pour tests
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
@@ -36,7 +38,10 @@ public class Terminal {
 	 */
 	public Terminal(Observer observateur) {
 		
-		catalogue = new Menu(observateur);
+		chaineResto = new ChaineRestaurants(observateur);
+		chaineResto.ajouterRestaurant(unResto);
+		
+	   //	catalogue = new Menu(observateur);
 	}
 	
 	
@@ -46,7 +51,7 @@ public class Terminal {
 	 */
 	public void ajouterItem(Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
-		catalogue.ajouterItem(item);
+		unResto.ajouterItem(item);
 	}
 	
 	/**
@@ -54,7 +59,7 @@ public class Terminal {
 	 * @param index
 	 */
 	public void retirerItem(int index) {
-		catalogue.retirerItem(index);
+		unResto.retirerItem(index);
 	}
 
 
