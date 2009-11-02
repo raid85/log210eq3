@@ -8,12 +8,14 @@ public class Restaurant {
 	//Constructeur
 	
 
+
+	
 	public Restaurant(String adresse, String numeroTel, int numRestaurant) {
 		super();
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
 		this.numRestaurant = numRestaurant;
-		
+
 	}
 
 
