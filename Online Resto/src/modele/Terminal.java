@@ -39,7 +39,7 @@ public class Terminal {
 	public Terminal(Observer observateur) {
 		
 		chaineResto = new ChaineRestaurants(observateur);
-		chaineResto.ajouterRestaurant(unResto);
+		//chaineResto.ajouterRestaurant(unResto);
 		
 	   //	catalogue = new Menu(observateur);
 	}

@@ -62,7 +62,7 @@ public class Vue extends JFrame implements Observer {
 	private JButton boutonRetirer;
 	private JList liste;
 	private JTextField boiteTexte;
-	private JMenuBar barreMenu;
+	private MenuVue barreMenu;
     private JMenu menuF, menuG, resto, menus, submenu;
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
     private boolean answer = false;
@@ -107,7 +107,7 @@ public class Vue extends JFrame implements Observer {
 		contraintes.gridwidth = 2;
 				
 		 //Création de la barre de menu
-        barreMenu = new JMenuBar();
+        barreMenu = new MenuVue();
 
         //Construire le menu Fichier
         menuF = new JMenu("Fichier");
