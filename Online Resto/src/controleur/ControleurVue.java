@@ -86,38 +86,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 				elementSelectionne = -1;
 			}
 		}
-		else if(action.equalsIgnoreCase("CONNEXION")) {
 		
-			
-			terminal.authentifier();
-		
-			
-			
-		}
-		
-		else if(action.equalsIgnoreCase("DECONNEXION")) {
-			terminal.deconnexion();
-			
-		}
-		
-		else if(action.equalsIgnoreCase("QUITTER")) {
-			System.exit(0);			
-		}
-		
-		else if(action.equalsIgnoreCase("ADDMENU")) {
-			
-		}
-		
-		else if(action.equalsIgnoreCase("MODMENU")) {
-			
-		}
-		else if(action.equalsIgnoreCase("SUPMENU")) {
-			
-		}
-		
-		else {
-			System.err.println("L'action '" + action + "' est inconnue...");
-		}
 	}
 
 	

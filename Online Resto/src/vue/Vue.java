@@ -63,8 +63,6 @@ public class Vue extends JFrame implements Observer {
 	private JList liste;
 	private JTextField boiteTexte;
 	private MenuVue barreMenu;
-    private JMenu menuF, menuG, resto, menus, submenu;
-    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
     private boolean answer = false;
 	
     
@@ -109,79 +107,7 @@ public class Vue extends JFrame implements Observer {
 		 //Création de la barre de menu
         barreMenu = new MenuVue();
 
-        //Construire le menu Fichier
-        menuF = new JMenu("Fichier");
-             
-        barreMenu.add(menuF);
-
-        //Création des items de menus
-        
-        itemC = new JMenuItem("Connexion");        
-        menuF.add(itemC);
-		itemC.addActionListener(controleur);
-		itemC.setActionCommand("CONNEXION"); 
-        itemC.setEnabled(false);
-		
-        itemDC = new JMenuItem("Deconnexion");        
-        menuF.add(itemDC);
-		itemDC.addActionListener(controleur);
-		itemDC.setActionCommand("DECONNEXION"); 
-        itemDC.setEnabled(false);        
-        
-		itemQ = new JMenuItem("Quitter");        
-        menuF.add(itemQ);
-        itemQ.addActionListener(controleur);
-        itemQ.setActionCommand("QUITTER");
-
-        //Construire le menu Gestion
-        menuG = new JMenu("Gestion");
-        
-        barreMenu.add(menuG);
-        
-        menus = new JMenu("Menus");
-        menuG.add(menus);
-        itemAM = new JMenuItem("Créer un Menu");    
-        itemAM.addActionListener(controleur);
-        itemAM.setActionCommand("ADDMENU");
-				
-        menus.add(itemAM);
-        itemMM = new JMenuItem("Modifier un Menu");        
-        itemMM.addActionListener(controleur);
-		itemMM.setActionCommand("MODMENU");
-
-        menus.add(itemMM);
-        itemSM = new JMenuItem("Supprimer un Menu");        
-        itemSM.addActionListener(controleur);
-        itemSM.setActionCommand("SUPMENU");
-        
-        menus.add(itemSM);
-		
-       resto = new JMenu("Restaurants");  
-        menuG.add(resto);
-        
-        itemC.setEnabled(true);
-        menus.setEnabled(false);
-        itemSM.setEnabled(false);
-        resto.setEnabled(false);
- 
-/*        
-        menuItem = new JMenuItem("Ajouter un restaurant");        
-        menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("ADDRESTO");
-        resto.add(menuItem);
-        
-        menuItem = new JMenuItem("Modifier un restaurant");        
-		menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("MODRESTO");
-        resto.add(menuItem);
-        
-        menuItem = new JMenuItem("Supprimer un restaurant");        
-		menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("SUPRESTO");
-        resto.add(menuItem);		
-*/
-		
-		getContentPane().add(barreMenu, contraintes);
+   		getContentPane().add(barreMenu, contraintes);
 		
 		
 		
@@ -284,7 +210,7 @@ public class Vue extends JFrame implements Observer {
 	}
 	
 
-	@Override
+	//@Override
 	public void update(Observable arg0, Object arg1) {
 		/*
 		 * Une JList doit être populée à l'aide d'un tableau fixe d'objets.

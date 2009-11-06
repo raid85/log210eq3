@@ -69,24 +69,8 @@ public class ControleurMenuVue implements ActionListener, DocumentListener, List
 		 * au préalable).
 		 */
 		String action = arg0.getActionCommand();
-		if(action.equalsIgnoreCase("AJOUTER")) {
-			if(!texte.equals("")) {
-				String tempo[] = texte.split(":");
-				
-				terminal.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
-			}
-		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {
-			if(elementSelectionne != -1) {
-				terminal.retirerItem(elementSelectionne);
-				/*
-				 * Lorsque l'élément sélectionné a été retiré, il remettre la
-				 * valeur à -1
-				 */
-				elementSelectionne = -1;
-			}
-		}
-		else if(action.equalsIgnoreCase("CONNEXION")) {
+		
+		if(action.equalsIgnoreCase("CONNEXION")) {
 		
 			
 			terminal.authentifier();

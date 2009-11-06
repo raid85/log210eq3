@@ -17,7 +17,7 @@ import java.util.Observer;
  * @author François Caron
  *
  */
-public class ChaineRestaurants extends Observable {
+public class ListeRestaurants extends Observable {
 
 	/**
 	 * La collection qui permet de stocker les strings.
@@ -30,7 +30,7 @@ public class ChaineRestaurants extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ChaineRestaurants(Observer observateur) {
+	public ListeRestaurants(Observer observateur) {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de

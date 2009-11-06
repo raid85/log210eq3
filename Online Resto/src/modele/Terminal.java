@@ -21,7 +21,10 @@ public class Terminal {
 	 * observer ce qui se passe avec le catalogue.
 	 */
 	
-	private ChaineRestaurants chaineResto;
+	private ListeRestaurants chaineResto;
+	private ListeUsagers lsUsers;
+	
+	//Section pour initier les variables des restaurants pour tests
 	private Restaurant unResto = new Restaurant("382 avenue des pins","(514)937-0707",1);
 	
 	//Section pour initier les variables des usagers pour tests
@@ -38,7 +41,9 @@ public class Terminal {
 	 */
 	public Terminal(Observer observateur) {
 		
-		chaineResto = new ChaineRestaurants(observateur);
+		chaineResto = new ListeRestaurants(observateur);
+		lsUsers = new ListeUsagers(observateur);
+		
 		//chaineResto.ajouterRestaurant(unResto);
 		
 	   //	catalogue = new Menu(observateur);
@@ -61,8 +66,43 @@ public class Terminal {
 	public void retirerItem(int index) {
 		unResto.retirerItem(index);
 	}
+	
+	/**
+	 * Cette méthode sert à ajouter une String dans le catalogue.
+	 * @param string
+	 */
+	public void ajouterUsager(Double par1, String par2) {
+		ItemMenu item = new ItemMenu(par1,par2);
+		unResto.ajouterItem(item);
+	}
+	
+	/**
+	 * Cette méthode sert à retirer une String dans le catalogue.
+	 * @param index
+	 */
+	public void retirerUsager(int index) {
+		unResto.retirerItem(index);
+	}
 
 
+	/**
+	 * Cette méthode sert à ajouter une String dans le catalogue.
+	 * @param string
+	 */
+	public void ajouterRestaurant(Double par1, String par2) {
+		ItemMenu item = new ItemMenu(par1,par2);
+		unResto.ajouterItem(item);
+	}
+	
+	/**
+	 * Cette méthode sert à retirer une String dans le catalogue.
+	 * @param index
+	 */
+	public void retirerRestaurant(int index) {
+		unResto.retirerItem(index);
+	}
+	
+	
 	public void authentifier() {
 		int sizeTab = 3;
 		boolean connected=false;
