@@ -39,7 +39,7 @@ public class ControleurMenuVue implements ActionListener, DocumentListener, List
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
 	 */
-	private Terminal terminal;
+	private Terminal instance;
 	
 	//usager qui utilise le systeme
 	Usager unUsager;
@@ -54,9 +54,10 @@ public class ControleurMenuVue implements ActionListener, DocumentListener, List
 	 * @param observateur
 	 */
 	public ControleurMenuVue(Observer observateur) {
-		terminal = new Terminal(observateur);
-		texte = "";
-		elementSelectionne = -1;
+		instance=Terminal.getInstance();
+		
+		instance.addUsagerObserver(observateur);
+	
 		
 	}
 
@@ -73,14 +74,14 @@ public class ControleurMenuVue implements ActionListener, DocumentListener, List
 		if(action.equalsIgnoreCase("CONNEXION")) {
 		
 			
-			terminal.authentifier();
+			instance.authentifier();
 		
 			
 			
 		}
 		
 		else if(action.equalsIgnoreCase("DECONNEXION")) {
-			terminal.deconnexion();
+			instance.deconnexion();
 			
 		}
 		

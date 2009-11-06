@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class Terminal {
 
+	//Creation de linstance
+	private static Terminal instance = new Terminal();
+	
 	/**
 	 * Le catalogue est la classe intéressante de l'exemple. La vue veut
 	 * observer ce qui se passe avec le catalogue.
@@ -23,6 +26,9 @@ public class Terminal {
 	
 	private ListeRestaurants chaineResto;
 	private ListeUsagers lsUsers;
+	
+	
+	
 	
 	//Section pour initier les variables des restaurants pour tests
 	private Restaurant unResto = new Restaurant("382 avenue des pins","(514)937-0707",1);
@@ -34,21 +40,22 @@ public class Terminal {
 	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest};
 	private Usager lUsager;
 	
-	/**
-	 * Constructeur avec paramètre.
-	 * Lors de l'instanciation du Terminal, le Terminal instancie un Catalogue.
-	 * @param observateur
-	 */
-	public Terminal(Observer observateur) {
-		
-		chaineResto = new ListeRestaurants(observateur);
-		lsUsers = new ListeUsagers(observateur);
-		
-		//chaineResto.ajouterRestaurant(unResto);
+	//Consctructeur et ce qui attrait a la gestion des obersvateurs
+	private Terminal() {
+			//chaineResto.ajouterRestaurant(unResto);
 		
 	   //	catalogue = new Menu(observateur);
 	}
 	
+	public void addRestoObserver(Observer observateur){
+		chaineResto = new ListeRestaurants(observateur);
+	}
+	
+	public void addUsagerObserver(Observer observateur){
+		lsUsers = new ListeUsagers(observateur);
+	}
+
+
 	
 	/**
 	 * Cette méthode sert à ajouter une String dans le catalogue.
@@ -152,7 +159,9 @@ public class Terminal {
 		
 	}
 
-
+	public static Terminal getInstance(){
+		return instance;
+	}
 
 
 	

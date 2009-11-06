@@ -39,8 +39,8 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
 	 */
-	private Terminal terminal;
-	
+	private Terminal instance;
+		
 	//usager qui utilise le systeme
 	Usager unUsager;
 	
@@ -54,11 +54,15 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 	 * @param observateur
 	 */
 	public ControleurVue(Observer observateur) {
-		terminal = new Terminal(observateur);
+		
+		instance=Terminal.getInstance();
+		instance.addRestoObserver(observateur);
 		texte = "";
 		elementSelectionne = -1;
-		
+	     	
 	}
+	
+	
 
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -73,12 +77,12 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 			if(!texte.equals("")) {
 				String tempo[] = texte.split(":");
 				
-				terminal.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
+				instance.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
 			}
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
-				terminal.retirerItem(elementSelectionne);
+				instance.retirerItem(elementSelectionne);
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
