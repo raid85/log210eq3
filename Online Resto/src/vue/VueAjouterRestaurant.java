@@ -56,7 +56,7 @@ public class VueAjouterRestaurant extends JFrame {
 			 * panneau Pour regrouper le titre, les labels et leurs zones de texte 
 			 */
 			JPanel pane5 = new JPanel(new GridLayout(3,1));						
-			this.setBackground(Color.pink);
+			this.setBackground(Color.white);
 			
 			/**
 			 * 
