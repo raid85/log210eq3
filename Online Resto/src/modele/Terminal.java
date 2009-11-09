@@ -1,7 +1,7 @@
 package modele;
 
 /**
- * Cette classe est utilisée lors de l'instanciation du Terminal. Elle ne sert
+ *  dJ3gc6vA8de7Cette classe est utilisée lors de l'instanciation du Terminal. Elle ne sert
  * plus par la suite.
  */
 import java.util.Observer;
