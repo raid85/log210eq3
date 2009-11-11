@@ -183,7 +183,7 @@ public class Fenetre extends JFrame implements Observer {
 	public static void main(String args[]) {
 	
 		
-			//new Vue();
+			new Fenetre();
 		
 
 		
