@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.text.Document;
+import javax.swing.*;
 
 import controleur.ControleurVue;
 
@@ -42,7 +43,7 @@ import controleur.ControleurVue;
  * @author François Caron
  *
  */
-public class Vue extends JFrame implements Observer {
+public class Fenetre extends JFrame implements Observer {
 
 	/**
 	 * Ce numéro est généré par Eclipse, car la classe Vue hérite de JFrame
@@ -62,14 +63,14 @@ public class Vue extends JFrame implements Observer {
 	private JButton boutonRetirer;
 	private JList liste;
 	private JTextField boiteTexte;
-	private MenuVue barreMenu;
+	private BarreMenu barreMenu;
     private boolean answer = false;
 	private JPanel panneauCentral;
     
 	/**
 	 * Constructeur sans paramètre
 	 */
-	public Vue() {
+	public Fenetre() {
 		/*
 		 * Définit le titre de la fenêtre.
 		 * La méthode "setTitle(...)" sert également à définir le titre de la fenêtre.
@@ -105,11 +106,11 @@ public class Vue extends JFrame implements Observer {
 		contraintes.gridwidth = 2;
 				
 		 //Création de la barre de menu
-        barreMenu = new MenuVue();
+        barreMenu = new BarreMenu();
 
    		getContentPane().add(barreMenu, contraintes);
 		
-   		panneauCentral;
+   		//panneauCentral;
    		
    		
 		
@@ -182,7 +183,7 @@ public class Vue extends JFrame implements Observer {
 	public static void main(String args[]) {
 	
 		
-			new Vue();
+			//new Vue();
 		
 
 		
