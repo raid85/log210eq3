@@ -58,6 +58,9 @@ public class Terminal {
 	public void addUsagerObserver(Observer observateur){
 		lsUsers = new ListeUsagers(observateur);
 	}
+	public void addMenuObserver(Observer observateur){
+		chaineResto = new ListeRestaurants(observateur);
+	}
 
 
 	
@@ -83,8 +86,8 @@ public class Terminal {
 	 * @param string
 	 */
 	public void ajouterUsager(Double par1, String par2) {
-		ItemMenu item = new ItemMenu(par1,par2);
-		unResto.ajouterItem(item);
+		Usager unUser = new Usager(par1,par2);
+		lsUsers.ajouterUsager(unUser);
 	}
 	
 	/**
@@ -101,8 +104,8 @@ public class Terminal {
 	 * @param string
 	 */
 	public void ajouterRestaurant(Double par1, String par2) {
-		ItemMenu item = new ItemMenu(par1,par2);
-		unResto.ajouterItem(item);
+		Restaurant unResto = new Restaurant(par1,par2);
+		lsRe.ajouterItem(item);
 	}
 	
 	/**
