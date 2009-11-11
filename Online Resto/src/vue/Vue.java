@@ -64,7 +64,7 @@ public class Vue extends JFrame implements Observer {
 	private JTextField boiteTexte;
 	private MenuVue barreMenu;
     private boolean answer = false;
-	
+	private JPanel panneauCentral;
     
 	/**
 	 * Constructeur sans paramètre
@@ -109,19 +109,26 @@ public class Vue extends JFrame implements Observer {
 
    		getContentPane().add(barreMenu, contraintes);
 		
-		
+   		panneauCentral;
+   		
+   		
 		
 		/*
 		 * La liste doit être le premier élément de la fenêtre et elle doit occuper toute la largeur.
 		 */
-		contraintes.fill = GridBagConstraints.HORIZONTAL;
+		/*
+   		contraintes.fill = GridBagConstraints.HORIZONTAL;
 		contraintes.gridx = 0;
 		contraintes.gridy = 1;
 		contraintes.gridwidth = 2;
-		
+		*/
 		
 		//La liste etait inserer ici on va la changer pour un Panel
 		
+   		
+   		panneauCentral = new VueRestaurant();
+   		getContentPane().add(panneauCentral);
+   		
 		/*
 		 * La zone de texte est le second élément de la fenêtre.
 		 */
