@@ -4,6 +4,7 @@ package modele;
  *  dJ3gc6vA8de7Cette classe est utilisée lors de l'instanciation du Terminal. Elle ne sert
  * plus par la suite.
  */
+import java.util.ArrayList;
 import java.util.Observer;
 
 import javax.swing.JOptionPane;
@@ -24,8 +25,8 @@ public class Terminal {
 	 * observer ce qui se passe avec le catalogue.
 	 */
 	
-	private ListeRestaurants chaineResto;
-	private ListeUsagers lsUsers;
+	private ListeRestaurants lsRestos;
+	private ListeClients lsClients;
 	
 	
 	
@@ -43,23 +44,21 @@ public class Terminal {
 	
 	//Consctructeur et ce qui attrait a la gestion des obersvateurs
 	private Terminal() {
-		lsUsers.ajouterUsager(livreurTest);
-		lsUsers.ajouterUsager(gerantTest);
-		lsUsers.ajouterUsager(adminTest);
+		
 			//chaineResto.ajouterRestaurant(unResto);
 		
 	   //	catalogue = new Menu(observateur);
 	}
 	
 	public void addRestoObserver(Observer observateur){
-		chaineResto = new ListeRestaurants(observateur);
+		lsRestos = new ListeRestaurants(observateur);
 	}
 	
 	public void addUsagerObserver(Observer observateur){
-		lsUsers = new ListeUsagers(observateur);
+		//lsUsers = new ListeUsagers(observateur);
 	}
 	public void addMenuObserver(Observer observateur){
-		chaineResto = new ListeRestaurants(observateur);
+		lsRestos = new ListeRestaurants(observateur);
 	}
 
 
@@ -81,38 +80,43 @@ public class Terminal {
 		unResto.retirerItem(index);
 	}
 	
+	
 	/**
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterUsager(Double par1, String par2) {
-		Usager unUser = new Usager(par1,par2);
-		lsUsers.ajouterUsager(unUser);
+	public void ajouterRestaurant(String adresse, String numeroTel, int numRestaurant) {
+		Restaurant unResto = new Restaurant(adresse,numeroTel,numRestaurant);
+		lsRestos.ajouterRestaurant(unResto);
 	}
 	
-	/**
-	 * Cette méthode sert à retirer une String dans le catalogue.
-	 * @param index
-	 */
-	public void retirerUsager(int index) {
-		unResto.retirerItem(index);
-	}
-
-
 	/**
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterRestaurant(Double par1, String par2) {
-		Restaurant unResto = new Restaurant(par1,par2);
-		lsRe.ajouterItem(item);
+	public void ajouterRestaurant(String adresse, String numeroTel, int numRestaurant, ArrayList<ItemMenu> m) {
+		Restaurant restoTempo = new Restaurant(adresse,numeroTel,numRestaurant,m);
+		lsRestos.ajouterRestaurant(unResto);
 	}
 	
 	/**
-	 * Cette méthode sert à retirer une String dans le catalogue.
+	 * Cette méthode sert à retirer un restaurant dans le catalogue.
 	 * @param index
 	 */
 	public void retirerRestaurant(int index) {
+		unResto.retirerItem(index);
+	}
+	
+	public void ajouterClient(String loginName, String password, String infoDuDude) {
+		Client clientTempo = new Client(loginName,password,infoDuDude);
+		lsClients.ajouterClient(clientTempo);
+	}
+	
+	/**
+	 * Cette méthode sert à retirer un Client dans le catalogue.
+	 * @param index
+	 */
+	public void retirerClient(int index) {
 		unResto.retirerItem(index);
 	}
 	
@@ -133,7 +137,7 @@ public class Terminal {
 		while(!connected && !mauvaisPW && compteur != (listeUsager.length)){
 				
 						
-			if(lsUsers[compteur].getLoginName().equals(tempo[0]) ){
+			if(listeUsager[compteur].getLoginName().equals(tempo[0]) ){
 				
 				
 				

@@ -17,12 +17,12 @@ import java.util.Observer;
  * @author François Caron
  *
  */
-public class ListeUsagers extends Observable {
+public class ListeClients extends Observable {
 
 	/**
 	 * La collection qui permet de stocker les strings.
 	 */
-	private List<Usager> m;
+	private List<Client> m;
 	
 	/**
 	 * Constructeur avec paramètre.
@@ -30,13 +30,13 @@ public class ListeUsagers extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeUsagers(Observer observateur) {
+	public ListeClients(Observer observateur) {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
 		 * List aurait fait l'affaire.
 		 */
-		m = new ArrayList<Usager>();
+		m = new ArrayList<Client>();
 		
 		/*
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
@@ -51,7 +51,7 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param string
 	 */
-	public void ajouterUsager(Usager unUser) {
+	public void ajouterClient(Client unUser) {
 		m.add(unUser);
 		
 		/*
@@ -68,7 +68,7 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param index
 	 */
-	public void retirerUsager(int index) {
+	public void retirerClient(int index) {
 		m.remove(index);
 		
 		/*
@@ -78,8 +78,8 @@ public class ListeUsagers extends Observable {
 		setChanged();
 		notifyObservers(m.toArray());
 	}
-	public Usager getUsager(int index){
-		Usager tempo;
+	public Client getClient(int index){
+		Client tempo;
 		tempo = m.get(index);
 		return tempo;
 		

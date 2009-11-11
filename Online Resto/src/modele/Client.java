@@ -1,16 +1,15 @@
 package modele;
 
-public class Usager  {
+public class Client  {
 
 	String loginName, password, infoDuDude;
-	Role droits;
+	
 
-	public Usager(String loginName, String password, String infoDuDude, Role droits) {
+	public Client(String loginName, String password, String infoDuDude) {
 		
 		this.loginName = loginName;
 		this.password = password;
 		this.infoDuDude = infoDuDude;
-		this.droits=droits;
 	}
 
 	public String getLoginName() {
@@ -25,14 +24,6 @@ public class Usager  {
 		return password;
 	}
 
-	public Role getDroits() {
-		return droits;
-	}
-
-	public void setDroits(Role droits) {
-		this.droits = droits;
-	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -45,7 +36,7 @@ public class Usager  {
 		this.infoDuDude = infoDuDude;
 	}
 
-	public boolean compareTo(Usager autreUsager){
+	public boolean compareTo(Client autreUsager){
 		if(loginName.equals(autreUsager.getLoginName()) && password.equals(autreUsager.getPassword())){
 			return true;
 		}
