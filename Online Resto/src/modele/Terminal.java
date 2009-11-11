@@ -119,17 +119,18 @@ public class Terminal {
 		boolean connected=false;
 		boolean mauvaisPW=false;
 		String ligneEntrer,verif1="master",verif2="chix",tempo[];
-		
+		Usager loginUser;
 		while(!connected){
 			ligneEntrer = JOptionPane.showInputDialog("Entrez Votre nom d'utilisateur suivi du mot de passe\nNomUsager:MotDePasse  ");
 			tempo = ligneEntrer.split(":");
+			
 			
 		int compteur = 0;
 		
 		while(!connected && !mauvaisPW && compteur != (listeUsager.length)){
 				
 						
-			if(listeUsager[compteur].getLoginName().equals(tempo[0]) ){
+			if(lsUsers[compteur].getLoginName().equals(tempo[0]) ){
 				
 				
 				
