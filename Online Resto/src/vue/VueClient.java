@@ -5,7 +5,7 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-public class VueMenu extends JPanel implements Observer{
+public class VueClient extends JPanel implements Observer {
 
 	
 	
@@ -14,4 +14,6 @@ public class VueMenu extends JPanel implements Observer{
 	public void update(Observable arg0, Object arg1) {
 
 	}
+	
+	
 }
