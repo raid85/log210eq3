@@ -4,7 +4,7 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-import controleur.ControleurMenuVue;
+import controleur.ControleurBarreMenu;
 import controleur.ControleurVue;
 
 public class BarreMenu extends JMenuBar implements Observer{
@@ -16,7 +16,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 	 * Le contrôleur de la vue.
 	 * Il écoute pour les actions telles que peser sur un bouton et modifier le texte dans une zone.
 	 */
-	private ControleurMenuVue controleur;
+	private ControleurBarreMenu controleur;
     
 	public BarreMenu(){
 		
@@ -24,7 +24,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 		 * Instanciation du contrôleur.
 		 * On passe la classe en tant qu'observateur.
 		 */
-		controleur = new ControleurMenuVue((Observer)this);
+		controleur = new ControleurBarreMenu((Observer)this);
 		
 		//Construire le menu Fichier
         menuF = new JMenu("Fichier");
