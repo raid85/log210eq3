@@ -5,6 +5,7 @@ import java.util.Observer;
 
 import javax.swing.*;
 
+//CEST NORMAL QUE CA MARCHE PAS STE MARDE LA 
 
 public class JListVue  {
 

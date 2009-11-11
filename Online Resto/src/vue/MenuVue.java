@@ -99,7 +99,7 @@ public class MenuVue extends JMenuBar implements Observer{
 */
 	}
     
-    //@Override
+    @Override
 	public void update(Observable arg0, Object arg1) {
 
 	}

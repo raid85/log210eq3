@@ -40,8 +40,12 @@ public class Terminal {
 	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest};
 	private Usager lUsager;
 	
+	
 	//Consctructeur et ce qui attrait a la gestion des obersvateurs
 	private Terminal() {
+		lsUsers.ajouterUsager(livreurTest);
+		lsUsers.ajouterUsager(gerantTest);
+		lsUsers.ajouterUsager(adminTest);
 			//chaineResto.ajouterRestaurant(unResto);
 		
 	   //	catalogue = new Menu(observateur);

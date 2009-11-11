@@ -51,7 +51,7 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param string
 	 */
-	public void ajouterRestaurant(Usager unUser) {
+	public void ajouterUsager(Usager unUser) {
 		m.add(unUser);
 		
 		/*
@@ -68,7 +68,7 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param index
 	 */
-	public void retirerRestaurant(int index) {
+	public void retirerUsager(int index) {
 		m.remove(index);
 		
 		/*
@@ -77,6 +77,12 @@ public class ListeUsagers extends Observable {
 		 */
 		setChanged();
 		notifyObservers(m.toArray());
+	}
+	public Usager getUsager(int index){
+		Usager tempo;
+		tempo = m.get(index);
+		return tempo;
+		
 	}
 	
 }
