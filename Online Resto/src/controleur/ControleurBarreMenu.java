@@ -22,7 +22,7 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurMenuVue implements ActionListener, DocumentListener, ListSelectionListener {
+public class ControleurBarreMenu implements ActionListener, DocumentListener, ListSelectionListener {
 	
 	/**
 	 * Cet attribut sert à stocker le texte.
@@ -53,7 +53,7 @@ public class ControleurMenuVue implements ActionListener, DocumentListener, List
 	 * 
 	 * @param observateur
 	 */
-	public ControleurMenuVue(Observer observateur) {
+	public ControleurBarreMenu(Observer observateur) {
 		instance=Terminal.getInstance();
 		
 		instance.addUsagerObserver(observateur);
