@@ -7,7 +7,7 @@ import javax.swing.*;
 import controleur.ControleurMenuVue;
 import controleur.ControleurVue;
 
-public class MenuVue extends JMenuBar implements Observer{
+public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, resto, menus, submenu;
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
@@ -18,7 +18,7 @@ public class MenuVue extends JMenuBar implements Observer{
 	 */
 	private ControleurMenuVue controleur;
     
-	public MenuVue(){
+	public BarreMenu(){
 		
 		/*
 		 * Instanciation du contrôleur.

@@ -7,7 +7,7 @@ public class Restaurant {
 	private String adresse;
 	private String numeroTel;
 	private int numRestaurant;
-	private List<ItemMenu> m;
+	private List<ItemMenu> menu;
 	//Constructeur
 	
 	public Restaurant(String adresse, String numeroTel, int numRestaurant) {
@@ -15,7 +15,7 @@ public class Restaurant {
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
 		this.numRestaurant = numRestaurant;
-		this.m = new ArrayList<ItemMenu>();
+		this.menu = new ArrayList<ItemMenu>();
 	}
 
 	
@@ -24,7 +24,7 @@ public class Restaurant {
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
 		this.numRestaurant = numRestaurant;
-		this.m=m;
+		this.menu=m;
 	}
 
 
@@ -55,7 +55,7 @@ public class Restaurant {
 	 * @param string
 	 */
 	public void ajouterItem(ItemMenu item) {
-		m.add(item);
+		menu.add(item);
 		
 		/*
 		 * Il est important d'indiquer que la classe observée a changé AVANT
@@ -71,7 +71,7 @@ public class Restaurant {
 	 * @param index
 	 */
 	public void retirerItem(int index) {
-		m.remove(index);
+		menu.remove(index);
 		
 		/*
 		 * Il est important d'indiquer que la classe observée a changé AVANT

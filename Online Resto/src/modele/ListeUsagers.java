@@ -84,8 +84,8 @@ public class ListeUsagers extends Observable {
 		return tempo;
 		
 	}
-	public int getHauteur()
+	public int getHauteur();
 	int tempo;
 	tempo=1;
-	return tempo
+	return tempo;
 }
