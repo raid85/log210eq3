@@ -1,137 +1,120 @@
 package vue;
 
-import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Label;
+import java.awt.TextArea;
+import java.awt.TextField;
 
-import javax.swing.*;
+class VueRestaurant extends Frame
+{  
+	VueRestaurant()
+  {
+	  this.setTitle("FENÊTRE RESTAURANT");
+	  
+	  GridBagLayout repartiteur=new GridBagLayout();
+	  
+	  Button ajouter=new Button("Ajouter");
+	  Button modifier=new Button("modifier");
+	  Button annuler=new Button("annuler"); 
 
-public class VueRestaurant extends JPanel implements Observer {	
-	public VueRestaurant() {
-		/**
-		 * panneau Pour le titre de la fenetre.
-		 */
-		JPanel pane1 = new JPanel(new BorderLayout());
-		pane1.setPreferredSize(new Dimension(300,20));
-		pane1.setBackground(Color.gray);
-					
-		/**
-		 * panneau Pour regrouper les labels des zones de texte.
-		 */
-		JPanel pane2 = new JPanel(new GridLayout(4,1,5,10));	
-		pane2.setPreferredSize(new Dimension(150,50));
-		pane2.setBackground(Color.yellow);
-		
-		/**
-		 * panneau Pour regrouper les zones de textes.
-		 */
-		JPanel pane3 = new JPanel(new GridLayout(4,1,5,10));
-		pane3.setPreferredSize(new Dimension(150,100));
-		
-		/**
-		 * panneau Pour regrouper les labels et leurs zones de texte.
-		 */
-		JPanel pane4 = new JPanel(new GridLayout(1,2));		
-		
-		/**
-		 * panneau Pour regrouper le titre, les labels et leurs zones de texte 
-		 */
-		JPanel pane5 = new JPanel(new GridLayout(3,1));						
-		this.setBackground(Color.white);
-		
-		/**
-		 * 
-		 */
-		JPanel pane6 = new JPanel(new GridLayout(3,1));	
-		
-		/**
-		 * Le bouton "Ajouter"
-		 */
-		JButton boutonAjouter = new JButton("Ajouter");			
-		boutonAjouter.setBackground(Color.GREEN);
-		
-		/**
-		 * Les zones de texte
-		 */
-		JTextField  textNom = new JTextField(),
-				   textAdresse = new JTextField(),
-				   textTelephone = new JTextField(),
-				   textZoneLivraison = new JTextField();
-		
-		/**
-		 * le titre.
-		 */
-		JLabel labelTitre = new JLabel();			
-		
-		/**
-		 * les labels des zones de texte
-		 */
-		JLabel  labelNom = new JLabel(), 
-			   labelAdresse = new JLabel(),
-			   labelTelephone = new JLabel(),
-			   labelZoneLivraison = new JLabel(); 
-		 
-		/**
-		 * On definit le titre.
-		 */
-		labelTitre.setText("             AJOUTER UN NOUVEAU RESTAURANT");
-		
-		/**
-		 * On definit les labels.
-		 */
-		labelNom.setText("Nom");		
-		labelAdresse.setText("Adresse");		
-		labelTelephone.setText("Téléphone");		
-		labelZoneLivraison.setText("Zône de livraison");		
-		
-		/**
-		 * ON ajoute le titre à son panneau.
-		 */
-		pane1.add(labelTitre, BorderLayout.CENTER);	
-		
-		/**
-		 * ON ajoute les labels à leur panneau.
-		 */
-		pane2.add(labelNom);					
-		pane2.add(labelAdresse);					
-		pane2.add(labelTelephone);					
-		pane2.add(labelZoneLivraison);	
-		
-		/**
-		 * ON ajoute les zones de texte à leur panneau.
-		 */
-		pane3.add(textNom);		
-		pane3.add(textAdresse);					
-		pane3.add(textTelephone);		
-		pane3.add(textZoneLivraison);
-							
-		/**
-		 * On met met ensemble les panneaux des labels et des zones de texte.
-		 */
-		pane4.add(pane2);
-		pane4.add(pane3);
-		
-		/**
-		 * 
-		 */			
-		pane6.add(new JPanel());
-		pane6.add(boutonAjouter);
-		
-		/**
-		 * On met ajoute le panneau du titre au panneau des labels et zones de texte.
-		 */
-		pane5.add(pane1);
-		pane5.add(pane4);
-		pane5.add(pane6);
-		
-		this.add(pane5);
-	}
+	  TextArea texte=new TextArea();
+	  
+	  Label labelNom = new Label("Nom"), 
+	  		 labelAdresse = new Label("Adresse"),
+	  		 labelTelephone = new Label("Téléphone"),
+	  		 labelZoneLivraison = new Label("Zones de livraison"),
+	  		 labelHeureOuverture = new Label("Heure d'ouverture"),
+	  		 labelHeureFermeture = new Label("Heure de fermeture"),
+	  		 labelRien = new Label("");
+	  
+	  TextField textNom = new TextField(),
+	  			textAdresse = new TextField(),
+	  			textTelephone = new TextField(),
+	  			textZoneLivraison = new TextField(),
+	  			textHeureOuverture = new TextField(),
+	  			textHeureFermeture = new TextField();
+	  
+	  TextField text=new TextField(); 
+	  
+	  this.addWindowListener(new java.awt.event.WindowAdapter() {
+	        public void windowClosing(java.awt.event.WindowEvent evt) {
+	               hide();
+	        } 
+	} );
+
+	setLayout(repartiteur); 
+	this.setBackground(Color.LIGHT_GRAY);
 	
-    @Override
-	public void update(Observable arg0, Object arg1) {
+	
+	UtilitaireRepartition.ajouter(this,labelNom,0,1,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelAdresse,0,2,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelTelephone,0,3,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelZoneLivraison,0,4,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelHeureOuverture,0,5,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelHeureFermeture,0,6,2,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelRien,0,7,2,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    
+ 
+    UtilitaireRepartition.ajouter(this,textNom,2,1,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.NORTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textAdresse,2,2,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textTelephone,2,3,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textZoneLivraison,2,4,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textHeureOuverture,2,5,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textHeureFermeture,2,6,3,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+    
+    UtilitaireRepartition.ajouter(this,ajouter,5,1,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,2,10,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,modifier,5,3,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,2,10,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,annuler,5,5,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,2,10,2,2,0,0);    
+  
+    UtilitaireRepartition.ajouter(this,texte,0,8,5,2,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,1,1,1,1,0,0);
+  }  
+ 
 
-	}
-}	
+  public static void main(String[] argv)
+  {
+    VueRestaurant fenetre = new VueRestaurant();
+
+    fenetre.setSize(600, 500);
+    fenetre.setVisible(true);
+  }
+}
+
+
