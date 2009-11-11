@@ -1,4 +1,4 @@
-package vue;
+package zbackup;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+//AH DELETER OU A TRANSFERER LES DERNIERE AFFAIRE TU VEUT CHECKER!!!
 
 public class VueAjouterRestaurant extends JFrame {
 		
