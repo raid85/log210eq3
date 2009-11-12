@@ -106,22 +106,22 @@ public class BarreMenu extends JMenuBar implements Observer{
        	
         
  
-/*        
-        menuItem = new JMenuItem("Ajouter un restaurant");        
-        menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("ADDRESTO");
-        resto.add(menuItem);
         
-        menuItem = new JMenuItem("Modifier un restaurant");        
-		menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("MODRESTO");
-        resto.add(menuItem);
+        itemAM = new JMenuItem("Ajouter un restaurant");        
+        itemAM.addActionListener(controleur);
+		itemAM.setActionCommand("ADDRESTO");
+        resto.add(itemAM);
         
-        menuItem = new JMenuItem("Supprimer un restaurant");        
-		menuItem.addActionListener(controleur);
-		menuItem.setActionCommand("SUPRESTO");
-        resto.add(menuItem);		
-*/
+        itemMM = new JMenuItem("Modifier un restaurant");        
+        itemMM.addActionListener(controleur);
+        itemMM.setActionCommand("MODRESTO");
+        resto.add(itemMM);
+        
+        itemSM = new JMenuItem("Supprimer un restaurant");        
+        itemSM.addActionListener(controleur);
+        itemSM.setActionCommand("SUPRESTO");
+        resto.add(itemSM);		
+
 	}
     
 	@Override
