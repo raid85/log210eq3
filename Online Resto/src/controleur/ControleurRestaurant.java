@@ -7,6 +7,8 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observer;
+import java.util.StringTokenizer;
+
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -22,7 +24,7 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurRestaurant implements ActionListener {
+public class ControleurRestaurant implements ActionListener, DocumentListener, ListSelectionListener {
 	
 	/**
 	 * Cet attribut sert à stocker le texte.
@@ -42,7 +44,8 @@ public class ControleurRestaurant implements ActionListener {
 	private Terminal instance;
 		
 	//usager qui utilise le systeme
-	Usager unUsager;	
+	Usager unUsager;
+	
 	
 	/**
 	 * Constructeur avec paramètre.
@@ -65,6 +68,7 @@ public class ControleurRestaurant implements ActionListener {
 
 
 	public void actionPerformed(ActionEvent arg0) {
+		
 		/*
 		 * Lorsque le bouton de la vue est appuyé, cette méthode est invoquée.
 		 * Pour s'assurer que la méthode traite la bonne action, il faut
@@ -72,15 +76,18 @@ public class ControleurRestaurant implements ActionListener {
 		 * au préalable).
 		 */
 		String action = arg0.getActionCommand();
-		
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			instance.ajouterRestaurant(adresse, numeroTel, numRestaurant);
+			//instance.ajouterRestaurant(texte[0], texte[1], texte[2],texte[3],texte[4])
+			//texte;
+			String tableauInfos[] = texte.split(";");
+		 JOptionPane.showMessageDialog(null,tableauInfos[0] + tableauInfos[1] + tableauInfos[2] + tableauInfos[3]);
+			
+			
 			
 		} 
-		
-		else if(action.equalsIgnoreCase("ENLEVER")) {
+		else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
-				instance.retirerRestaurant(elementSelectionne);
+				instance.retirerItem(elementSelectionne);
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
@@ -89,6 +96,44 @@ public class ControleurRestaurant implements ActionListener {
 			}
 		}
 		
-	}	
+	}
+
 	
+	public void changedUpdate(DocumentEvent arg0) {
+		/*
+		 * Cette méthode sert à copier le texte dans la boîte de texte de la vue.
+		 * 
+		 * La méthode "changedUpdate" n'est pas appelée directement lorsqu'un
+		 * caractère est ajouté ou retiré de la boîte de texte. Ce sont plutôt
+		 * les méthodes insertUpdate et removeUpdate qui sont invoquées.
+		 * Cependant, les deux méthodes appellent la méthode changedUpdate, car
+		 * le même traitement est effectué dans les deux cas.
+		 */
+		Document document = arg0.getDocument();
+		try {
+			texte = document.getText(0, document.getLength());
+		} catch (BadLocationException e) {
+			texte = "";
+		}
+	}
+
+	
+	public void insertUpdate(DocumentEvent arg0) {
+		changedUpdate(arg0);
+	}
+
+	
+	public void removeUpdate(DocumentEvent arg0) {
+		changedUpdate(arg0);
+	}
+
+	
+	public void valueChanged(ListSelectionEvent arg0) {
+		/*
+		 * Lorsque l'utilisateur sélectionne un élément dans la liste, le
+		 * contrôleur note l'index de l'item sélectionné.
+		 */
+		elementSelectionne = arg0.getFirstIndex();
+	}
+
 }
