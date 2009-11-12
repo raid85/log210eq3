@@ -11,14 +11,10 @@ import java.awt.TextField;
 
 class VueRestaurant extends Panel
 {  
-  VueRestaurant()
-  {
-	 // this.setTitle("FENÊTRE RESTAURANT");
-	  GridBagLayout repartiteur=new GridBagLayout();
-	  
 	  Button ajouter=new Button("Ajouter");
 	  Button modifier=new Button("modifier");
 	  Button annuler=new Button("annuler"); 
+	  
 	  TextArea texte=new TextArea();
 	  
 	  Label labelNom = new Label("Nom"), 
@@ -34,7 +30,65 @@ class VueRestaurant extends Panel
 	  			textTelephone = new TextField(),
 	  			textZoneLivraison = new TextField(),
 	  			textHeureOuverture = new TextField(),
-	  			textHeureFermeture = new TextField();	 
+	  			textHeureFermeture = new TextField();	
+	
+	
+	public Button getAjouter() {
+		return ajouter;
+	}
+
+	public Button getModifier() {
+		return modifier;
+	}
+
+
+	public Button getAnnuler() {
+		return annuler;
+	}
+
+
+	public TextArea getTexte() {
+		return texte;
+	}
+
+
+	public TextField getTextNom() {
+		return textNom;
+	}
+
+
+	public TextField getTextAdresse() {
+		return textAdresse;
+	}
+
+
+	public TextField getTextTelephone() {
+		return textTelephone;
+	}
+
+
+	public TextField getTextZoneLivraison() {
+		return textZoneLivraison;
+	}
+
+
+	public TextField getTextHeureOuverture() {
+		return textHeureOuverture;
+	}
+
+
+	public TextField getTextHeureFermeture() {
+		return textHeureFermeture;
+	}
+
+
+	
+	
+	VueRestaurant()
+  {
+	 // this.setTitle("FENÊTRE RESTAURANT");
+	  GridBagLayout repartiteur=new GridBagLayout(); 
+	  
 
 	setLayout(repartiteur); 
 	this.setBackground(Color.LIGHT_GRAY);
