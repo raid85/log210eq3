@@ -16,7 +16,7 @@ import  java.awt.event.*;
 
 import controleur.* ;
 
-class VueRestaurant extends JPanel implements Observer,ActionListener
+class VueRestaurant extends JPanel implements Observer
 {  
 	ControleurVue controleur;
 
