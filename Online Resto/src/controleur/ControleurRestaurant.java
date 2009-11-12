@@ -74,11 +74,7 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			if(!texte.equals("")) {
-				String tempo[] = texte.split(":");
-				
-				instance.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
-			}
+			instance.ajouterRestaurant(adresse, numeroTel, numRestaurant)
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
