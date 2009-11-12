@@ -18,17 +18,21 @@ import  java.awt.event.*;
 
 import controleur.* ;
 
-class VueRestaurant extends JPanel implements Observer
+public class VueRestaurant extends JPanel implements Observer
 {  
-	ControleurVue controleur;
+	private ControleurRestaurant controleur;
+	private String nom ;
+	private String adresse ;
+	private String telephone ;
+	private String zoneLivraison ;
+	private String heureOuverture;
+	private String heureFermeture ;
 
 	JButton ajouter=new JButton("AJOUTER");	
 	JButton enlever=new JButton("ENLEVER");	
 	JButton annuler=new JButton("ANNULER"); 
 
-
 	TextArea texte=new TextArea();
-
 	JLabel labelNom = new JLabel("Nom"), 
 	labelAdresse = new JLabel("Adresse"),
 	labelTelephone = new JLabel("Téléphone"),
@@ -44,21 +48,15 @@ class VueRestaurant extends JPanel implements Observer
 	textHeureOuverture = new JTextField(),
 	textHeureFermeture = new JTextField();	
 
-     JTextField info;
-	
-
 	VueRestaurant()
 	{
-		controleur = new ControleurVue((Observer)this);
-		// this.setTitle("FENÊTRE RESTAURANT");
+		controleur = new ControleurRestaurant((Observer)this);	
 		GridBagLayout repartiteur=new GridBagLayout(); 
-		
+
+		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
+
 		ajouter.addActionListener(controleur);
-		enlever.addActionListener(controleur);
-		
-		
-		JList texto;
-		
+		enlever.addActionListener(controleur);		
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
@@ -116,36 +114,52 @@ class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,texte,0,8,5,2,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,1,1,1,0,0);
-		
-		info = new JTextField(textNom+";"+textAdresse
-				+";"+textTelephone+";"+textZoneLivraison+";"+
-   	 textHeureOuverture+";"+
-   	 textHeureFermeture + ";");
-	
-	
-	/*
-	 * Le contrôleur implémente l'interface DocumentListener. On utilise
-	 * cet interface pour écouter l'ajout et le retrait de caractères dans
-	 * la zone de texte.
-	 * 
-	 * Il faut donc récupérer le "Document" associé à au JTextField.
-	 */
-	Document document = info.getDocument();
-	document.addDocumentListener(controleur);
-	//getContentPane().add(boiteTexte, contraintes);
-	//a dessendre en bas
-	
+
+
 
 	} 
 	//@Override
+
+	/**Méthode qui sert a récupérer le texte sous for de string des JTextField
+	 * 
+	 */
+	public void grabText (){
+
+		this.nom = textNom.getText();
+		this.adresse=textAdresse.getText();
+		this.telephone = textTelephone.getText();
+		this.zoneLivraison=textZoneLivraison.getText();
+		this.heureOuverture=textHeureOuverture.getText();
+		this.heureFermeture=textHeureFermeture.getText();
+
+	}
+	/**Groupe d'accesseurs qui fournissent les infos saisies par la vue sous forme de String
+	 * 
+	 * @return String
+	 */
+	public String getNom (){
+		return this.nom;
+	}
+	public String getAdresse (){
+		return this.adresse ;
+	}
+	public String getTelephone (){
+		return this.telephone;
+	}
+	public String getZoneLivraison (){
+		return this.zoneLivraison;
+	}
+	public String getHeureOuverture (){
+		return this.heureOuverture;
+	}
+	public String getHeureFermeture (){
+		return this.heureFermeture;
+	}
+
 	public void update(Observable arg0, Object arg1) {
 
 	}
-	public void actionPerformed(ActionEvent e)
-	{
-		//quand on a cliqué sur le bouton ici
-		System.out.println("Ici !");
-	}
+
 }
 
 
