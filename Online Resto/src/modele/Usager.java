@@ -1,5 +1,5 @@
 package modele;
-
+import javax.swing.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -16,6 +16,9 @@ public class Usager extends Observable {
 		this.password = password;
 		this.infoDuDude = infoDuDude;
 		this.droits=droits;
+		
+		setChanged();
+		notifyObservers(droits);
 	}
 
 	public Usager(Observer observateur) {
@@ -37,11 +40,16 @@ public class Usager extends Observable {
 	}
 
 	public Role getDroits() {
+		
 		return droits;
 	}
 
 	public void setDroits(Role droits) {
 		this.droits = droits;
+		
+		setChanged();
+		notifyObservers(droits);
+		JOptionPane.showMessageDialog(null,"UPDATE");
 	}
 
 	public void setPassword(String password) {
