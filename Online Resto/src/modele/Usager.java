@@ -7,9 +7,17 @@ public class Usager extends Observable {
 
 	String loginName, password, infoDuDude;
 	Role droits;
-
-	
-	
+/*
+	public Usager(){
+		this.loginName = "";
+		this.password = "";
+		this.infoDuDude = "";
+		this.droits= new Null();
+		
+		setChanged();
+		notifyObservers(droits);
+	}
+	*/
 	public Usager(String loginName, String password, String infoDuDude, Role droits) {
 		
 		this.loginName = loginName;

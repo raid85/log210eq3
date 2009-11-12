@@ -167,9 +167,8 @@ public class Terminal {
 		
 	public void deconnexion(){
 		
-	lUsager = null;
-	
-		
+	lUsager.setDroits(new Null());
+			
 	}
 
 	public static Terminal getInstance(){

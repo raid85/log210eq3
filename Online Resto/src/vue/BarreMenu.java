@@ -4,6 +4,7 @@ import java.util.Observer;
 
 import javax.swing.*;
 
+import modele.Null;
 import modele.Role;
 
 import controleur.ControleurBarreMenu;
@@ -13,7 +14,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, resto, menus, submenu;
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR;
-    private Role droits = null;
+    private Role droits;
     
 	/**
 	 * Le contrôleur de la vue.
@@ -22,6 +23,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	private ControleurBarreMenu controleur;
     
 	public BarreMenu(){
+		
+		droits=new Null();
 		
 		/*
 		 * Instanciation du contrôleur.
@@ -93,46 +96,11 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemSM.setActionCommand("SUPRESTO");
         resto.add(itemSM);		
         
-        
        
         menuG.add(resto);
         
-  
-        
-        
-        
-        
-        
-        if (droits == null){
-        	JOptionPane.showMessageDialog(null,"null");
-        	 itemC.setEnabled(true);
-        	 itemDC.setEnabled(false); 
-        	 menuG.setEnabled(false);
-        }
-        else if (droits.isLivreur()){
-        	JOptionPane.showMessageDialog(null,"livreur");
-        	itemC.setEnabled(false);
-       	 	itemDC.setEnabled(true); 
-       	 	menuG.setEnabled(false);
-        }
-        else if (droits.isGerant()){
-        	JOptionPane.showMessageDialog(null,"Gerant");
-        	itemC.setEnabled(false);
-       	 	itemDC.setEnabled(true);
-       	 	menuG.setEnabled(true);
-        }
-        else if (droits.isAdmin()){
-        	JOptionPane.showMessageDialog(null,"Admin");
-        	itemC.setEnabled(false);
-       	 	itemDC.setEnabled(true);
-       	 	menuG.setEnabled(true);
-        }
-       	
-        
- 
-        
-
-
+        verifDroits(droits);
+   
 	}
     
 	@Override
@@ -140,8 +108,42 @@ public class BarreMenu extends JMenuBar implements Observer{
 
 		
 		droits = (Role)arg1;
+		verifDroits(droits);
 		
+		repaint(); 
 		
+	}
+	
+	public void verifDroits(Role droits){
+		
+		 if (droits.isNull()){
+	        	JOptionPane.showMessageDialog(null,"ddnull");
+	        	 itemC.setEnabled(true);
+	        	 itemDC.setEnabled(false); 
+	        	 menuG.setEnabled(false);
+	        	 
+	        }
+	        else if (droits.isLivreur()){
+	        	JOptionPane.showMessageDialog(null,"ddlivreur");
+	        	itemC.setEnabled(false);
+	       	 	itemDC.setEnabled(true); 
+	       	 	menuG.setEnabled(false);
+	       	 	
+	        }
+	        else if (droits.isGerant()){
+	        	JOptionPane.showMessageDialog(null,"ddGerant");
+	        	itemC.setEnabled(false);
+	       	 	itemDC.setEnabled(true);
+	       	 	menuG.setEnabled(true);
+	       	 	
+	        }
+	        else if (droits.isAdmin()){
+	        	JOptionPane.showMessageDialog(null,"ddAdmin");
+	        	itemC.setEnabled(false);
+	       	 	itemDC.setEnabled(true);
+	       	 	menuG.setEnabled(true);
+	       	 	
+	        }
 	}
 	
 }
