@@ -4,25 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
+	
 	private String adresse;
 	private String numeroTel;
+	private String zoneCouverture;	
+	private String heureOuverture ;
+	private String heureFermeture;
 	private int numRestaurant;
+	
+	
 	private List<ItemMenu> menu;
 	//Constructeur
 	
-	public Restaurant(String adresse, String numeroTel, int numRestaurant) {
+	public Restaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant) {
 		super();
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
+		this.zoneCouverture=zoneCouverture;
+		this.heureOuverture=heureOuverture;
+		this.heureFermeture=heureFermeture;
 		this.numRestaurant = numRestaurant;
 		this.menu = new ArrayList<ItemMenu>();
 	}
 
 	
-	public Restaurant(String adresse, String numeroTel, int numRestaurant,ArrayList<ItemMenu> m) {
+	public Restaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant,ArrayList<ItemMenu> m) {
 		super();
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
+		this.zoneCouverture=zoneCouverture;
+		this.heureOuverture=heureOuverture;
+		this.heureFermeture=heureFermeture;
 		this.numRestaurant = numRestaurant;
 		this.menu=m;
 	}
