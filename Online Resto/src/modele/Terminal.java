@@ -55,7 +55,7 @@ public class Terminal {
 	}
 	
 	public void addUsagerObserver(Observer observateur){
-		lUsager.setUsager(observateur);
+		lUsager.setObserver(observateur);
 	}
 	public void addMenuObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
@@ -142,7 +142,9 @@ public class Terminal {
 				if(listeUsager[compteur].getPassword().equals(tempo[1])){
 					connected=true;
 					JOptionPane.showMessageDialog(null,"C chill");
-					lUsager=listeUsager[compteur];
+					lUsager.setLoginName(listeUsager[compteur].getLoginName());
+					lUsager.setPassword(listeUsager[compteur].getPassword());
+					lUsager.setInfoDuDude(listeUsager[compteur].getInfoDuDude());
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
