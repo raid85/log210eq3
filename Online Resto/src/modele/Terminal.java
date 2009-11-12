@@ -32,7 +32,7 @@ public class Terminal {
 	
 	
 	//Section pour initier les variables des restaurants pour tests
-	private Restaurant unResto = new Restaurant("382 avenue des pins","(514)937-0707",1);
+	private Restaurant unResto = new Restaurant("382 avenue des pins","(514)937-0707","Laval","9h00","24h00",1);
 	
 	//Section pour initier les variables des usagers pour tests
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
@@ -85,8 +85,8 @@ public class Terminal {
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterRestaurant(String adresse, String numeroTel, int numRestaurant) {
-		Restaurant unResto = new Restaurant(adresse,numeroTel,numRestaurant);
+	public void ajouterRestaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant) {
+		Restaurant unResto = new Restaurant(adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture,numRestaurant);
 		lsRestos.ajouterRestaurant(unResto);
 	}
 	
@@ -94,8 +94,8 @@ public class Terminal {
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterRestaurant(String adresse, String numeroTel, int numRestaurant, ArrayList<ItemMenu> m) {
-		Restaurant restoTempo = new Restaurant(adresse,numeroTel,numRestaurant,m);
+	public void ajouterRestaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant, ArrayList<ItemMenu> m) {
+		Restaurant restoTempo = new Restaurant(adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture,numRestaurant,m);
 		lsRestos.ajouterRestaurant(unResto);
 	}
 	
