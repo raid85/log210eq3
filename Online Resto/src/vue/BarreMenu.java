@@ -12,8 +12,8 @@ import controleur.ControleurVue;
 public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, resto, menus, submenu;
-    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
-    private Role droits;
+    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR;
+    private Role droits = null;
     
 	/**
 	 * Le contrôleur de la vue.
@@ -40,13 +40,13 @@ public class BarreMenu extends JMenuBar implements Observer{
         menuF.add(itemC);
 		itemC.addActionListener(controleur);
 		itemC.setActionCommand("CONNEXION"); 
-        itemC.setEnabled(false);
+        
 		
         itemDC = new JMenuItem("Deconnexion");        
         menuF.add(itemDC);
 		itemDC.addActionListener(controleur);
 		itemDC.setActionCommand("DECONNEXION"); 
-        itemDC.setEnabled(false);        
+              
         
 		itemQ = new JMenuItem("Quitter");        
         menuF.add(itemQ);
@@ -79,10 +79,31 @@ public class BarreMenu extends JMenuBar implements Observer{
        resto = new JMenu("Restaurants");  
         menuG.add(resto);
         
-        itemC.setEnabled(true);
-        menus.setEnabled(false);
-        itemSM.setEnabled(false);
-        resto.setEnabled(false);
+        if (droits == null){
+        	JOptionPane.showMessageDialog(null,"null");
+        	itemC.setEnabled(true);
+        	 itemDC.setEnabled(false); 
+        }
+        else if (droits.isLivreur()){
+        	JOptionPane.showMessageDialog(null,"livreur");
+        	itemC.setEnabled(false);
+       	 	itemDC.setEnabled(true); 
+       	 	menuG.setEnabled(false);
+        }
+        else if (droits.isGerant()){
+        	JOptionPane.showMessageDialog(null,"Gerant");
+        	itemC.setEnabled(false);
+       	 	itemDC.setEnabled(true);
+       	 	menuG.setEnabled(true);
+        }
+        else if (droits.isAdmin()){
+        	JOptionPane.showMessageDialog(null,"Admin");
+        	itemC.setEnabled(false);
+       	 	itemDC.setEnabled(true);
+       	 	menuG.setEnabled(true);
+        }
+       	
+        
  
 /*        
         menuItem = new JMenuItem("Ajouter un restaurant");        
