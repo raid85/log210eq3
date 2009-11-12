@@ -3,7 +3,7 @@ package modele;
 public class Client  {
 
 	String loginName, password, infoDuDude;
-	
+	//Role droits = new Client;
 
 	public Client(String loginName, String password, String infoDuDude) {
 		
