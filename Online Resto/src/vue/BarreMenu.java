@@ -81,8 +81,9 @@ public class BarreMenu extends JMenuBar implements Observer{
         
         if (droits == null){
         	JOptionPane.showMessageDialog(null,"null");
-        	itemC.setEnabled(true);
+        	 itemC.setEnabled(true);
         	 itemDC.setEnabled(false); 
+        	 menuG.setEnabled(false);
         }
         else if (droits.isLivreur()){
         	JOptionPane.showMessageDialog(null,"livreur");
