@@ -141,11 +141,12 @@ public class Terminal {
 				
 				if(listeUsager[compteur].getPassword().equals(tempo[1])){
 					connected=true;
-					JOptionPane.showMessageDialog(null,"C chill");
+					
 					lUsager.setLoginName(listeUsager[compteur].getLoginName());
 					lUsager.setPassword(listeUsager[compteur].getPassword());
 					lUsager.setInfoDuDude(listeUsager[compteur].getInfoDuDude());
 					lUsager.setDroits(listeUsager[compteur].getDroits());
+					JOptionPane.showMessageDialog(null,"C chill " + lUsager.getDroits());
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");

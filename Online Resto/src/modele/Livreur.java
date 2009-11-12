@@ -18,6 +18,10 @@ public class Livreur implements Role{
 	}
 	
 	
+	public String toString(){
+		
+		return "Livreur";
+	}
 
 
 

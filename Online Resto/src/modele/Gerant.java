@@ -18,6 +18,10 @@ public class Gerant implements Role{
 	}
 	
 	
+	public String toString(){
+		
+		return "Gerant";
+	}
 
 
 

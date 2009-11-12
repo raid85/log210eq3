@@ -17,6 +17,10 @@ public class Admin implements Role{
 		return LIVREUR;
 	}
 	
+	public String toString(){
+		
+		return "Admin";
+	}
 	
 
 
