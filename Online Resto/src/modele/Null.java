@@ -1,9 +1,9 @@
 package modele;
 
 
-public class Livreur implements Role{
+public class Null implements Role{
 
-	final boolean GERANT=false, ADMIN=false, LIVREUR=true, RIEN=false;
+	final boolean GERANT=false, ADMIN=false, LIVREUR=false, RIEN=true;
 
 	public boolean isGerant() {
 		return GERANT;
@@ -16,14 +16,14 @@ public class Livreur implements Role{
 	public boolean isLivreur() {
 		return LIVREUR;
 	}
-	
 	public boolean isNull() {
 		return RIEN;
 	}
 	
+	
 	public String toString(){
 		
-		return "Livreur";
+		return "Null";
 	}
 
 
