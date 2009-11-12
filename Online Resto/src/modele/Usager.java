@@ -18,7 +18,7 @@ public class Usager extends Observable {
 		this.droits=droits;
 	}
 
-	public void setUsager(Observer observateur) {
+	public void setObserver(Observer observateur) {
 		
 		addObserver(observateur);
 		
