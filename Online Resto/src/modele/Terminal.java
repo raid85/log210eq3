@@ -55,7 +55,7 @@ public class Terminal {
 	}
 	
 	public void addUsagerObserver(Observer observateur){
-		//lsUsers = new ListeUsagers(observateur);
+		lUsager.setUsager(observateur);
 	}
 	public void addMenuObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
@@ -139,9 +139,6 @@ public class Terminal {
 						
 			if(listeUsager[compteur].getLoginName().equals(tempo[0]) ){
 				
-				
-				
-				
 				if(listeUsager[compteur].getPassword().equals(tempo[1])){
 					connected=true;
 					JOptionPane.showMessageDialog(null,"C chill");
@@ -156,8 +153,8 @@ public class Terminal {
 			
 				compteur++;
 				
+				}
 			}
-		}
 		}
 	
 		

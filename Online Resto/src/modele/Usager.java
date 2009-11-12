@@ -1,10 +1,15 @@
 package modele;
 
-public class Usager  {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Usager extends Observable {
 
 	String loginName, password, infoDuDude;
 	Role droits;
 
+	
+	
 	public Usager(String loginName, String password, String infoDuDude, Role droits) {
 		
 		this.loginName = loginName;
@@ -13,6 +18,12 @@ public class Usager  {
 		this.droits=droits;
 	}
 
+	public void setUsager(Observer observateur) {
+		
+		addObserver(observateur);
+		
+	}
+	
 	public String getLoginName() {
 		return loginName;
 	}
