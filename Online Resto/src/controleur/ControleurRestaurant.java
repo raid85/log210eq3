@@ -81,11 +81,12 @@ public class ControleurRestaurant implements ActionListener {
 		if(action.equalsIgnoreCase("AJOUTER")) {
 			
 			vue.grabText();
-			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getHeureOuverture(),texte[4]);
+			instance.ajouterRestaurant(vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture(),vue.getHeureFermeture(),vue.getNum());
 
 
 		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {			
+		else if(action.equalsIgnoreCase("RETIRER")) {	
+			instance.retirerRestaurant(vue.getNum());
 
 		}
 
