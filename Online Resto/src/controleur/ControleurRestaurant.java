@@ -17,6 +17,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+import vue.VueRestaurant;
+
 import modele.*;
 
 /**
@@ -24,51 +26,51 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurRestaurant implements ActionListener, DocumentListener, ListSelectionListener {
-	
+public class ControleurRestaurant implements ActionListener {
+
+	//... The Controller needs to interact with both the Model and View.
+	private VueRestaurant vue ;
+	private Terminal instance;
+
 	/**
 	 * Cet attribut sert à stocker le texte.
 	 */
 	private String texte;
-	
+
 	/**
 	 * Cet attribut sert à stocker l'index de l'élément sélectionné dans une
 	 * liste.
 	 */
 	private int elementSelectionne;
-	
+
 	/**
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
 	 */
-	private Terminal instance;
-		
+
+
 	//usager qui utilise le systeme
 	Usager unUsager;
-	
-	
+
+
 	/**
 	 * Constructeur avec paramètre.
 	 * Lors de l'instanciation du contrôleur, un observateur (la vue) est passé
 	 * en paramètre de façon à ce que le contrôleur puisse ajouter l'obervateur
-	 * dans le modèle.
+	 * dans le modèle. De plus le controlleur doit connaitre la vue 
 	 * 
-	 * @param observateur
+	 * @param observateur 
 	 */
 	public ControleurRestaurant(Observer observateur) {
 		
 		instance=Terminal.getInstance();
-		instance.addRestoObserver(observateur);
-		texte = "";
-		elementSelectionne = -1;
-	     	
-	}
-	
-	
+		instance.addRestoObserver(observateur);	
+		this.vue = (VueRestaurant) observateur;
 
+	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		
+
 		/*
 		 * Lorsque le bouton de la vue est appuyé, cette méthode est invoquée.
 		 * Pour s'assurer que la méthode traite la bonne action, il faut
@@ -77,63 +79,19 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			//instance.ajouterRestaurant(texte[0], texte[1], texte[2],texte[3],texte[4])
-			//texte;
-			String tableauInfos[] = texte.split(";");
-		 JOptionPane.showMessageDialog(null,tableauInfos[0] + tableauInfos[1] + tableauInfos[2] + tableauInfos[3]);
 			
-			
-			
+			vue.grabText();
+			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getHeureOuverture(),texte[4]);
+
+
 		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {
-			if(elementSelectionne != -1) {
-				instance.retirerItem(elementSelectionne);
-				/*
-				 * Lorsque l'élément sélectionné a été retiré, il remettre la
-				 * valeur à -1
-				 */
-				elementSelectionne = -1;
-			}
+		else if(action.equalsIgnoreCase("RETIRER")) {			
+
 		}
-		
+
 	}
 
-	
-	public void changedUpdate(DocumentEvent arg0) {
-		/*
-		 * Cette méthode sert à copier le texte dans la boîte de texte de la vue.
-		 * 
-		 * La méthode "changedUpdate" n'est pas appelée directement lorsqu'un
-		 * caractère est ajouté ou retiré de la boîte de texte. Ce sont plutôt
-		 * les méthodes insertUpdate et removeUpdate qui sont invoquées.
-		 * Cependant, les deux méthodes appellent la méthode changedUpdate, car
-		 * le même traitement est effectué dans les deux cas.
-		 */
-		Document document = arg0.getDocument();
-		try {
-			texte = document.getText(0, document.getLength());
-		} catch (BadLocationException e) {
-			texte = "";
-		}
-	}
 
-	
-	public void insertUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-	}
 
-	
-	public void removeUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-	}
-
-	
-	public void valueChanged(ListSelectionEvent arg0) {
-		/*
-		 * Lorsque l'utilisateur sélectionne un élément dans la liste, le
-		 * contrôleur note l'index de l'item sélectionné.
-		 */
-		elementSelectionne = arg0.getFirstIndex();
-	}
 
 }
