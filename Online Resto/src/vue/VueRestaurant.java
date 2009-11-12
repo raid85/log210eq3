@@ -2,25 +2,23 @@ package vue;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Label;
+import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
 
-class VueRestaurant extends Frame
+class VueRestaurant extends Panel
 {  
-	VueRestaurant()
+  VueRestaurant()
   {
-	  this.setTitle("FENÊTRE RESTAURANT");
-	  
+	 // this.setTitle("FENÊTRE RESTAURANT");
 	  GridBagLayout repartiteur=new GridBagLayout();
 	  
 	  Button ajouter=new Button("Ajouter");
 	  Button modifier=new Button("modifier");
 	  Button annuler=new Button("annuler"); 
-
 	  TextArea texte=new TextArea();
 	  
 	  Label labelNom = new Label("Nom"), 
@@ -36,15 +34,7 @@ class VueRestaurant extends Frame
 	  			textTelephone = new TextField(),
 	  			textZoneLivraison = new TextField(),
 	  			textHeureOuverture = new TextField(),
-	  			textHeureFermeture = new TextField();
-	  
-	  TextField text=new TextField(); 
-	  
-	  this.addWindowListener(new java.awt.event.WindowAdapter() {
-	        public void windowClosing(java.awt.event.WindowEvent evt) {
-	               hide();
-	        } 
-	} );
+	  			textHeureFermeture = new TextField();	 
 
 	setLayout(repartiteur); 
 	this.setBackground(Color.LIGHT_GRAY);
@@ -105,16 +95,7 @@ class VueRestaurant extends Frame
     UtilitaireRepartition.ajouter(this,texte,0,8,5,2,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,1,1,1,1,0,0);
-  }  
- 
-
-  public static void main(String[] argv)
-  {
-    VueRestaurant fenetre = new VueRestaurant();
-
-    fenetre.setSize(600, 500);
-    fenetre.setVisible(true);
-  }
+  } 
 }
 
 
