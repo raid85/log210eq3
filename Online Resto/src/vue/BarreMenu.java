@@ -4,6 +4,8 @@ import java.util.Observer;
 
 import javax.swing.*;
 
+import modele.Role;
+
 import controleur.ControleurBarreMenu;
 import controleur.ControleurVue;
 
@@ -11,6 +13,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, resto, menus, submenu;
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM;
+    private Role droits;
     
 	/**
 	 * Le contrôleur de la vue.
@@ -99,10 +102,12 @@ public class BarreMenu extends JMenuBar implements Observer{
 */
 	}
     
-    @Override
+	@Override
 	public void update(Observable arg0, Object arg1) {
 
+		droits = (Role)arg1;
+		
+		
 	}
-    
 	
 }
