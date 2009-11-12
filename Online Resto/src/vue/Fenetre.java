@@ -128,7 +128,8 @@ public class Fenetre extends JFrame implements Observer {
 		//La liste etait inserer ici on va la changer pour un Panel
 		
    		
-   		panneauCentral = new DefaultVue();
+   		//panneauCentral = new DefaultVue();
+		panneauCentral = new VueRestaurant();
    		getContentPane().add(panneauCentral,contraintes);
    		
 		/*
