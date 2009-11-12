@@ -145,6 +145,7 @@ public class Terminal {
 					lUsager.setLoginName(listeUsager[compteur].getLoginName());
 					lUsager.setPassword(listeUsager[compteur].getPassword());
 					lUsager.setInfoDuDude(listeUsager[compteur].getInfoDuDude());
+					lUsager.setDroits(listeUsager[compteur].getDroits());
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
