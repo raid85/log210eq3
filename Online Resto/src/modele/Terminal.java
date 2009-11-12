@@ -55,7 +55,7 @@ public class Terminal {
 	}
 	
 	public void addUsagerObserver(Observer observateur){
-		lUsager.setObserver(observateur);
+		lUsager = new Usager(observateur);
 	}
 	public void addMenuObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
