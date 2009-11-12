@@ -11,6 +11,8 @@ import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
+import javax.swing.text.Document;
+
 import  java.awt.*;
 import  java.awt.event.*;
 
@@ -27,61 +29,23 @@ class VueRestaurant extends JPanel implements Observer
 
 	TextArea texte=new TextArea();
 
-	Label labelNom = new Label("Nom"), 
-	labelAdresse = new Label("Adresse"),
-	labelTelephone = new Label("Téléphone"),
-	labelZoneLivraison = new Label("Zones de livraison"),
-	labelHeureOuverture = new Label("Heure d'ouverture"),
-	labelHeureFermeture = new Label("Heure de fermeture"),
-	labelRien = new Label("");
+	JLabel labelNom = new JLabel("Nom"), 
+	labelAdresse = new JLabel("Adresse"),
+	labelTelephone = new JLabel("Téléphone"),
+	labelZoneLivraison = new JLabel("Zones de livraison"),
+	labelHeureOuverture = new JLabel("Heure d'ouverture"),
+	labelHeureFermeture = new JLabel("Heure de fermeture"),
+	labelRien = new JLabel("");
 
-	TextField textNom = new TextField(),
-	textAdresse = new TextField(),
-	textTelephone = new TextField(),
-	textZoneLivraison = new TextField(),
-	textHeureOuverture = new TextField(),
-	textHeureFermeture = new TextField();	
+	JTextField textNom = new JTextField(),
+	textAdresse = new JTextField(),
+	textTelephone = new JTextField(),
+	textZoneLivraison = new JTextField(),
+	textHeureOuverture = new JTextField(),
+	textHeureFermeture = new JTextField();	
 
-
+     JTextField info;
 	
-
-
-	public TextArea getTexte() {
-		return texte;
-	}
-
-
-	public TextField getTextNom() {
-		return textNom;
-	}
-
-
-	public TextField getTextAdresse() {
-		return textAdresse;
-	}
-
-
-	public TextField getTextTelephone() {
-		return textTelephone;
-	}
-
-
-	public TextField getTextZoneLivraison() {
-		return textZoneLivraison;
-	}
-
-
-	public TextField getTextHeureOuverture() {
-		return textHeureOuverture;
-	}
-
-
-	public TextField getTextHeureFermeture() {
-		return textHeureFermeture;
-	}
-
-
-
 
 	VueRestaurant()
 	{
@@ -92,7 +56,9 @@ class VueRestaurant extends JPanel implements Observer
 		ajouter.addActionListener(controleur);
 		enlever.addActionListener(controleur);
 		
-
+		
+		JList texto;
+		
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
@@ -150,6 +116,26 @@ class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,texte,0,8,5,2,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,1,1,1,0,0);
+		
+		info = new JTextField(textNom+";"+textAdresse
+				+";"+textTelephone+";"+textZoneLivraison+";"+
+   	 textHeureOuverture+";"+
+   	 textHeureFermeture + ";");
+	
+	
+	/*
+	 * Le contrôleur implémente l'interface DocumentListener. On utilise
+	 * cet interface pour écouter l'ajout et le retrait de caractères dans
+	 * la zone de texte.
+	 * 
+	 * Il faut donc récupérer le "Document" associé à au JTextField.
+	 */
+	Document document = info.getDocument();
+	document.addDocumentListener(controleur);
+	//getContentPane().add(boiteTexte, contraintes);
+	//a dessendre en bas
+	
+
 	} 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
