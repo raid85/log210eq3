@@ -76,8 +76,31 @@ public class BarreMenu extends JMenuBar implements Observer{
         
         menus.add(itemSM);
 		
+        
+        itemAM = new JMenuItem("Ajouter un restaurant");        
+        itemAM.addActionListener(controleur);
+		itemAM.setActionCommand("ADDRESTO");
+        resto.add(itemAM);
+        
+        itemMM = new JMenuItem("Modifier un restaurant");        
+        itemMM.addActionListener(controleur);
+        itemMM.setActionCommand("MODRESTO");
+        resto.add(itemMM);
+        
+        itemSM = new JMenuItem("Supprimer un restaurant");        
+        itemSM.addActionListener(controleur);
+        itemSM.setActionCommand("SUPRESTO");
+        resto.add(itemSM);		
+        
+        
        resto = new JMenu("Restaurants");  
         menuG.add(resto);
+        
+  
+        
+        
+        
+        
         
         if (droits == null){
         	JOptionPane.showMessageDialog(null,"null");
@@ -107,26 +130,14 @@ public class BarreMenu extends JMenuBar implements Observer{
         
  
         
-        itemAM = new JMenuItem("Ajouter un restaurant");        
-        itemAM.addActionListener(controleur);
-		itemAM.setActionCommand("ADDRESTO");
-        resto.add(itemAM);
-        
-        itemMM = new JMenuItem("Modifier un restaurant");        
-        itemMM.addActionListener(controleur);
-        itemMM.setActionCommand("MODRESTO");
-        resto.add(itemMM);
-        
-        itemSM = new JMenuItem("Supprimer un restaurant");        
-        itemSM.addActionListener(controleur);
-        itemSM.setActionCommand("SUPRESTO");
-        resto.add(itemSM);		
+
 
 	}
     
 	@Override
 	public void update(Observable arg0, Object arg1) {
 
+		
 		droits = (Role)arg1;
 		
 		
