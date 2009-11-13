@@ -47,7 +47,7 @@ public class DefaultVue extends JPanel implements Observer{
 	
 	
 	
-    @Override
+    //@Override
 	public void update(Observable arg0, Object arg1) {
 
 	}

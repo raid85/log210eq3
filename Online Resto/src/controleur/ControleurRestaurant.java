@@ -95,7 +95,7 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 
 	}
 
-	@Override
+	//@Override
 	public void changedUpdate(DocumentEvent arg0) {
 		/*
 		 * Cette méthode sert à copier le texte dans la boîte de texte de la vue.
@@ -111,19 +111,19 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 		
 	}
 
-	@Override
+	//@Override
 	public void insertUpdate(DocumentEvent arg0) {
 		changedUpdate(arg0);
 		
 	}
 
-	@Override
+	//@Override
 	public void removeUpdate(DocumentEvent arg0) {
 		changedUpdate(arg0);
 		
 	}
 
-	@Override
+	//@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		elementSelectionne = arg0.getFirstIndex();
 		

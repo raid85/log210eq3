@@ -90,6 +90,16 @@ public class ControleurMenu implements ActionListener, DocumentListener, ListSel
 				elementSelectionne = -1;
 			}
 		}
+		else if(action.equalsIgnoreCase("MODIFIER")) {
+			if(elementSelectionne != -1) {
+				instance.retirerItem(elementSelectionne);
+				/*
+				 * Lorsque l'élément sélectionné a été retiré, il remettre la
+				 * valeur à -1
+				 */
+				elementSelectionne = -1;
+			}
+		}
 		
 	}
 
