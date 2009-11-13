@@ -1,5 +1,5 @@
 package modele;
-import controleur.CatalogueVue;
+
 
 /**
  *  Cette classe est utilisée lors de l'instanciation du Terminal. Elle ne sert
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Terminal {
 	
-	private CatalogueVue catalogue;
+
 
 	//Creation de linstance
 	private static Terminal instance = new Terminal();
@@ -51,11 +51,8 @@ public class Terminal {
 			
 	}
 	
-	Terminal(Observer observateur) {
-		
-		catalogue = new CatalogueVue(observateur);
-				
-	}
+
+	
 	
 	public void addRestoObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
@@ -109,21 +106,13 @@ public class Terminal {
 		Restaurant restoTempo = new Restaurant(nom,adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture,m);
 		lsRestos.ajouterRestaurant(unResto);
 	}
-	/**
-	 * Cette méthode sert à ajouter une String dans le catalogue.
-	 * @param string
-	 */
-	public void ajouterString(String string) {
-		catalogue.ajouterString(string);
-	}
+	
 	
 	/**
 	 * Cette méthode sert à retirer une String dans le catalogue.
 	 * @param index
 	 */
-	public void retirerString(int index) {
-		catalogue.retirerString(index);
-	}
+	
 	
 	/**
 	 * Cette méthode sert à retirer un restaurant dans le catalogue.
@@ -205,6 +194,9 @@ public class Terminal {
 
 	public static Terminal getInstance(){
 		return instance;
+	}
+	public Restaurant getResto(){
+		return this.unResto ;
 	}
 
 	
