@@ -67,9 +67,9 @@ public class VueRestaurant extends JPanel implements Observer
 		panlist =  new JScrollPane(liste);
 		
 		Document document = textNom.getDocument();
-		document.
+		//document.
 		document.addDocumentListener(controleur);
-		getContentPane().add(boiteTexte, contraintes);
+		//getContentPane().add(boiteTexte, contraintes);
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);

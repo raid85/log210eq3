@@ -11,11 +11,12 @@ import java.util.Observer;
 import javax.swing.*;
 
 import controleur.ControleurClient;
+import controleur.ControleurMenu;
 import controleur.ControleurVue;
 
 class VueMenu extends JPanel implements Observer
 {  
-	  ControleurClient controleurClient;
+	  ControleurMenu controleurMenu;
 	
 	  JButton ajouter=new JButton(" Ajouter ");
 	  JButton modifier=new JButton("modifier");
@@ -51,7 +52,7 @@ class VueMenu extends JPanel implements Observer
 	
 	VueMenu()
   {
-	 controleurClient = new ControleurClient((Observer)this);
+	 controleurMenu = new ControleurMenu((Observer)this);
 	 
 	 GridBagLayout repartiteur=new GridBagLayout(); 
 	  
