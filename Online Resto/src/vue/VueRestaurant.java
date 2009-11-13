@@ -195,6 +195,10 @@ public class VueRestaurant extends JPanel implements Observer
 		liste.setListData((Object[])arg1);
 
 	}
+	public String toString(){
+		String tempo = textNom.getText();
+		return tempo;
+	}
 
 }
 
