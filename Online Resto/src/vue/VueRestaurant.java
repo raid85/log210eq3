@@ -33,16 +33,19 @@ public class VueRestaurant extends JPanel implements Observer
 	JButton enlever=new JButton("ENLEVER");	
 	JButton modifier=new JButton("MODIFIER"); 
 
-	TextArea texte=new TextArea();
-	JLabel labelNom = new JLabel("Nom"), 
+	
+	JLabel labelNom = new JLabel("Nom"),	
 	labelAdresse = new JLabel("Adresse"),
 	labelTelephone = new JLabel("Téléphone"),
 	labelZoneLivraison = new JLabel("Zones de livraison"),
 	labelHeureOuverture = new JLabel("Heure d'ouverture"),
 	labelHeureFermeture = new JLabel("Heure de fermeture"),
 	labelRien = new JLabel("");
+	
+	JScrollPane panlist ;
+	JList liste = new JList ();
 
-	JTextField textNom = new JTextField(),
+	JTextField textNom = new JTextField(),	
 	textAdresse = new JTextField(),
 	textTelephone = new JTextField(),
 	textZoneLivraison = new JTextField(),
@@ -57,7 +60,11 @@ public class VueRestaurant extends JPanel implements Observer
 		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
 
 		ajouter.addActionListener(controleur);
-		enlever.addActionListener(controleur);		
+		enlever.addActionListener(controleur);
+		
+		liste.addListSelectionListener(controleur);
+		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
+		panlist =  new JScrollPane(liste);
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
@@ -112,7 +119,7 @@ public class VueRestaurant extends JPanel implements Observer
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);    
 
-		UtilitaireRepartition.ajouter(this,texte,0,8,5,2,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,panlist,0,8,5,2,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,1,1,1,0,0);
 
@@ -158,6 +165,7 @@ public class VueRestaurant extends JPanel implements Observer
 	}
 
 	public void update(Observable arg0, Object arg1) {
+		liste.setListData((Object[])arg1);
 
 	}
 
