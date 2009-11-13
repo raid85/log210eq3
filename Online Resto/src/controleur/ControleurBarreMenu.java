@@ -90,7 +90,7 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		}
 		
 		else if(action.equalsIgnoreCase("ADDMENU")) {
-			
+			-
 		}
 		
 		else if(action.equalsIgnoreCase("MODMENU")) {
@@ -99,6 +99,16 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		else if(action.equalsIgnoreCase("SUPMENU")) {
 			
 		}
+		else if(action.equalsIgnoreCase("ADDRESTO")) {
+			
+		}
+		
+		else if(action.equalsIgnoreCase("MODRESTO")) {
+			
+		}
+		else if(action.equalsIgnoreCase("SUPRESTO")) {
+			
+		}	
 		
 		else {
 			System.err.println("L'action '" + action + "' est inconnue...");

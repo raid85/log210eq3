@@ -80,7 +80,7 @@ public class BarreMenu extends JMenuBar implements Observer{
         menus.add(itemSM);
 		
         resto = new JMenu("Restaurants");  
-        
+        menuG.add(resto);
         itemAM = new JMenuItem("Ajouter un restaurant");        
         itemAM.addActionListener(controleur);
 		itemAM.setActionCommand("ADDRESTO");
@@ -95,10 +95,7 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemSM.addActionListener(controleur);
         itemSM.setActionCommand("SUPRESTO");
         resto.add(itemSM);		
-        
-       
-        menuG.add(resto);
-        
+               
         verifDroits(droits);
    
 	}
