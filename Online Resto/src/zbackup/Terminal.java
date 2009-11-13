@@ -1,4 +1,6 @@
-package modele;
+package zbackup;
+
+
 
 /**
  * Cette classe est utilisée lors de l'instanciation du Terminal. Elle ne sert
