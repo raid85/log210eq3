@@ -94,4 +94,7 @@ public class Restaurant {
 		 */
 		
 	}
+	public String getNom() {
+		return this.nom ;
+	}
 }
