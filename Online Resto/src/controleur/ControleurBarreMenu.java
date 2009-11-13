@@ -82,9 +82,9 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		
 			
 			instance.authentifier();
-		
-			
-			
+			laVue.nouvelleVueDefaut();
+			instance.rafraichierVue();
+					
 		}
 		
 		else if(action.equalsIgnoreCase("DECONNEXION")) {
