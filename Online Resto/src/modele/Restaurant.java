@@ -5,37 +5,40 @@ import java.util.List;
 
 public class Restaurant {
 	
+	private String nom ;
 	private String adresse;
 	private String numeroTel;
 	private String zoneCouverture;	
 	private String heureOuverture ;
 	private String heureFermeture;
-	private int numRestaurant;
+	private int idRestaurant;
 	
 	
 	private List<ItemMenu> menu;
 	//Constructeur
 	
-	public Restaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant) {
+	public Restaurant(String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture) {
 		super();
+		this.nom = nom ;
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
 		this.zoneCouverture=zoneCouverture;
 		this.heureOuverture=heureOuverture;
 		this.heureFermeture=heureFermeture;
-		this.numRestaurant = numRestaurant;
+	
+		
 		this.menu = new ArrayList<ItemMenu>();
 	}
 
 	
-	public Restaurant(String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, int numRestaurant,ArrayList<ItemMenu> m) {
+	public Restaurant(String nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture,ArrayList<ItemMenu> m) {
 		super();
+		this.nom = nom ;
 		this.adresse = adresse;
 		this.numeroTel = numeroTel;
 		this.zoneCouverture=zoneCouverture;
 		this.heureOuverture=heureOuverture;
-		this.heureFermeture=heureFermeture;
-		this.numRestaurant = numRestaurant;
+		this.heureFermeture=heureFermeture;		
 		this.menu=m;
 	}
 
@@ -56,8 +59,8 @@ public class Restaurant {
 		this.numeroTel = numeroTel;
 	}
 
-	public int getNumRestaurant() {
-		return numRestaurant;
+	public int getidRestaurant() {
+		return idRestaurant;
 	}
 	
 	/**
