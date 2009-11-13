@@ -13,11 +13,12 @@ import java.util.Observer;
 import javax.swing.*;
 
 import controleur.ControleurClient;
+import controleur.ControleurRestaurant;
 import controleur.ControleurVue;
 
-class VueClient extends JPanel implements Observer
+public class VueClient extends JPanel implements Observer
 {  
-	  ControleurClient controleurClient;
+	  ControleurClient controleur;
 	
 	  JButton ajouter=new JButton(" Ajouter ");
 	  JButton modifier=new JButton("modifier");
@@ -39,41 +40,40 @@ class VueClient extends JPanel implements Observer
 	  			
 	
 	
-	public JButton getAjouter() {
-		return ajouter;
-	}
-
-	public JButton getModifier() {
-		return modifier;
-	}
-
-	public JButton getAnnuler() {
-		return annuler;
+	public String getTexte() {
+		return texte.toString();
 	}
 
 
-	public JTextArea getTexte() {
-		return texte;
+	public String getTextNom() {
+		return textNom.toString();
 	}
 
 
-	public JTextField getTextNom() {
-		return textNom;
+	public String getTextAdresse() {
+		return textAdresse.toString();
 	}
-
-
-	public JTextField getTextAdresse() {
-		return textAdresse;
+	public String getTextMotDePasse() {
+		return textAdresse.toString();
+	}
+	public String getTextCourriel() {
+		return textAdresse.toString();
 	}
 	
 	
 	VueClient()
   {
-	 controleurClient = new ControleurClient((Observer)this);
+	 controleur = new ControleurClient((Observer)this);
 	 
 	 GridBagLayout repartiteur=new GridBagLayout(); 
 	  
+		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
 
+		ajouter.addActionListener(controleur);
+		ajouter.setActionCommand("AJOUTER");
+		
+	 
+	 
 	setLayout(repartiteur); 
 	this.setBackground(Color.LIGHT_GRAY);
 	

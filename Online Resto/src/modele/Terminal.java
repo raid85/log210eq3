@@ -137,6 +137,12 @@ public class Terminal {
 		Client clientTempo = new Client(loginName,password,infoDuDude);
 		lsClients.ajouterClient(clientTempo);
 	}
+	public void modifierClient(int elementSelectionne, String loginName, String password, String infoDuDude) {
+		//lsClients.
+		Client clientTempo = new Client(loginName,password,infoDuDude);
+		lsClients.ajouterClient(clientTempo);
+		
+	}
 	
 	/**
 	 * Cette méthode sert à retirer un Client dans le catalogue.
@@ -200,6 +206,8 @@ public class Terminal {
 	public static Terminal getInstance(){
 		return instance;
 	}
+
+	
 
 
 	
