@@ -1,9 +1,9 @@
 package modele;
 
 
-public class Admin implements Role{
+public class RClient implements Role{
 
-	final boolean GERANT=false, ADMIN=true, LIVREUR=false,RIEN = false, CLIENT=false;
+	final boolean GERANT=false, ADMIN=false, LIVREUR=false, RIEN=false, CLIENT=true;
 
 	public boolean isGerant() {
 		return GERANT;
@@ -16,18 +16,19 @@ public class Admin implements Role{
 	public boolean isLivreur() {
 		return LIVREUR;
 	}
-	
-	public String toString(){
-		
-		return "Admin";
-	}
-	
 	public boolean isNull() {
 		return RIEN;
 	}
 	public boolean isClient() {
 		return CLIENT;
 	}
+	
+	
+	public String toString(){
+		
+		return "Null";
+	}
+
 
 
 	

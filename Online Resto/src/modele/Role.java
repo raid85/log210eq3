@@ -6,4 +6,5 @@ public interface Role {
 	public boolean isGerant();
 	public boolean isLivreur();
 	public boolean isNull();
+	public boolean isClient();
 }

@@ -122,7 +122,20 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		}
 		else if(action.equalsIgnoreCase("SUPRESTO")) {
 			
-		}	
+		}
+		else if(action.equalsIgnoreCase("ADDCLIENT")) {
+			laVue.nouvelleVueRestaurant();
+			instance.rafraichierVue();
+		}
+		
+		else if(action.equalsIgnoreCase("MODCLIENT")) {
+			laVue.nouvelleVueRestaurant();
+			instance.rafraichierVue();
+		}
+		else if(action.equalsIgnoreCase("SUPCLIENT")) {
+			
+		}
+		
 		
 		else {
 			System.err.println("L'action '" + action + "' est inconnue...");

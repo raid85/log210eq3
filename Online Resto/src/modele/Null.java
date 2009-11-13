@@ -3,7 +3,7 @@ package modele;
 
 public class Null implements Role{
 
-	final boolean GERANT=false, ADMIN=false, LIVREUR=false, RIEN=true;
+	final boolean GERANT=false, ADMIN=false, LIVREUR=false, RIEN=true, CLIENT=false;
 
 	public boolean isGerant() {
 		return GERANT;
@@ -20,6 +20,9 @@ public class Null implements Role{
 		return RIEN;
 	}
 	
+	public boolean isClient() {
+		return CLIENT;
+	}
 	
 	public String toString(){
 		

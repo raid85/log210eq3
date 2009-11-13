@@ -12,8 +12,9 @@ import controleur.ControleurVue;
 
 public class BarreMenu extends JMenuBar implements Observer{
 
-    private JMenu menuF, menuG, resto, menus, submenu;
-    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR;
+    private JMenu menuF, menuG, resto, menus, submenu, menuC;
+    
+    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR, itemAC, itemMC, itemSC;
     private Role droits;
     private JPanel panneauTempo;
 	/**
@@ -49,17 +50,42 @@ public class BarreMenu extends JMenuBar implements Observer{
         menuF.add(itemDC);
 		itemDC.addActionListener(controleur);
 		itemDC.setActionCommand("DECONNEXION"); 
-              
+
+
+      //  menuF = new JMenu("Client");  
+      //  menuF.add(menuF);
+        itemAC = new JMenuItem("Creer compte client");        
+        itemAC.addActionListener(controleur);
+		itemAC.setActionCommand("ADDCLIENT");
+        menuF.add(itemAC);
+		
         
 		itemQ = new JMenuItem("Quitter");        
         menuF.add(itemQ);
         itemQ.addActionListener(controleur);
         itemQ.setActionCommand("QUITTER");
 
+        
+        
         //Construire le menu Gestion
         menuG = new JMenu("Gestion");
-        
         this.add(menuG);
+        
+        
+        itemMC = new JMenuItem("Modifier compte");        
+        itemMC.addActionListener(controleur);
+        itemMC.setActionCommand("MODCLIENT");
+        menuG.add(itemMC);
+        /*
+        itemSC = new JMenuItem("Supprimer un client");        
+        itemSC.addActionListener(controleur);
+        itemSC.setActionCommand("SUPCLIENT");
+        itemSC.setEnabled(false);
+        menuC.add(itemSC);	        
+        */
+        
+        
+        
         
         menus = new JMenu("Menus");
         menuG.add(menus);
@@ -97,6 +123,12 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemSR.setEnabled(false);
         resto.add(itemSR);		
                
+        
+        
+        
+        
+        
+        
         verifDroits(droits);
    
 	}
