@@ -152,7 +152,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	 itemDC.setEnabled(false); 
 	        	 menuG.setEnabled(false);
 	        	 itemAC.setEnabled(true);
-		       	
+	      
+		      
 	        }
 		 
 		 else if (droits.isClient()){
