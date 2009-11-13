@@ -26,22 +26,11 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurRestaurant implements ActionListener, DocumentListener, ListSelectionListener {
+public class ControleurRestaurant implements ActionListener {
 
 	//... The Controller needs to interact with both the Model and View.
 	private VueRestaurant vue ;
 	private Terminal instance;
-
-	/**
-	 * Cet attribut sert à stocker le texte.
-	 */
-	private String texte;
-
-	/**
-	 * Cet attribut sert à stocker l'index de l'élément sélectionné dans une
-	 * liste.
-	 */
-	private int elementSelectionne;
 
 	/**
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
@@ -81,7 +70,7 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 		if(action.equalsIgnoreCase("AJOUTER")) {			
 			vue.grabText();
 			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture(),vue.getHeureFermeture());
-              
+            vue.doList(instance.getResto());
 
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {	
@@ -95,39 +84,9 @@ public class ControleurRestaurant implements ActionListener, DocumentListener, L
 
 	}
 
-	//@Override
-	public void changedUpdate(DocumentEvent arg0) {
-		/*
-		 * Cette méthode sert à copier le texte dans la boîte de texte de la vue.
-		 * 
-		 * La méthode "changedUpdate" n'est pas appelée directement lorsqu'un
-		 * caractère est ajouté ou retiré de la boîte de texte. Ce sont plutôt
-		 * les méthodes insertUpdate et removeUpdate qui sont invoquées.
-		 * Cependant, les deux méthodes appellent la méthode changedUpdate, car
-		 * le même traitement est effectué dans les deux cas.
-		 */
-		Document document = arg0.getDocument();
-		
-		
-	}
 
-	//@Override
-	public void insertUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-		
-	}
 
-	//@Override
-	public void removeUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-		
-	}
 
-	//@Override
-	public void valueChanged(ListSelectionEvent arg0) {
-		elementSelectionne = arg0.getFirstIndex();
-		
-	}
 
 
 
