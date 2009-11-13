@@ -1,4 +1,6 @@
-package controleur;
+package zbackup;
+
+
 
 /**
  * Ces classes permettent au ControleurVue d'agir comme ActionListener,
@@ -50,7 +52,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 	 * @param observateur
 	 */
 	public ControleurVue(Observer observateur) {
-		terminal = new Terminal(observateur);
+		//terminal = new Terminal(observateur);
 		texte = "";
 		elementSelectionne = -1;
 	}
@@ -66,11 +68,11 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
 			if(!texte.equals("")) {
-				terminal.ajouterString(texte);
+//				terminal.ajouterString(texte);
 			}
 		} else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
-				terminal.retirerString(elementSelectionne);
+//				terminal.retirerString(elementSelectionne);
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
