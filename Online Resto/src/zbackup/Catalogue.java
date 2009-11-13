@@ -1,4 +1,4 @@
-package zbackup;
+package modele;
 
 /**
  * Ces classes sont utilisées pour permettre l'utilisation d'une collection.
@@ -12,19 +12,17 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import modele.Usager;
-
 /**
  * Le Catalogue est le point de mire de la Vue.
  * @author François Caron
  *
  */
-public class ListeUsagers extends Observable {
+public class Catalogue extends Observable {
 
 	/**
 	 * La collection qui permet de stocker les strings.
 	 */
-	private List<Usager> m;
+	private List<String> listeStrings;
 	
 	/**
 	 * Constructeur avec paramètre.
@@ -32,13 +30,13 @@ public class ListeUsagers extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeUsagers(Observer observateur) {
+	public Catalogue(Observer observateur) {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
 		 * List aurait fait l'affaire.
 		 */
-		m = new ArrayList<Usager>();
+		listeStrings = new ArrayList<String>();
 		
 		/*
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
@@ -53,15 +51,15 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param string
 	 */
-	public void ajouterUsager(Usager unUser) {
-		m.add(unUser);
+	public void ajouterString(String string) {
+		listeStrings.add(string);
 		
 		/*
 		 * Il est important d'indiquer que la classe observée a changé AVANT
 		 * d'aviser les observateurs. 
 		 */
 		setChanged();
-		notifyObservers(m.toArray());
+		notifyObservers(listeStrings.toArray());
 	}
 	
 	/**
@@ -70,26 +68,15 @@ public class ListeUsagers extends Observable {
 	 * modification.
 	 * @param index
 	 */
-	public void retirerUsager(int index) {
-		m.remove(index);
+	public void retirerString(int index) {
+		listeStrings.remove(index);
 		
 		/*
 		 * Il est important d'indiquer que la classe observée a changé AVANT
 		 * d'aviser les observateurs. 
 		 */
 		setChanged();
-		notifyObservers(m.toArray());
+		notifyObservers(listeStrings.toArray());
 	}
-	public Usager getUsager(int index){
-		Usager tempo;
-		tempo = m.get(index);
-		return tempo;
-		
-	}
-	public int getHauteur(){
-	int tempo;
-	tempo=1;
-	return tempo;
-}
-}
 	
+}
