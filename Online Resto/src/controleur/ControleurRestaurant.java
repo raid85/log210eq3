@@ -26,7 +26,7 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurRestaurant implements ActionListener {
+public class ControleurRestaurant implements ActionListener, DocumentListener, ListSelectionListener {
 
 	//... The Controller needs to interact with both the Model and View.
 	private VueRestaurant vue ;
@@ -81,15 +81,43 @@ public class ControleurRestaurant implements ActionListener {
 		if(action.equalsIgnoreCase("AJOUTER")) {
 			
 			vue.grabText();
-			instance.ajouterRestaurant(vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture(),vue.getHeureFermeture(),vue.getNum());
+			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture(),vue.getHeureFermeture());
 
 
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {	
-			instance.retirerRestaurant(vue.getNum());
+			//instance.retirerRestaurant(vue.getNum());
+
+		}
+		else if(action.equalsIgnoreCase("MODIFIER")) {	
+			//instance.retirerRestaurant(vue.getNum());
 
 		}
 
+	}
+
+	@Override
+	public void changedUpdate(DocumentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void insertUpdate(DocumentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeUpdate(DocumentEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
