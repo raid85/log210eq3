@@ -100,9 +100,12 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		
 		else if(action.equalsIgnoreCase("ADDMENU")) {
 			laVue.nouvelleVueMenu();
+			instance.rafraichierVue();
 		}
 		
 		else if(action.equalsIgnoreCase("MODMENU")) {
+			laVue.nouvelleVueMenu();
+			instance.rafraichierVue();
 			
 		}
 		else if(action.equalsIgnoreCase("SUPMENU")) {
@@ -114,7 +117,8 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		}
 		
 		else if(action.equalsIgnoreCase("MODRESTO")) {
-			
+			laVue.nouvelleVueRestaurant();
+			instance.rafraichierVue();
 		}
 		else if(action.equalsIgnoreCase("SUPRESTO")) {
 			
