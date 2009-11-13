@@ -70,4 +70,18 @@ public class JListVue  {
 	boutonRetirer.setActionCommand("RETIRER");
 	getContentPane().add(boutonRetirer, contraintes);
 
+	
+	public void update(Observable arg0, Object arg1) {
+		
+		panneauCentral = barreMenu.getPanneauTempo();
+		/*
+		 * Une JList doit être populée à l'aide d'un tableau fixe d'objets.
+		 */
+		liste.setListData((Object[])arg1);
+		
+		/*
+		 * Lorsque le texte a été ajouté de la liste, il faut vider la boîte de texte.
+		 */
+		boiteTexte.setText("");
+	}
 }

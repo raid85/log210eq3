@@ -27,7 +27,7 @@ public class Terminal {
 	
 	private ListeRestaurants lsRestos;
 	private ListeClients lsClients;
-	
+	private EtatFenetre letatFen;
 	
 	
 	
@@ -59,6 +59,9 @@ public class Terminal {
 	}
 	public void addMenuObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
+	}
+	public void addFenetreObserver(Observer observateur){
+		letatFen = new EtatFenetre(observateur);
 	}
 
 
@@ -120,7 +123,9 @@ public class Terminal {
 		unResto.retirerItem(index);
 	}
 	
-	
+	public void rafraichierVue(){
+		letatFen.rafraichirVue();
+	}
 	public void authentifier() {
 		int sizeTab = 3;
 		boolean connected=false;
@@ -146,7 +151,7 @@ public class Terminal {
 					lUsager.setPassword(listeUsager[compteur].getPassword());
 					lUsager.setInfoDuDude(listeUsager[compteur].getInfoDuDude());
 					lUsager.setDroits(listeUsager[compteur].getDroits());
-					JOptionPane.showMessageDialog(null,"C chill " + lUsager.getDroits());
+					
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
@@ -161,8 +166,6 @@ public class Terminal {
 			}
 		}
 	
-		
-		
 	}
 		
 	public void deconnexion(){

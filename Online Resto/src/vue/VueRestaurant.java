@@ -119,7 +119,7 @@ public class VueRestaurant extends JPanel implements Observer
 
 
 	} 
-	//@Override
+	
 
 	/**Méthode qui sert a récupérer le texte sous for de string des JTextField
 	 * 

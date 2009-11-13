@@ -89,6 +89,7 @@ public class Fenetre extends JFrame implements Observer {
 		 */
 		controleur = new ControleurVue((Observer)this);
 		
+		
 		/*
 		 * Ceci crée un gestionnaire de mise en page.
 		 * La classe GridBagConstraints permet de spécifier l'emplacement et autre...
@@ -128,8 +129,9 @@ public class Fenetre extends JFrame implements Observer {
 		//La liste etait inserer ici on va la changer pour un Panel
 		
    		
-   		//panneauCentral = new DefaultVue();
-		panneauCentral = new VueRestaurant();
+   		panneauCentral = new DefaultVue();
+		//panneauCentral = new VueRestaurant();
+		
    		getContentPane().add(panneauCentral,contraintes);
    		
 		/*
@@ -168,15 +170,13 @@ public class Fenetre extends JFrame implements Observer {
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
-		/*
-		 * Une JList doit être populée à l'aide d'un tableau fixe d'objets.
-		 */
-		liste.setListData((Object[])arg1);
 		
-		/*
-		 * Lorsque le texte a été ajouté de la liste, il faut vider la boîte de texte.
-		 */
-		boiteTexte.setText("");
+		panneauCentral = barreMenu.getPanneauTempo();
+		//panneauCentral.add(new VueRestaurant());
+		JOptionPane.showMessageDialog(null,panneauCentral);
+		//repaint();
+		
+		//getContentPane().add(panneauCentral,contraintes);
 	}
 	
 	/**
@@ -188,5 +188,6 @@ public class Fenetre extends JFrame implements Observer {
 		
 		
 	}
-
+	
+	
 }
