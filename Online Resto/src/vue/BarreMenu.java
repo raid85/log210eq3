@@ -151,28 +151,49 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	 itemC.setEnabled(true);
 	        	 itemDC.setEnabled(false); 
 	        	 menuG.setEnabled(false);
-	        	 
+	        	 itemAC.setEnabled(true);
+		       	
+	        }
+		 
+		 else if (droits.isClient()){
+	        	
+	        	itemC.setEnabled(false);
+	       	 	itemDC.setEnabled(true); 
+	       	 	menuG.setEnabled(true);
+	       	 	resto.setEnabled(false);
+	       	 	menus.setEnabled(false);
+	       	 	itemAC.setEnabled(false);
+	       	 	itemMC.setEnabled(true);
 	        }
 	        else if (droits.isLivreur()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
-	       	 	menuG.setEnabled(false);
-	       	 	
+	       	 	menuG.setEnabled(true);
+	       	 	resto.setEnabled(false);
+	       	 	menus.setEnabled(false);
+	       	 	itemAC.setEnabled(false);
+	       	 	itemMC.setEnabled(false);
 	        }
 	        else if (droits.isGerant()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
-	       	 	
+	       	 	resto.setEnabled(true);
+	       	 	menus.setEnabled(true);
+	       	 	itemAC.setEnabled(false);
+	       	 	itemMC.setEnabled(false);
 	        }
 	        else if (droits.isAdmin()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
-	       	 	
+	       	 	resto.setEnabled(true);
+	       	 	menus.setEnabled(true);
+	       	 	itemAC.setEnabled(false);
+	       	 	itemMC.setEnabled(false);
 	        }
 	}
 	

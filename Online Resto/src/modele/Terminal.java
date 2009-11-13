@@ -38,6 +38,7 @@ public class Terminal {
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
 	private Usager gerantTest = new Usager("gerant","1234","pas bo", new Gerant());
 	private Usager adminTest = new Usager("admin","1234","laid", new Admin());
+	private Usager clientTest = new Usager("client","1234","laid", new RClient());
 	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest};
 	private Usager lUsager;
 	
