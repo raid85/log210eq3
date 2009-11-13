@@ -22,7 +22,7 @@ public class VueRestaurant extends JPanel implements Observer
 {  
 	private ControleurRestaurant controleur;
 	
-	private int numResto ;
+	private String nomResto ;
 	private String adresse ;
 	private String telephone ;
 	private String zoneLivraison ;
@@ -34,7 +34,7 @@ public class VueRestaurant extends JPanel implements Observer
 	JButton modifier=new JButton("MODIFIER"); 
 
 	TextArea texte=new TextArea();
-	JLabel labelNum = new JLabel("Numéro Restaurant"), 
+	JLabel labelNom = new JLabel("Nom"), 
 	labelAdresse = new JLabel("Adresse"),
 	labelTelephone = new JLabel("Téléphone"),
 	labelZoneLivraison = new JLabel("Zones de livraison"),
@@ -62,7 +62,7 @@ public class VueRestaurant extends JPanel implements Observer
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
 
-		UtilitaireRepartition.ajouter(this,labelNum,0,1,1,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,labelNom,0,1,1,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,2,2,2,2,0,0);
 		UtilitaireRepartition.ajouter(this,labelAdresse,0,2,1,1,GridBagConstraints.HORIZONTAL,
@@ -126,7 +126,7 @@ public class VueRestaurant extends JPanel implements Observer
 	 */
 	public void grabText (){
 
-		this.numResto = Integer.parseInt(textNom.getText());
+		this.nomResto = textNom.getText();
 		this.adresse=textAdresse.getText();
 		this.telephone = textTelephone.getText();
 		this.zoneLivraison=textZoneLivraison.getText();
@@ -138,8 +138,8 @@ public class VueRestaurant extends JPanel implements Observer
 	 * 
 	 * @return String
 	 */
-	public int getNum (){
-		return this.numResto;
+	public String getNom (){
+		return this.nomResto;
 	}
 	public String getAdresse (){
 		return this.adresse ;
