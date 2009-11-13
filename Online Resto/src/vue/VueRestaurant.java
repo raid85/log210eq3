@@ -31,7 +31,7 @@ public class VueRestaurant extends JPanel implements Observer
 
 	JButton ajouter=new JButton("AJOUTER");	
 	JButton enlever=new JButton("ENLEVER");	
-	JButton annuler=new JButton("ANNULER"); 
+	JButton modifier=new JButton("MODIFIER"); 
 
 	TextArea texte=new TextArea();
 	JLabel labelNum = new JLabel("Numéro Restaurant"), 
@@ -108,7 +108,7 @@ public class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,enlever,5,3,1,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,annuler,5,5,1,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,modifier,5,5,1,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);    
 
