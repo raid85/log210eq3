@@ -7,7 +7,8 @@ public class Usager extends Observable {
 
 	String loginName, password, infoDuDude;
 	Role droits;
-/*
+
+	/*
 	public Usager(){
 		this.loginName = "";
 		this.password = "";
@@ -18,6 +19,7 @@ public class Usager extends Observable {
 		notifyObservers(droits);
 	}
 	*/
+	
 	public Usager(String loginName, String password, String infoDuDude, Role droits) {
 		
 		this.loginName = loginName;
@@ -57,7 +59,7 @@ public class Usager extends Observable {
 		
 		setChanged();
 		notifyObservers(droits);
-		JOptionPane.showMessageDialog(null,"UPDATE");
+		
 	}
 
 	public void setPassword(String password) {

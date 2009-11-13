@@ -15,7 +15,7 @@ public class BarreMenu extends JMenuBar implements Observer{
     private JMenu menuF, menuG, resto, menus, submenu;
     private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR;
     private Role droits;
-    
+    private JPanel panneauTempo;
 	/**
 	 * Le contrôleur de la vue.
 	 * Il écoute pour les actions telles que peser sur un bouton et modifier le texte dans une zone.
@@ -114,33 +114,52 @@ public class BarreMenu extends JMenuBar implements Observer{
 	public void verifDroits(Role droits){
 		
 		 if (droits.isNull()){
-	        	JOptionPane.showMessageDialog(null,"ddnull");
+	        	
 	        	 itemC.setEnabled(true);
 	        	 itemDC.setEnabled(false); 
 	        	 menuG.setEnabled(false);
 	        	 
 	        }
 	        else if (droits.isLivreur()){
-	        	JOptionPane.showMessageDialog(null,"ddlivreur");
+	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
 	       	 	menuG.setEnabled(false);
 	       	 	
 	        }
 	        else if (droits.isGerant()){
-	        	JOptionPane.showMessageDialog(null,"ddGerant");
+	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
 	       	 	
 	        }
 	        else if (droits.isAdmin()){
-	        	JOptionPane.showMessageDialog(null,"ddAdmin");
+	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
 	       	 	
 	        }
 	}
+	
+	public void nouvelleVueClient(){
+		panneauTempo = new VueClient();
+		
+	}
+	public void nouvelleVueMenu(){
+		panneauTempo = new VueMenu();
+	}
+	public void nouvelleVueRestaurant(){
+		panneauTempo = new VueRestaurant();
+	}
+	public void nouvelleVueDefaut(){
+		panneauTempo = new DefaultVue();
+	}
+
+	public JPanel getPanneauTempo() {
+		return panneauTempo;
+	}
+
 	
 }
