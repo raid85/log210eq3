@@ -134,24 +134,6 @@ public class Fenetre extends JFrame implements Observer {
 		
    		getContentPane().add(panneauCentral,contraintes);
    		
-		/*
-		 * La zone de texte est le second élément de la fenêtre.
-		 */
-		contraintes.fill = GridBagConstraints.HORIZONTAL;
-		contraintes.gridx = 0;
-		contraintes.gridy = 2;
-		contraintes.gridwidth = 2;
-		boiteTexte = new JTextField();
-		/*
-		 * Le contrôleur implémente l'interface DocumentListener. On utilise
-		 * cet interface pour écouter l'ajout et le retrait de caractères dans
-		 * la zone de texte.
-		 * 
-		 * Il faut donc récupérer le "Document" associé à au JTextField.
-		 */
-		Document document = boiteTexte.getDocument();
-		document.addDocumentListener(controleur);
-		getContentPane().add(boiteTexte, contraintes);
 		
 	
 		
