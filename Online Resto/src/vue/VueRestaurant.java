@@ -52,7 +52,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 	labelRien = new JLabel("");
 
 	private JScrollPane panlist ;
-	JList liste = new JList ();
+	private JList liste ;
 	private DefaultListModel listModel;
 	private JTextField nomsRestos;
 
@@ -88,7 +88,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		liste.setVisibleRowCount(5);
 		panlist = new JScrollPane(liste);
 
-		nomsRestos = new JTextField(1);
+		nomsRestos = new JTextField(1);		
 		nomsRestos.addActionListener(hireListener);
 		nomsRestos.getDocument().addDocumentListener(hireListener);
 		
@@ -137,7 +137,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				GridBagConstraints.SOUTH,
 				0,0,2,2,2,2,0,0);
 
-		UtilitaireRepartition.ajouter(this,liste,0,0,4,6,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,panlist,0,8,4,6,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);
 		
