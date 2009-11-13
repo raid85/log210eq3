@@ -1,5 +1,5 @@
 package controleur;
-
+import vue.*;
 /**
  * Ces classes permettent au ControleurVue d'agir comme ActionListener,
  * DocumentListener et ListSelectionListener.
@@ -14,6 +14,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
+
+import vue.VueRestaurant;
 
 import modele.*;
 
@@ -44,6 +46,8 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 	//usager qui utilise le systeme
 	Usager unUsager;
 	
+	//instance de la vue
+	private VueClient vue ;
 	
 	/**
 	 * Constructeur avec paramètre.
@@ -57,8 +61,9 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 		
 		instance=Terminal.getInstance();
 		instance.addRestoObserver(observateur);
-		texte = "";
-		elementSelectionne = -1;
+
+		 
+		this.vue = (VueClient) observateur;
 	     	
 	}
 	
@@ -74,15 +79,11 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			if(!texte.equals("")) {
-				String tempo[] = texte.split(":");
-				
-				instance.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
-			}
+			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
 		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {
+		else if(action.equalsIgnoreCase("MODIFIER")) {
 			if(elementSelectionne != -1) {
-				instance.retirerItem(elementSelectionne);
+				instance.modifierClient(elementSelectionne);
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
