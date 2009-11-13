@@ -170,13 +170,28 @@ public class Fenetre extends JFrame implements Observer {
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
+		GridBagConstraints contraintes = new GridBagConstraints();
+		
+		getContentPane().remove(panneauCentral);
+		/*
+		 * La liste doit être le premier élément de la fenêtre et elle doit occuper toute la largeur.
+		 */
+		
+   		contraintes.fill = GridBagConstraints.HORIZONTAL;
+		contraintes.gridx = 0;
+		contraintes.gridy = 1;
+		contraintes.gridwidth = 2;
+		
 		
 		panneauCentral = barreMenu.getPanneauTempo();
-		//panneauCentral.add(new VueRestaurant());
-		JOptionPane.showMessageDialog(null,panneauCentral);
+		//panneauCentral=new VueRestaurant();
+		//JOptionPane.showMessageDialog(null,panneauCentral);
 		//repaint();
 		
+		getContentPane().add(panneauCentral,contraintes);
 		//getContentPane().add(panneauCentral,contraintes);
+		//setVisible(true);
+		pack();
 	}
 	
 	/**
