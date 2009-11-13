@@ -65,6 +65,11 @@ public class VueRestaurant extends JPanel implements Observer
 		liste.addListSelectionListener(controleur);
 		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		panlist =  new JScrollPane(liste);
+		
+		Document document = textNom.getDocument();
+		document.
+		document.addDocumentListener(controleur);
+		getContentPane().add(boiteTexte, contraintes);
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
