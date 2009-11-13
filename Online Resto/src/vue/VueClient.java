@@ -10,58 +10,59 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.*;
 
 import controleur.ControleurClient;
 import controleur.ControleurVue;
 
-class VueClient extends Panel implements Observer
+class VueClient extends JPanel implements Observer
 {  
 	  ControleurClient controleurClient;
 	
-	  Button ajouter=new Button(" Ajouter ");
-	  Button modifier=new Button("modifier");
-	  Button annuler=new Button("annuler "); 
+	  JButton ajouter=new JButton(" Ajouter ");
+	  JButton modifier=new JButton("modifier");
+	  JButton annuler=new JButton("annuler "); 
 	  
-	  TextArea texte=new TextArea();
+	  JTextArea texte=new JTextArea();
 	  
-	  Label labelNom = new Label("Nom"), 
-	  		 labelAdresse = new Label("Adresse"),
-	  		 labelMotDePasse = new Label("Mot de passe"),
-	  		 labelCourriel = new Label("Courriel"),	  		 
-	  		 labelTitre = new Label("                                     ESPACE CLIENT "),
-	  		 labelRien = new Label("");
+	  JLabel labelNom = new JLabel("Nom"), 
+	  		 labelAdresse = new JLabel("Adresse"),
+	  		 labelMotDePasse = new JLabel("Mot de passe"),
+	  		 labelCourriel = new JLabel("Courriel"),	  		 
+	  		 labelTitre = new JLabel("                                     ESPACE CLIENT "),
+	  		 labelRien = new JLabel("");
 	  
-	  TextField textNom = new TextField(),
-	  			textAdresse = new TextField(),
-	  			textMotDePasse = new TextField(),
-	  			textCourriel = new TextField();
+	  JTextField textNom = new JTextField(),
+	  			textAdresse = new JTextField(),
+	  			textMotDePasse = new JTextField(),
+	  			textCourriel = new JTextField();
 	  			
 	
 	
-	public Button getAjouter() {
+	public JButton getAjouter() {
 		return ajouter;
 	}
 
-	public Button getModifier() {
+	public JButton getModifier() {
 		return modifier;
 	}
 
-	public Button getAnnuler() {
+	public JButton getAnnuler() {
 		return annuler;
 	}
 
 
-	public TextArea getTexte() {
+	public JTextArea getTexte() {
 		return texte;
 	}
 
 
-	public TextField getTextNom() {
+	public JTextField getTextNom() {
 		return textNom;
 	}
 
 
-	public TextField getTextAdresse() {
+	public JTextField getTextAdresse() {
 		return textAdresse;
 	}
 	
