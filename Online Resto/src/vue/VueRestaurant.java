@@ -137,6 +137,11 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				GridBagConstraints.SOUTH,
 				0,0,2,2,2,2,0,0);
 
+		UtilitaireRepartition.ajouter(this,liste,0,0,4,6,GridBagConstraints.HORIZONTAL,
+				GridBagConstraints.SOUTH,
+				0,0,2,10,2,2,0,0);
+		
+		
 		UtilitaireRepartition.ajouter(this,ajouter,5,1,1,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);
@@ -147,12 +152,10 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);    
 
-		UtilitaireRepartition.ajouter(this,liste,0,8,500,200,GridBagConstraints.NONE,
-				GridBagConstraints.SOUTH,
-				0,0,1,1,1,1,0,0);
+
 		
 
-
+		
 
 	} 
 
@@ -169,24 +172,8 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		this.heureOuverture=textHeureOuverture.getText();
 		this.heureFermeture=textHeureFermeture.getText();
 
-		/*Document documentNom = textNom.getDocument();
-		Document documentAdresse = textAdresse.getDocument();
-		Document documentTel =textTelephone.getDocument();
-		Document documentZL =textZoneLivraison.getDocument();
-		Document documentHO = textHeureOuverture.getDocument();
-		Document documentHF = textHeureFermeture.getDocument();
-
-		documentNom.addDocumentListener(controleur);
-		documentAdresse.addDocumentListener(controleur);
-		documentTel.addDocumentListener(controleur);
-		documentZL.addDocumentListener(controleur);
-		documentHO.addDocumentListener(controleur);
-		documentHF.addDocumentListener(controleur);*/
-
-
-
-
 	}
+	
 	public void doList(Restaurant r){
 		listModel.addElement(r.getNom());
 	}
