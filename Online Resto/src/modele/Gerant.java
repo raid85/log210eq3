@@ -3,7 +3,7 @@ package modele;
 
 public class Gerant implements Role{
 
-	final boolean GERANT=true, ADMIN=false, LIVREUR=true, RIEN=false;
+	final boolean GERANT=true, ADMIN=false, LIVREUR=false, RIEN=false;
 
 	public boolean isGerant() {
 		return GERANT;
