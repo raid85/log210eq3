@@ -79,7 +79,8 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
+			String tempo = vue.getTextAdresse()+":" +vue.getTextCourriel();
+			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),tempo);
 		} 
 		else if(action.equalsIgnoreCase("MODIFIER")) {
 			if(elementSelectionne != -1) {

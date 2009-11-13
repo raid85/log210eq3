@@ -42,7 +42,7 @@ public class Terminal {
 	private Usager gerantTest = new Usager("gerant","1234","pas bo", new Gerant());
 	private Usager adminTest = new Usager("admin","1234","laid", new Admin());
 	private Usager clientTest = new Usager("client","1234","laid", new RClient());
-	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest};
+	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest,clientTest};
 	private Usager lUsager;
 	
 	
@@ -54,7 +54,7 @@ public class Terminal {
 	Terminal(Observer observateur) {
 		
 		catalogue = new CatalogueVue(observateur);
-		
+				
 	}
 	
 	public void addRestoObserver(Observer observateur){
@@ -134,14 +134,14 @@ public class Terminal {
 	}
 	
 	public void ajouterClient(String loginName, String password, String infoDuDude) {
-		Client clientTempo = new Client(loginName,password,infoDuDude);
-		lsClients.ajouterClient(clientTempo);
+		//Client clientTempo = new Client(loginName,password,infoDuDude);
+		//lsClients.ajouterClient(clientTempo);
+		listeUsager[listeUsager.length]= new Usager(loginName,password,infoDuDude,new RClient());
 	}
 	public void modifierClient(int elementSelectionne, String loginName, String password, String infoDuDude) {
 		//lsClients.
-		Client clientTempo = new Client(loginName,password,infoDuDude);
-		lsClients.ajouterClient(clientTempo);
-		
+		//Client clientTempo = new Client(loginName,password,infoDuDude);
+		//lsClients.ajouterClient(clientTempo);
 	}
 	
 	/**

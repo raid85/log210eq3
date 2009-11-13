@@ -94,7 +94,7 @@ class VueMenu extends JPanel implements Observer
             0,0,1,1,1,1,0,0);
   }
 
-	@Override
+	//@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
 		
