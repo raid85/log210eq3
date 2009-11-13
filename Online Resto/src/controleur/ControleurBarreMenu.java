@@ -15,6 +15,10 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+import vue.BarreMenu;
+import vue.Fenetre;
+import vue.VueRestaurant;
+
 import modele.*;
 
 /**
@@ -43,6 +47,8 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 	
 	//usager qui utilise le systeme
 	Usager unUsager;
+	private BarreMenu laVue;
+	
 	
 	
 	/**
@@ -58,6 +64,7 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		
 		instance.addUsagerObserver(observateur);
 	
+		this.laVue = (BarreMenu) observateur;
 		
 	}
 
@@ -90,7 +97,7 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 		}
 		
 		else if(action.equalsIgnoreCase("ADDMENU")) {
-			-
+			laVue.nouvelleVueMenu();
 		}
 		
 		else if(action.equalsIgnoreCase("MODMENU")) {
@@ -100,7 +107,8 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 			
 		}
 		else if(action.equalsIgnoreCase("ADDRESTO")) {
-			
+			laVue.nouvelleVueRestaurant();
+			instance.rafraichierVue();
 		}
 		
 		else if(action.equalsIgnoreCase("MODRESTO")) {

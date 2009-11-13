@@ -56,7 +56,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 	public ControleurVue(Observer observateur) {
 		
 		instance=Terminal.getInstance();
-		instance.addRestoObserver(observateur);
+		instance.addFenetreObserver(observateur);
 		texte = "";
 		elementSelectionne = -1;
 	     	
@@ -79,7 +79,7 @@ public class ControleurVue implements ActionListener, DocumentListener, ListSele
 				
 				instance.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
 			}
-		} 
+		}
 		else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
 				instance.retirerItem(elementSelectionne);
