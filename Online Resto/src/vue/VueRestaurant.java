@@ -17,6 +17,7 @@ import  java.awt.*;
 import  java.awt.event.*;
 
 import controleur.* ;
+import modele.*;
 
 public class VueRestaurant extends JPanel implements Observer
 {  
@@ -50,7 +51,8 @@ public class VueRestaurant extends JPanel implements Observer
 	textTelephone = new JTextField(),
 	textZoneLivraison = new JTextField(),
 	textHeureOuverture = new JTextField(),
-	textHeureFermeture = new JTextField();	
+	textHeureFermeture = new JTextField();
+	
 
 	VueRestaurant()
 	{
@@ -67,8 +69,9 @@ public class VueRestaurant extends JPanel implements Observer
 		panlist =  new JScrollPane(liste);
 		
 		Document document = textNom.getDocument();
-		document.
 		document.addDocumentListener(controleur);
+		
+		
 		//getContentPane().add(boiteTexte, contraintes);
 
 		setLayout(repartiteur); 
@@ -144,8 +147,26 @@ public class VueRestaurant extends JPanel implements Observer
 		this.zoneLivraison=textZoneLivraison.getText();
 		this.heureOuverture=textHeureOuverture.getText();
 		this.heureFermeture=textHeureFermeture.getText();
+		
+		/*Document documentNom = textNom.getDocument();
+		Document documentAdresse = textAdresse.getDocument();
+		Document documentTel =textTelephone.getDocument();
+		Document documentZL =textZoneLivraison.getDocument();
+		Document documentHO = textHeureOuverture.getDocument();
+		Document documentHF = textHeureFermeture.getDocument();
+		
+		documentNom.addDocumentListener(controleur);
+		documentAdresse.addDocumentListener(controleur);
+		documentTel.addDocumentListener(controleur);
+		documentZL.addDocumentListener(controleur);
+		documentHO.addDocumentListener(controleur);
+		documentHF.addDocumentListener(controleur);*/
+		
+		
+		
 
 	}
+	
 	/**Groupe d'accesseurs qui fournissent les infos saisies par la vue sous forme de String
 	 * 
 	 * @return String
@@ -170,6 +191,7 @@ public class VueRestaurant extends JPanel implements Observer
 	}
 
 	public void update(Observable arg0, Object arg1) {
+		
 		liste.setListData((Object[])arg1);
 
 	}
