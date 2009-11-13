@@ -81,6 +81,7 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 		if(action.equalsIgnoreCase("AJOUTER")) {
 			String tempo = vue.getTextAdresse()+":" +vue.getTextCourriel();
 			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),tempo);
+			
 		} 
 		else if(action.equalsIgnoreCase("MODIFIER")) {
 			if(elementSelectionne != -1) {
@@ -91,6 +92,7 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 				 */
 				elementSelectionne = -1;
 			}
+			
 		}
 		
 	}

@@ -35,7 +35,7 @@ public class Terminal {
 	
 	
 	//Section pour initier les variables des restaurants pour tests
-	private Restaurant unResto = new Restaurant("restoolivier","382 avenue des pins","(514)937-0707","Laval","9h00","24h00");
+	private Restaurant unResto ;
 	
 	//Section pour initier les variables des usagers pour tests
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
@@ -93,7 +93,7 @@ public class Terminal {
 	 * @param string
 	 */
 	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture) {
-		Restaurant unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture);
+		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture);
 		lsRestos.ajouterRestaurant(unResto);
 		System.out.println(""+unResto.getAdresse()+this.toString());
 	}
