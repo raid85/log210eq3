@@ -139,7 +139,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 
 		UtilitaireRepartition.ajouter(this,panlist,0,8,4,6,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
-				0,0,2,10,2,2,0,0);
+				0,0,1,1,1,1,0,0);
 		
 		
 		UtilitaireRepartition.ajouter(this,ajouter,5,1,1,1,GridBagConstraints.NONE,
