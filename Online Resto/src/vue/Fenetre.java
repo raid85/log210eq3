@@ -109,8 +109,8 @@ public class Fenetre extends JFrame implements Observer {
 				
 		 //Création de la barre de menu
         barreMenu = new BarreMenu();
-
-   		getContentPane().add(barreMenu, contraintes);
+        this.setResizable(false);
+        getContentPane().add(barreMenu, contraintes);
 		
    		//panneauCentral;
    		
