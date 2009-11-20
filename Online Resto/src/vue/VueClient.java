@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Label;
@@ -22,16 +23,18 @@ public class VueClient extends JPanel implements Observer
 	
 	  JButton ajouter=new JButton(" Ajouter ");
 	  JButton modifier=new JButton("modifier");
-	  JButton annuler=new JButton("annuler "); 
+	  JButton annuler=new JButton("annuler ");
+	  JList list = new JList();
 	  
 	  JTextArea texte=new JTextArea();
 	  
 	  JLabel labelNom = new JLabel("Nom"), 
 	  		 labelAdresse = new JLabel("Adresse"),
-	  		 labelMotDePasse = new JLabel("Mot de passe"),
+	  		 labelMotDePasse = new JLabel("Mot de passe  "),
 	  		 labelCourriel = new JLabel("Courriel"),	  		 
-	  		 labelTitre = new JLabel("                                     ESPACE CLIENT "),
-	  		 labelRien = new JLabel("");
+	  		 labelTitre = new JLabel("                      ESPACE CLIENT                        "),
+	  		 labelRien = new JLabel(" "),
+	  		 labelRien2 = new JLabel(" ");
 	  
 	  JTextField textNom = new JTextField(),
 	  			textAdresse = new JTextField(),
@@ -65,67 +68,68 @@ public class VueClient extends JPanel implements Observer
   {
 	 controleur = new ControleurClient((Observer)this);
 	 
-	 GridBagLayout repartiteur=new GridBagLayout(); 
-	  
-		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
-
-		ajouter.addActionListener(controleur);
-		ajouter.setActionCommand("AJOUTER");
-		
+	 GridBagLayout repartiteur=new GridBagLayout(); 	
 	 
+	//ajout du controleur comme écouter des actions des boutons enlever et ajouter
+
+	ajouter.addActionListener(controleur);
+	ajouter.setActionCommand("AJOUTER");	
 	 
 	setLayout(repartiteur); 
-	this.setBackground(Color.LIGHT_GRAY);
+	this.setBackground(Color.LIGHT_GRAY);	
 	
-	
-	UtilitaireRepartition.ajouter(this,labelTitre,1,0,3,1,GridBagConstraints.HORIZONTAL,
+	UtilitaireRepartition.ajouter(this,labelTitre,1,0,5,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.NORTH,
+            0,0,2,2,2,2,0,0);
+	UtilitaireRepartition.ajouter(this,labelRien2,0,1,5,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,2,2,2,0,0);
-	UtilitaireRepartition.ajouter(this,labelNom,0,1,1,1,GridBagConstraints.HORIZONTAL,
+	 UtilitaireRepartition.ajouter(this,labelNom,0,2,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,labelAdresse,0,3,1,1,GridBagConstraints.HORIZONTAL,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);     
+    UtilitaireRepartition.ajouter(this,labelMotDePasse,0,4,1,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelAdresse,0,2,1,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelMotDePasse,0,3,1,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelCourriel,0,4,1,1,GridBagConstraints.HORIZONTAL,
+    UtilitaireRepartition.ajouter(this,labelCourriel,0,5,1,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,2,2,2,0,0);
   
-    UtilitaireRepartition.ajouter(this,labelRien,0,5,2,1,GridBagConstraints.HORIZONTAL,
+    UtilitaireRepartition.ajouter(this,labelRien,0,6,3,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,2,2,2,0,0);
     
  
-    UtilitaireRepartition.ajouter(this,textNom,2,1,3,1,GridBagConstraints.HORIZONTAL,
+    UtilitaireRepartition.ajouter(this,textNom,2,2,4,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.NORTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textAdresse,2,2,3,1,GridBagConstraints.HORIZONTAL,
+            0,0,15,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textAdresse,2,3,4,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textMotDePasse,2,3,3,1,GridBagConstraints.HORIZONTAL,
+            0,0,15,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textMotDePasse,2,4,4,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textCourriel,2,4,3,1,GridBagConstraints.HORIZONTAL,
+            0,0,15,2,2,2,0,0);
+    UtilitaireRepartition.ajouter(this,textCourriel,2,5,4,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
+            0,0,15,2,2,2,0,0);
    
     
-    UtilitaireRepartition.ajouter(this,ajouter,5,1,1,1,GridBagConstraints.NONE,
+    UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,modifier,5,2,1,1,GridBagConstraints.NONE,
+    UtilitaireRepartition.ajouter(this,modifier,6,3,1,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,annuler,5,3,1,1,GridBagConstraints.NONE,
+    UtilitaireRepartition.ajouter(this,annuler,6,4,1,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
-            0,0,2,10,2,2,0,0);    
-  
-    UtilitaireRepartition.ajouter(this,texte,0,6,5,2,GridBagConstraints.NONE,
+            0,0,2,10,2,2,0,0); 
+    
+   list.setPreferredSize(new Dimension(250,100));   
+    UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
-            0,0,1,1,1,1,0,0);
+            0,0,1,1,10,1,0,0);
   }
 
 	//@Override
