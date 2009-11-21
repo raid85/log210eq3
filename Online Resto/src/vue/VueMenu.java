@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.TextArea;
@@ -18,36 +19,21 @@ class VueMenu extends JPanel implements Observer
 {  
 	  ControleurMenu controleurMenu;
 	
-	  JButton ajouter=new JButton(" Ajouter ");
-	  JButton modifier=new JButton("modifier");
-	  JButton annuler=new JButton("annuler "); 	  
+	  JButton boutonAjouter=new JButton(" Ajouter ");
+	  JButton boutonModifier=new JButton("Modifier");
+	  JButton boutonAnnuler=new JButton("Annuler "); 	  
 	  
-	  JLabel labelItemMenu = new JLabel("Item de menu"), 
+	  JLabel labelItemMenu = new JLabel("Item du menu"), 
 	  		 labelPrixItem = new JLabel("Prix"),	  		 		 
-	  		 labelTitre = new JLabel("                                     ESPACE MENU "),
-	  		 labelRien = new JLabel(" "),
-	  		 labelListeRestaurants = new JLabel("Liste des restaurants"), 
+	  		 labelTitre = new JLabel("                                           ESPACE MENU"),	  		 
+	  		 labelListeRestaurants = new JLabel("        Liste des restaurants"), 
 	  		 labelListeMenus = new JLabel("Liste des menus");
 	  
-	  JList listeRestaurants = new JList();
-	  JList listeMenus = new JList();
+	  JList listRestaurants = new JList();
+	  JList listMenus = new JList();
 	  
-	  JTextField itemMenu = new JTextField("                      "),
-	  			 prixItem = new JTextField("           ");
-	  			
-	
-	
-	public JButton getAjouter() {
-		return ajouter;
-	}
-
-	public JButton getModifier() {
-		return modifier;
-	}
-
-	public JButton getAnnuler() {
-		return annuler;
-	}		
+	  JTextField textItemMenu = new JTextField(),
+	  			 textPrixItem = new JTextField();
 	
 	
 	VueMenu()
@@ -61,37 +47,53 @@ class VueMenu extends JPanel implements Observer
 	this.setBackground(Color.LIGHT_GRAY);
 	
 	
-	UtilitaireRepartition.ajouter(this,labelTitre,0,0,3,1,GridBagConstraints.HORIZONTAL,
+	labelTitre.setPreferredSize(new Dimension(400,20));
+	UtilitaireRepartition.ajouter(this,labelTitre,0,0,5,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-	UtilitaireRepartition.ajouter(this,labelRien,0,1,3,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-	UtilitaireRepartition.ajouter(this,labelListeRestaurants,0,2,3,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-	UtilitaireRepartition.ajouter(this,listeRestaurants,0,3,2,2,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,1,1,1,1,0,0);
+            0,0,20,2,20,2,0,0);	
 	
-    UtilitaireRepartition.ajouter(this,labelItemMenu,3,2,2,1,GridBagConstraints.NONE,
+	labelItemMenu.setPreferredSize(new Dimension(160,20));
+	UtilitaireRepartition.ajouter(this,labelItemMenu,0,2,2,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,itemMenu,3,3,2,1,GridBagConstraints.NONE,
+	textItemMenu.setPreferredSize(new Dimension(160,20));
+	UtilitaireRepartition.ajouter(this,textItemMenu,0,3,2,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelPrixItem,3,4,2,1,GridBagConstraints.NONE,
+	labelPrixItem.setPreferredSize(new Dimension(160,20));
+	UtilitaireRepartition.ajouter(this,labelPrixItem,0,4,2,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0); 
-    UtilitaireRepartition.ajouter(this,prixItem,3,5,2,1,GridBagConstraints.NONE,
+	textPrixItem.setPreferredSize(new Dimension(160,20));
+	UtilitaireRepartition.ajouter(this,textPrixItem,0,5,2,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelListeMenus,3,6,3,1,GridBagConstraints.NONE,
+    UtilitaireRepartition.ajouter(this,labelListeMenus,0,6,2,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
-            0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,listeMenus,3,7,3,1,GridBagConstraints.NONE,
+            0,0,10,10,2,2,0,0);
+    listMenus.setPreferredSize(new Dimension(160,150));
+    UtilitaireRepartition.ajouter(this,listMenus,0,7,3,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
-            0,0,1,1,1,1,0,0);
+            0,0,1,1,20,1,0,0);	
+	
+    UtilitaireRepartition.ajouter(this,boutonAjouter,3,2,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,2,90,1,1,0,0);
+    UtilitaireRepartition.ajouter(this,boutonModifier,3,3,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,10,90,1,1,0,0);
+    UtilitaireRepartition.ajouter(this,boutonAnnuler,3,4,1,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,10,90,1,1,0,0);
+    labelListeRestaurants.setPreferredSize(new Dimension(240,20));
+	UtilitaireRepartition.ajouter(this,labelListeRestaurants,2,6,3,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,2,2,2,2,0,0);
+	listRestaurants.setPreferredSize(new Dimension(240,150));
+	UtilitaireRepartition.ajouter(this,listRestaurants,2,7,3,1,GridBagConstraints.NONE,
+            GridBagConstraints.SOUTH,
+            0,0,1,10,20,10,0,0);	
+	    
   }
 
 	//@Override
