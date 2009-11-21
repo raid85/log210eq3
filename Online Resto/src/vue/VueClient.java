@@ -19,7 +19,8 @@ import controleur.ControleurVue;
 
 public class VueClient extends JPanel implements Observer
 {  
-	  ControleurClient controleur;
+	
+	ControleurClient controleur;
 	
 	  JButton ajouter=new JButton(" Ajouter ");
 	  JButton modifier=new JButton("modifier");
@@ -66,7 +67,8 @@ public class VueClient extends JPanel implements Observer
 	
 	VueClient()
   {
-	 controleur = new ControleurClient((Observer)this);
+	
+	controleur = new ControleurClient((Observer)this);
 	 
 	 GridBagLayout repartiteur=new GridBagLayout(); 	
 	 
@@ -77,7 +79,6 @@ public class VueClient extends JPanel implements Observer
 	 
 	setLayout(repartiteur); 
 	this.setBackground(Color.LIGHT_GRAY);	
-	
 	UtilitaireRepartition.ajouter(this,labelTitre,1,0,5,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.NORTH,
             0,0,2,2,2,2,0,0);
