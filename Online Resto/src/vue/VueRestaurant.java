@@ -53,7 +53,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 	
 
 	private JScrollPane panlist ;
-	private JList liste ;
+	JList liste = new JList ();
 	private DefaultListModel listModel;
 	private JTextField nomsRestos;
 
@@ -89,7 +89,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		liste.setVisibleRowCount(5);
 		panlist = new JScrollPane(liste);
 
-		nomsRestos = new JTextField(1);		
+		nomsRestos = new JTextField(1);
 		nomsRestos.addActionListener(hireListener);
 		nomsRestos.getDocument().addDocumentListener(hireListener);
 		
@@ -137,14 +137,9 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				0,0,10,2,2,2,0,0);
 		UtilitaireRepartition.ajouter(this,textHeureFermeture,2,7,4,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
-				0,0,10,2,2,2,
-		UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
+				0,0,10,2,2,2,0,0);
 
-		UtilitaireRepartition.ajouter(this,panlist,0,8,4,6,GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.SOUTH,
-				0,0,1,1,1,1,0,0);		
-		
-		UtilitaireRepartition.ajouter(this,ajouter,5,1,1,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,1,1,0,0);
 		UtilitaireRepartition.ajouter(this,enlever,6,3,1,1,GridBagConstraints.NONE,
