@@ -83,6 +83,7 @@ public class Fenetre extends JFrame implements Observer {
 		 */
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		setPreferredSize(new Dimension(450,460));
 		/*
 		 * Instanciation du contrôleur.
 		 * On passe la classe en tant qu'observateur.
@@ -169,7 +170,7 @@ public class Fenetre extends JFrame implements Observer {
 		//panneauCentral=new VueRestaurant();
 		//JOptionPane.showMessageDialog(null,panneauCentral);
 		//repaint();
-		
+				
 		getContentPane().add(panneauCentral,contraintes);
 		//getContentPane().add(panneauCentral,contraintes);
 		//setVisible(true);
