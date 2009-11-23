@@ -86,7 +86,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		liste.setSelectedIndex(1);
 		liste.addListSelectionListener(this);
-		liste.setVisibleRowCount(5);
+		liste.setVisibleRowCount(8);
 		panlist = new JScrollPane(liste);
 
 		nomsRestos = new JTextField(1);

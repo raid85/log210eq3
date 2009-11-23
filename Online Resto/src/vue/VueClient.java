@@ -78,7 +78,8 @@ public class VueClient extends JPanel implements Observer
 	ajouter.setActionCommand("AJOUTER");	
 	 
 	setLayout(repartiteur); 
-	this.setBackground(Color.LIGHT_GRAY);	
+	this.setBackground(Color.LIGHT_GRAY);
+	labelTitre.setPreferredSize(new Dimension(250,20)); 
 	UtilitaireRepartition.ajouter(this,labelTitre,1,0,5,1,GridBagConstraints.HORIZONTAL,
             GridBagConstraints.NORTH,
             0,0,2,2,2,2,0,0);
@@ -127,7 +128,7 @@ public class VueClient extends JPanel implements Observer
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0); 
     
-   list.setPreferredSize(new Dimension(250,100));   
+   list.setPreferredSize(new Dimension(250,180));   
     UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,1,1,10,1,0,0);

@@ -71,7 +71,7 @@ class VueMenu extends JPanel implements Observer
     UtilitaireRepartition.ajouter(this,labelListeMenus,0,6,2,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,10,10,2,2,0,0);
-    listMenus.setPreferredSize(new Dimension(160,150));
+    listMenus.setPreferredSize(new Dimension(160,170));
     UtilitaireRepartition.ajouter(this,listMenus,0,7,3,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,1,1,20,1,0,0);	
@@ -89,7 +89,7 @@ class VueMenu extends JPanel implements Observer
 	UtilitaireRepartition.ajouter(this,labelListeRestaurants,2,6,3,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,2,2,2,2,0,0);
-	listRestaurants.setPreferredSize(new Dimension(240,150));
+	listRestaurants.setPreferredSize(new Dimension(240,170));
 	UtilitaireRepartition.ajouter(this,listRestaurants,2,7,3,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,1,10,20,10,0,0);	

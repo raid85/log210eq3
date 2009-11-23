@@ -25,7 +25,7 @@ public class DefaultVue extends JPanel implements Observer{
 	public DefaultVue() {
 		
 		JPanel pane1 = new JPanel(new BorderLayout());
-		pane1.setPreferredSize(new Dimension(400,400));
+		pane1.setPreferredSize(new Dimension(430,400));
 		pane1.setBackground(Color.white);
 		this.add(pane1);
 		
