@@ -92,8 +92,8 @@ public class Terminal {
 	 * Cette méthode sert à ajouter une String dans le catalogue.
 	 * @param string
 	 */
-	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture) {
-		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture);
+	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
+		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
 		lsRestos.ajouterRestaurant(unResto);
 		System.out.println(""+unResto.getAdresse()+this.toString());
 	}

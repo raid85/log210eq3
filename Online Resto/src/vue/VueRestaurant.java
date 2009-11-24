@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Label;
@@ -35,21 +36,18 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 	private String adresse ;
 	private String telephone ;
 	private String zoneLivraison ;
-	private String heureOuverture;
-	private String heureFermeture ;
+	private String heureOuverture;	
 
 	JButton ajouter=new JButton("AJOUTER");	
 	JButton enlever=new JButton("ENLEVER");	
 	JButton modifier=new JButton("MODIFIER"); 
 
-
 	JLabel labelNom = new JLabel("Nom"),	
 	labelAdresse = new JLabel("Adresse"),
 	labelTelephone = new JLabel("Téléphone"),
 	labelZoneLivraison = new JLabel("Zones de livraison"),
-	labelHeureOuverture = new JLabel("Heure d'ouverture"),
-	labelHeureFermeture = new JLabel("Heure de fermeture   "),
-	labelTitre = new JLabel("       ESPACE RESTAURANT");
+	labelHeureOuverture = new JLabel("Heure d'ouverture"),	
+	labelTitre = new JLabel("                                                ESPACE RESTAURANT");
 	
 
 	private JScrollPane panlist ;
@@ -61,12 +59,12 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 	textAdresse = new JTextField(),
 	textTelephone = new JTextField(),
 	textZoneLivraison = new JTextField(),
-	textHeureOuverture = new JTextField(),
-	textHeureFermeture = new JTextField();
+	textHeureOuverture = new JTextField();
+	
 
 	JTextArea texte = new JTextArea();
 	VueRestaurant()
-	{
+	{		
 		controleur = new ControleurRestaurant((Observer)this);	
 		GridBagLayout repartiteur=new GridBagLayout();		
 		
@@ -86,7 +84,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		liste.setSelectedIndex(1);
 		liste.addListSelectionListener(this);
-		liste.setVisibleRowCount(8);
+		liste.setVisibleRowCount(10);
 		panlist = new JScrollPane(liste);
 
 		nomsRestos = new JTextField(1);
@@ -97,8 +95,8 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
-		
-		UtilitaireRepartition.ajouter(this,labelTitre,0,1,6,1,GridBagConstraints.CENTER,
+		labelTitre.setPreferredSize(new Dimension(330,20));
+		UtilitaireRepartition.ajouter(this,labelTitre,0,1,6,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,2,2,30,2,0,0);
 		UtilitaireRepartition.ajouter(this,labelNom,0,2,1,1,GridBagConstraints.HORIZONTAL,
@@ -115,9 +113,6 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				0,0,10,2,2,2,0,0);
 		UtilitaireRepartition.ajouter(this,labelHeureOuverture,0,6,1,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
-				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,labelHeureFermeture,0,7,1,1,GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);		
 		textNom.setPreferredSize(new Dimension(200,20));
 		UtilitaireRepartition.ajouter(this,textNom,2,2,4,1,GridBagConstraints.HORIZONTAL,
@@ -133,9 +128,6 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
 		UtilitaireRepartition.ajouter(this,textHeureOuverture,2,6,4,1,GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.SOUTH,
-				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,textHeureFermeture,2,7,4,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
 
@@ -164,8 +156,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		this.adresse=textAdresse.getText();
 		this.telephone = textTelephone.getText();
 		this.zoneLivraison=textZoneLivraison.getText();
-		this.heureOuverture=textHeureOuverture.getText();
-		this.heureFermeture=textHeureFermeture.getText();
+		this.heureOuverture=textHeureOuverture.getText();	
 
 		/*Document documentNom = textNom.getDocument();
 		Document documentAdresse = textAdresse.getDocument();
@@ -207,9 +198,6 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 	}
 	public String getHeureOuverture (){
 		return this.heureOuverture;
-	}
-	public String getHeureFermeture (){
-		return this.heureFermeture;
 	}
 
 	public void update(Observable arg0, Object arg1) {

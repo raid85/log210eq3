@@ -69,7 +69,7 @@ public class ControleurRestaurant implements ActionListener {
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {			
 			vue.grabText();
-			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture(),vue.getHeureFermeture());
+			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
             vue.doList(instance.getResto());
 
 		} 

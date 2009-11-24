@@ -17,7 +17,7 @@ public class Restaurant {
 	private List<ItemMenu> menu;
 	//Constructeur
 	
-	public Restaurant(String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture) {
+	public Restaurant(String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		super();
 		this.nom = nom ;
 		this.adresse = adresse;
