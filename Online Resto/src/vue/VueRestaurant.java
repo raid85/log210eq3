@@ -177,7 +177,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 
 	}
 	public void doList(Restaurant r){
-		listModel.addElement(r.getNom());
+		listModel.addElement(r);
 	}
 
 	/**Groupe d'accesseurs qui fournissent les infos saisies par la vue sous forme de String
@@ -200,11 +200,7 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 		return this.heureOuverture;
 	}
 
-	public void update(Observable arg0, Object arg1) {
-
-		
-
-	}
+	
 	public String toString(){
 		String tempo = textNom.getText();
 		return tempo;
@@ -330,6 +326,13 @@ public class VueRestaurant extends JPanel implements Observer, ListSelectionList
 				enlever.setEnabled(true);
 			}
 		}
+	}
+
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
