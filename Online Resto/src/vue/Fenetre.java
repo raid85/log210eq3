@@ -59,10 +59,6 @@ public class Fenetre extends JFrame implements Observer {
 	/**
 	 * Les éléments dans le Jframe
 	 */
-	private JButton boutonAjouter;
-	private JButton boutonRetirer;
-	private JList liste;
-	private JTextField boiteTexte;
 	private BarreMenu barreMenu;
     private boolean answer = false;
 	private JPanel panneauCentral;
