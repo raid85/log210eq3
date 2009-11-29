@@ -41,28 +41,6 @@ public class VueClient extends JPanel implements Observer
 	  			textAdresse = new JTextField(),
 	  			textMotDePasse = new JTextField(),
 	  			textCourriel = new JTextField();
-	  			
-	
-	
-	public String getTexte() {
-		return texte.toString();
-	}
-
-
-	public String getTextNom() {
-		return textNom.toString();
-	}
-
-
-	public String getTextAdresse() {
-		return textAdresse.toString();
-	}
-	public String getTextMotDePasse() {
-		return textAdresse.toString();
-	}
-	public String getTextCourriel() {
-		return textAdresse.toString();
-	}
 	
 	
 	VueClient()
@@ -133,6 +111,22 @@ public class VueClient extends JPanel implements Observer
             GridBagConstraints.SOUTH,
             0,0,1,1,10,1,0,0);
   }
+
+	public String getTextNom() {
+		return textNom.getText();
+	}
+
+	public String getTextAdresse() {
+		return textAdresse.getText();
+	}
+
+	public String getTextMotDePasse() {
+		return textMotDePasse.getText();
+	}
+
+	public String getTextCourriel() {
+		return textCourriel.getText();
+	}
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
