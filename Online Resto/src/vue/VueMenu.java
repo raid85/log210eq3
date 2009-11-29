@@ -112,7 +112,7 @@ public class VueMenu extends JPanel implements Observer
 	    UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,1,5,10,2,0,0); 
-	    desactiverSaisieItem();
+	    //desactiverSaisieItem();
   }
 
 	public void desactiverSaisieItem() {
