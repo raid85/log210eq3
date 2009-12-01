@@ -79,7 +79,7 @@ public class Fenetre extends JFrame implements Observer {
 		 */
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setPreferredSize(new Dimension(450,460));
+		//setPreferredSize(new Dimension(450,460));
 		/*
 		 * Instanciation du contrôleur.
 		 * On passe la classe en tant qu'observateur.
