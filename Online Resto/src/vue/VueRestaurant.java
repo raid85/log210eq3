@@ -184,7 +184,7 @@ public class VueRestaurant extends JPanel implements Observer
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
 		liste.setListData((Object[])arg1);
-		textNom.setText("");	
+		textNom.setText("");
 		textAdresse.setText("");
 		textTelephone.setText("");
 		textZoneLivraison.setText("");

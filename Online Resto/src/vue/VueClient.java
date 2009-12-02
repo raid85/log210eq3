@@ -45,7 +45,8 @@ public class VueClient extends JPanel implements Observer
 	  			textMotDePasse = new JTextField(),
 	  			textCourriel = new JTextField();
 	  GridBagLayout repartiteur;
-	
+	  Usager unUser;
+	  
 	VueClient()
   {
 	modifier = false;
@@ -140,14 +141,15 @@ public class VueClient extends JPanel implements Observer
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		if(modifier){
-			Usager unUser = (Usager) arg0;
+		 
+			unUser = (Usager) arg0;
+			
 			remplirTableau(unUser);
-		}
+	}
 		
 	
 		
-	} 
+	
 	
 	public void remplirTableau(Usager unUser){
 	textNom.setText(unUser.getLoginName());

@@ -39,6 +39,7 @@ public class VueMenu extends JPanel implements Observer
 	  
 	  JTextField textItemDeMenu = new JTextField();
 	  JTextField textPrixItem = new JTextField();
+	  GridBagLayout repartiteur;
 	  
 	  public JTextField getTextItemDeMenu() {
 		return textItemDeMenu;
@@ -64,7 +65,16 @@ public class VueMenu extends JPanel implements Observer
 		retirerItem.addActionListener(controleur);
 		retirerItem.setActionCommand("retirerItem");
 
-		GridBagLayout repartiteur = new GridBagLayout(); 	
+		repartiteur = new GridBagLayout(); 	
+		
+		creerGUI();
+		
+		
+	    //desactiverSaisieItem();
+  }
+	
+
+	private void creerGUI() {
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);	
 		UtilitaireRepartition.ajouter(this,labelTitre,1,0,6,1,GridBagConstraints.HORIZONTAL,
@@ -112,8 +122,7 @@ public class VueMenu extends JPanel implements Observer
 	    UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,1,5,10,2,0,0); 
-	    //desactiverSaisieItem();
-  }
+	}
 
 	public void desactiverSaisieItem() {
 	   labelItemDeMenu.setEnabled(false);
