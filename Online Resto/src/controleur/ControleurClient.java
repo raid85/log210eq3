@@ -85,7 +85,7 @@ public class ControleurClient implements ActionListener, DocumentListener, ListS
 		} 
 		else if(action.equalsIgnoreCase("MODIFIER")) {
 			if(elementSelectionne != -1) {
-				instance.modifierClient(elementSelectionne, vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
+				instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
