@@ -95,7 +95,7 @@ public class Terminal {
 	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
 		lsRestos.ajouterRestaurant(unResto);
-		System.out.println("Instance de terminal = "+this.toString()+"Le resto ajouté est : " +unResto.toString());
+		System.out.println("Instance de terminal = "+this.toString()+" "+"Le resto ajouté est : " +unResto.toString());
 	}
 	
 	/**
