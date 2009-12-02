@@ -30,8 +30,9 @@ public class Terminal {
 	
 	private ListeRestaurants lsRestos;
 	private ListeClients lsClients;
+	private ListeUsagers lsUsagers;
 	private EtatFenetre letatFen;
-	
+	private int indexUser;
 	
 	
 	//Section pour initier les variables des restaurants pour tests
@@ -47,17 +48,11 @@ public class Terminal {
 	
 	
 	//Consctructeur et ce qui attrait a la gestion des obersvateurs
-    Terminal() {
-			
-	}
-	
-
-	
+    Terminal() {}
 	
 	public void addRestoObserver(Observer observateur){
 		lsRestos = new ListeRestaurants(observateur);
 	}
-	
 	public void addUsagerObserver(Observer observateur){
 		lUsager = new Usager(observateur);
 	}
@@ -67,63 +62,24 @@ public class Terminal {
 	public void addFenetreObserver(Observer observateur){
 		letatFen = new EtatFenetre(observateur);
 	}
-
-
 	
-	/**
-	 * Cette méthode sert à ajouter une String dans le catalogue.
-	 * @param string
-	 */
 	public void ajouterItem(Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
 		unResto.ajouterItem(item);
 	}
-	
-	/**
-	 * Cette méthode sert à retirer une String dans le catalogue.
-	 * @param index
-	 */
 	public void retirerItem(int index) {
 		unResto.retirerItem(index);
 	}
 	
-	
-	/**
-	 * Cette méthode sert à ajouter une String dans le catalogue.
-	 * @param string
-	 */
 	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
 		lsRestos.ajouterRestaurant(unResto);
-		System.out.println("Instance de terminal = "+this.toString()+" "+"Le resto ajouté est : " +unResto.toString());
 	}
-	
-	/**
-	 * Cette méthode sert à ajouter une String dans le catalogue.
-	 * @param string
-	 */
-	public void ajouterRestaurant(String nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture, ArrayList<ItemMenu> m) {
-		Restaurant restoTempo = new Restaurant(nom,adresse,numeroTel,zoneCouverture,heureOuverture,heureFermeture,m);
-		lsRestos.ajouterRestaurant(unResto);
-	}
-	
 	public void modifierRestaurant(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
 		lsRestos.modifierRestaurant(index,unResto);
 		System.out.println("terminal modifier restaurant"+unResto.getAdresse()+this.toString());
 	}
-	
-	
-	/**
-	 * Cette méthode sert à retirer une String dans le catalogue.
-	 * @param index
-	 */
-	
-	
-	/**
-	 * Cette méthode sert à retirer un restaurant dans le catalogue.
-	 * @param index
-	 */
 	public void retirerRestaurant(int index) {
 		lsRestos.retirerRestaurant(index);
 	}
@@ -131,18 +87,18 @@ public class Terminal {
 	public void ajouterClient(String loginName, String password, String infoDuDude) {
 		//Client clientTempo = new Client(loginName,password,infoDuDude);
 		//lsClients.ajouterClient(clientTempo);
-		listeUsager[listeUsager.length]= new Usager(loginName,password,infoDuDude,new RClient());
+		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
+		listeUsager[listeUsager.length]= tempo;
+		lUsager = tempo;
 	}
-	public void modifierClient(int elementSelectionne, String loginName, String password, String infoDuDude) {
-		//lsClients.
-		//Client clientTempo = new Client(loginName,password,infoDuDude);
-		//lsClients.ajouterClient(clientTempo);
+	public Usager getlUsager() {
+		return lUsager;
 	}
-	
-	/**
-	 * Cette méthode sert à retirer un Client dans le catalogue.
-	 * @param index
-	 */
+
+	public void modifierClient(String loginName, String password, String infoDuDude) {
+		lUsager = new Usager(loginName,password,infoDuDude,new RClient());
+		lsUsagers.modifierUsager(indexUser, lUsager);
+	}
 	public void retirerClient(int index) {
 		unResto.retirerItem(index);
 	}
@@ -150,6 +106,7 @@ public class Terminal {
 	public void rafraichierVue(){
 		letatFen.rafraichirVue();
 	}
+	
 	public void authentifier() {
 		int sizeTab = 3;
 		boolean connected=false;
@@ -175,7 +132,7 @@ public class Terminal {
 					lUsager.setPassword(listeUsager[compteur].getPassword());
 					lUsager.setInfoDuDude(listeUsager[compteur].getInfoDuDude());
 					lUsager.setDroits(listeUsager[compteur].getDroits());
-					
+					indexUser = compteur;
 				}
 				else{
 					JOptionPane.showMessageDialog(null,"Mauvais mot de passe");
@@ -191,7 +148,6 @@ public class Terminal {
 		}
 	
 	}
-		
 	public void deconnexion(){
 		
 	lUsager.setDroits(new Null());
@@ -201,6 +157,7 @@ public class Terminal {
 	public static Terminal getInstance(){
 		return instance;
 	}
+	
 	public Restaurant getResto(){
 		return this.unResto ;
 	}
