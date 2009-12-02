@@ -107,6 +107,12 @@ public class Terminal {
 		lsRestos.ajouterRestaurant(unResto);
 	}
 	
+	public void modifierRestaurant(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
+		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
+		lsRestos.modifierRestaurant(index,unResto);
+		System.out.println("terminal modifier restaurant"+unResto.getAdresse()+this.toString());
+	}
+	
 	
 	/**
 	 * Cette méthode sert à retirer une String dans le catalogue.
@@ -119,7 +125,7 @@ public class Terminal {
 	 * @param index
 	 */
 	public void retirerRestaurant(int index) {
-		unResto.retirerItem(index);
+		lsRestos.retirerRestaurant(index);
 	}
 	
 	public void ajouterClient(String loginName, String password, String infoDuDude) {

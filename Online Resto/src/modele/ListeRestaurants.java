@@ -78,5 +78,16 @@ public class ListeRestaurants extends Observable {
 		setChanged();
 		notifyObservers(m.toArray());
 	}
+	public void modifierRestaurant(int index, Restaurant resto) {
+		m.remove(index);
+		m.add(index, resto);
+		/*
+		 * Il est important d'indiquer que la classe observée a changé AVANT
+		 * d'aviser les observateurs. 
+		 */
+		setChanged();
+		notifyObservers(m.toArray());
+	}
+
 	
 }
