@@ -199,14 +199,15 @@ public class BarreMenu extends JMenuBar implements Observer{
 	}
 	
 	public void nouvelleVueClient(){
-		panneauTempo = new VueMenu();
+
+		panneauTempo = new VueClient();
 		
 	}
 	public void nouvelleVueMenu(){
 		panneauTempo = new VueMenu();
 	}
 	public void nouvelleVueRestaurant(){
-		panneauTempo = new VueRestaurant();
+		panneauTempo = new VueRestaurantBeta();
 	}
 	public void nouvelleVueDefaut(){
 		panneauTempo = new DefaultVue();
