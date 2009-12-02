@@ -26,12 +26,14 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurRestaurant implements ActionListener {
+public class ControleurRestaurant implements ActionListener, ListSelectionListener {
 
 	//... The Controller needs to interact with both the Model and View.
 	private VueRestaurant vue ;
 	private Terminal instance;
-
+	private String texte;
+	private int elementSelectionne;
+	
 	/**
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
@@ -68,20 +70,71 @@ public class ControleurRestaurant implements ActionListener {
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {			
-			vue.grabText();
+			
 			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
-            vue.doList(instance.getResto());
+           // vue.doList(instance.getResto());
+            
 
 		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {	
+		else if(action.equalsIgnoreCase("ENLEVER")) {	
 			//instance.retirerRestaurant(vue.getNum());
-
-		}
+			if(elementSelectionne != -1) {
+				instance.retirerRestaurant(elementSelectionne);
+				/*
+				 * Lorsque l'élément sélectionné a été retiré, il remettre la
+				 * valeur à -1
+				 */
+				elementSelectionne = -1;
+			}
+		} 
+		
 		else if(action.equalsIgnoreCase("MODIFIER")) {	
-			//instance.retirerRestaurant(vue.getNum());
+		
+			instance.modifierRestaurant(elementSelectionne, vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
 
 		}
+		else {
+			System.err.println("L'action '" + action + "' est inconnue...");
+		}
 
+	}
+
+	//@Override
+	public void changedUpdate(DocumentEvent arg0) {
+		/*
+		 * Cette méthode sert à copier le texte dans la boîte de texte de la vue.
+		 * 
+		 * La méthode "changedUpdate" n'est pas appelée directement lorsqu'un
+		 * caractère est ajouté ou retiré de la boîte de texte. Ce sont plutôt
+		 * les méthodes insertUpdate et removeUpdate qui sont invoquées.
+		 * Cependant, les deux méthodes appellent la méthode changedUpdate, car
+		 * le même traitement est effectué dans les deux cas.
+		 */
+		Document document = arg0.getDocument();
+		try {
+			texte = document.getText(0, document.getLength());
+		} catch (BadLocationException e) {
+			texte = "";
+		}
+	}
+/* si on utilise le document listener
+	@Override
+	public void insertUpdate(DocumentEvent arg0) {
+		changedUpdate(arg0);
+	}
+
+	@Override
+	public void removeUpdate(DocumentEvent arg0) {
+		changedUpdate(arg0);
+	}
+*/
+	@Override
+	public void valueChanged(ListSelectionEvent arg0) {
+		/*
+		 * Lorsque l'utilisateur sélectionne un élément dans la liste, le
+		 * contrôleur note l'index de l'item sélectionné.
+		 */
+		elementSelectionne = arg0.getFirstIndex();
 	}
 
 
