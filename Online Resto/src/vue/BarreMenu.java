@@ -102,8 +102,8 @@ public class BarreMenu extends JMenuBar implements Observer{
         
         
         // SWITCH QUI PERMET DE POUVOIR AVOIR ACCES A TOUT SANS SE LOGGUER (enlever avant production ;) )
-       // verifDroits(droits);
-        DroitsTempo();
+        //verifDroits(droits);
+       DroitsTempo();
 	}
     
 	private void DroitsTempo() {
@@ -139,7 +139,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	 itemDC.setEnabled(false); 
 	        	 menuG.setEnabled(false);
 	        	 itemAC.setEnabled(true);
-	      
+	        	
 		      
 	        }
 		 
@@ -150,6 +150,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	       	 	menuG.setEnabled(true);
 	       	  	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(true);
+	       	 	itemMenu.setVisible(false);
+	       	 	itemResto.setVisible(false);
 	        }
 	        else if (droits.isLivreur()){
 	        	
@@ -158,6 +160,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	       	 	menuG.setEnabled(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
+	       	 	itemMenu.setVisible(false);
+	       	 	itemResto.setVisible(false);
 	        }
 	        else if (droits.isGerant()){
 	        	
@@ -166,6 +170,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	       	 	menuG.setEnabled(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
+	       		itemMenu.setVisible(true);
+	       	 	itemResto.setVisible(true);
 	        }
 	        else if (droits.isAdmin()){
 	        	
@@ -174,6 +180,8 @@ public class BarreMenu extends JMenuBar implements Observer{
 	       	 	menuG.setEnabled(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
+	       	 	itemMenu.setVisible(true);
+	       	 	itemResto.setVisible(true);
 	        }
 	}
 	
