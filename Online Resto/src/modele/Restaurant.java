@@ -97,4 +97,13 @@ public class Restaurant {
 	public String getNom() {
 		return this.nom ;
 	}
+	public String toString(){
+		//String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture
+		String tempo;
+		
+		tempo = nom + " " + adresse + " " + numeroTel;
+		
+		
+		return tempo;
+	}
 }
