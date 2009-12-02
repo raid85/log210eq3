@@ -12,9 +12,9 @@ import controleur.ControleurVue;
 
 public class BarreMenu extends JMenuBar implements Observer{
 
-    private JMenu menuF, menuG, resto, menus, submenu, menuC;
+    private JMenu menuF, menuG;
     
-    private JMenuItem itemC, itemDC, itemQ, itemAM, itemMM, itemSM, itemAR, itemMR, itemSR, itemAC, itemMC, itemSC;
+    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC;
     private Role droits;
     private JPanel panneauTempo;
 	/**
@@ -76,63 +76,50 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemMC.addActionListener(controleur);
         itemMC.setActionCommand("MODCLIENT");
         menuG.add(itemMC);
-        /*
-        itemSC = new JMenuItem("Supprimer un client");        
-        itemSC.addActionListener(controleur);
-        itemSC.setActionCommand("SUPCLIENT");
-        itemSC.setEnabled(false);
-        menuC.add(itemSC);	        
-        */
-        
-        
-        
-        
-        menus = new JMenu("Menus");
-        menuG.add(menus);
-        itemAM = new JMenuItem("Créer un Menu");    
-        itemAM.addActionListener(controleur);
-        itemAM.setActionCommand("ADDMENU");
-				
-        menus.add(itemAM);
-        itemMM = new JMenuItem("Modifier un Menu");        
-        itemMM.addActionListener(controleur);
-		itemMM.setActionCommand("MODMENU");
 
-        menus.add(itemMM);
-        itemSM = new JMenuItem("Supprimer un Menu");        
-        itemSM.addActionListener(controleur);
-        itemSM.setActionCommand("SUPMENU");
-        itemSM.setEnabled(false);
-        menus.add(itemSM);
+        
+        
+        
+   
+        itemMenu = new JMenuItem("Créer un Menu");    
+        itemMenu.addActionListener(controleur);
+        itemMenu.setActionCommand("ADDMENU");
+			
+        menuG.add(itemMenu);
+        
 		
-        resto = new JMenu("Restaurants");  
-        menuG.add(resto);
-        itemAR = new JMenuItem("Ajouter un restaurant");        
-        itemAR.addActionListener(controleur);
-		itemAR.setActionCommand("ADDRESTO");
-        resto.add(itemAR);
         
-        itemMR = new JMenuItem("Modifier un restaurant");        
-        itemMR.addActionListener(controleur);
-        itemMR.setActionCommand("MODRESTO");
-        resto.add(itemMR);
+        itemResto = new JMenuItem("Ajouter un restaurant");        
+        itemResto.addActionListener(controleur);
+		itemResto.setActionCommand("ADDRESTO");
+        menuG.add(itemResto);
         
-        itemSR = new JMenuItem("Supprimer un restaurant");        
-        itemSR.addActionListener(controleur);
-        itemSR.setActionCommand("SUPRESTO");
-        itemSR.setEnabled(false);
-        resto.add(itemSR);		
+       
                
         
         
         
         
         
-        
-        verifDroits(droits);
-   
+        // SWITCH QUI PERMET DE POUVOIR AVOIR ACCES A TOUT SANS SE LOGGUER (enlever avant production ;) )
+       // verifDroits(droits);
+        DroitsTempo();
 	}
     
+	private void DroitsTempo() {
+		// TODO Auto-generated method stub
+		 itemC.setEnabled(true);
+    	 itemDC.setEnabled(true); 
+    	 menuG.setEnabled(true);
+    	 itemAC.setEnabled(true);
+    	 itemC.setEnabled(true);
+    	 	itemDC.setEnabled(true);
+    	 	menuG.setEnabled(true);
+    	 	
+    	 	itemAC.setEnabled(true);
+    	 	itemMC.setEnabled(true);
+	}
+
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 
@@ -161,9 +148,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
 	       	 	menuG.setEnabled(true);
-	       	 	resto.setEnabled(false);
-	       	 	menus.setEnabled(false);
-	       	 	itemAC.setEnabled(false);
+	       	  	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(true);
 	        }
 	        else if (droits.isLivreur()){
@@ -171,8 +156,6 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
 	       	 	menuG.setEnabled(true);
-	       	 	resto.setEnabled(false);
-	       	 	menus.setEnabled(false);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	        }
@@ -181,8 +164,6 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
-	       	 	resto.setEnabled(true);
-	       	 	menus.setEnabled(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	        }
@@ -191,8 +172,6 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
 	       	 	menuG.setEnabled(true);
-	       	 	resto.setEnabled(true);
-	       	 	menus.setEnabled(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	        }

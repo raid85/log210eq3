@@ -44,89 +44,26 @@ public class VueClient extends JPanel implements Observer
 	  			textAdresse = new JTextField(),
 	  			textMotDePasse = new JTextField(),
 	  			textCourriel = new JTextField();
-	
+	  GridBagLayout repartiteur;
 	
 	VueClient()
   {
 	modifier = false;
 	controleur = new ControleurClient((Observer)this);
 	 
-	 GridBagLayout repartiteur=new GridBagLayout(); 	
+	repartiteur=new GridBagLayout(); 	
 	 
 	//ajout du controleur comme écouter des actions des boutons enlever et ajouter
 
 	ajouter.addActionListener(controleur);
 	ajouter.setActionCommand("AJOUTER");	
 	 
-	setLayout(repartiteur); 
-	this.setBackground(Color.LIGHT_GRAY);
-	labelTitre.setPreferredSize(new Dimension(250,20)); 
-	UtilitaireRepartition.ajouter(this,labelTitre,1,0,5,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.NORTH,
-            0,0,2,2,2,2,0,0);
-	UtilitaireRepartition.ajouter(this,labelRien2,0,1,5,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-	 UtilitaireRepartition.ajouter(this,labelNom,0,2,1,1,GridBagConstraints.HORIZONTAL,
-	            GridBagConstraints.SOUTH,
-	            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelAdresse,0,3,1,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);     
-    UtilitaireRepartition.ajouter(this,labelMotDePasse,0,4,1,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,labelCourriel,0,5,1,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-  
-    UtilitaireRepartition.ajouter(this,labelRien,0,6,3,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,2,2,2,2,0,0);
-    
- 
-    UtilitaireRepartition.ajouter(this,textNom,2,2,4,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.NORTH,
-            0,0,15,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textAdresse,2,3,4,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,15,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textMotDePasse,2,4,4,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,15,2,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,textCourriel,2,5,4,1,GridBagConstraints.HORIZONTAL,
-            GridBagConstraints.SOUTH,
-            0,0,15,2,2,2,0,0);
-   
-    
-    UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
-            GridBagConstraints.SOUTH,
-            0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,modifier2,6,3,1,1,GridBagConstraints.NONE,
-            GridBagConstraints.SOUTH,
-            0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,annuler,6,4,1,1,GridBagConstraints.NONE,
-            GridBagConstraints.SOUTH,
-            0,0,2,10,2,2,0,0); 
-    
-   list.setPreferredSize(new Dimension(250,180));   
-    UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
-            GridBagConstraints.SOUTH,
-            0,0,1,1,10,1,0,0);
+	createGUI();
+
   }
 	
-	VueClient(boolean modifier)
-	  {
-		modifier = true;
-		controleur = new ControleurClient((Observer)this);
-		 
-		 GridBagLayout repartiteur=new GridBagLayout(); 	
-		 
-		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
-
-		ajouter.addActionListener(controleur);
-		ajouter.setActionCommand("AJOUTER");	
-		 
+	
+	public void createGUI(){
 		setLayout(repartiteur); 
 		this.setBackground(Color.LIGHT_GRAY);
 		labelTitre.setPreferredSize(new Dimension(250,20)); 
@@ -182,7 +119,7 @@ public class VueClient extends JPanel implements Observer
 	    UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,1,1,10,1,0,0);
-	  }	
+	}
 
 	public String getTextNom() {
 		return textNom.getText();
