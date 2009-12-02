@@ -32,12 +32,6 @@ public class VueRestaurant extends JPanel implements Observer
 {  
 	private ControleurRestaurant controleur;
 
-	private String nomResto ;
-	private String adresse ;
-	private String telephone ;
-	private String zoneLivraison ;
-	private String heureOuverture;	
-
 	JButton ajouter=new JButton("AJOUTER");	
 	JButton enlever=new JButton("ENLEVER");	
 	JButton modifier=new JButton("MODIFIER"); 
@@ -154,57 +148,26 @@ public class VueRestaurant extends JPanel implements Observer
 	}
 
 
-	/**Méthode qui sert a récupérer le texte sous for de string des JTextField
-	 * 
-	 */
-	public void grabText (){
+	
 
-		this.nomResto = textNom.getText();
-		this.adresse=textAdresse.getText();
-		this.telephone = textTelephone.getText();
-		this.zoneLivraison=textZoneLivraison.getText();
-		this.heureOuverture=textHeureOuverture.getText();	
-
-		/*Document documentNom = textNom.getDocument();
-		Document documentAdresse = textAdresse.getDocument();
-		Document documentTel =textTelephone.getDocument();
-		Document documentZL =textZoneLivraison.getDocument();
-		Document documentHO = textHeureOuverture.getDocument();
-		Document documentHF = textHeureFermeture.getDocument();
-
-		documentNom.addDocumentListener(controleur);
-		documentAdresse.addDocumentListener(controleur);
-		documentTel.addDocumentListener(controleur);
-		documentZL.addDocumentListener(controleur);
-		documentHO.addDocumentListener(controleur);
-		documentHF.addDocumentListener(controleur);*/
-
-
-
-
-	}
-	/*public void doList(Restaurant r){
-		listModel.addElement(r);
-	}
-*/
 	/**Groupe d'accesseurs qui fournissent les infos saisies par la vue sous forme de String
 	 * 
 	 * @return String
 	 */
 	public String getNom (){
-		return this.nomResto;
+		return textNom.getText();
 	}
 	public String getAdresse (){
-		return this.adresse ;
+		return textAdresse.getText();
 	}
 	public String getTelephone (){
-		return this.telephone;
+		return textTelephone.getText();
 	}
 	public String getZoneLivraison (){
-		return this.zoneLivraison;
+		return textZoneLivraison.getText();
 	}
 	public String getHeureOuverture (){
-		return this.heureOuverture;
+		return textHeureOuverture.getText();
 	}
 
 	
