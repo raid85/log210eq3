@@ -207,7 +207,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 		panneauTempo = new VueMenu();
 	}
 	public void nouvelleVueRestaurant(){
-		panneauTempo = new VueRestaurantBeta();
+		panneauTempo = new VueRestaurant();
 	}
 	public void nouvelleVueDefaut(){
 		panneauTempo = new DefaultVue();
