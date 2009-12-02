@@ -13,6 +13,8 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
 
+import modele.Usager;
+
 import controleur.ControleurClient;
 import controleur.ControleurRestaurant;
 import controleur.ControleurVue;
@@ -22,8 +24,9 @@ public class VueClient extends JPanel implements Observer
 	
 	ControleurClient controleur;
 	
+	boolean modifier;
 	  JButton ajouter=new JButton(" Ajouter ");
-	  JButton modifier=new JButton("modifier");
+	  JButton modifier2=new JButton("modifier");
 	  JButton annuler=new JButton("annuler ");
 	  JList list = new JList();
 	  
@@ -45,7 +48,7 @@ public class VueClient extends JPanel implements Observer
 	
 	VueClient()
   {
-	
+	modifier = false;
 	controleur = new ControleurClient((Observer)this);
 	 
 	 GridBagLayout repartiteur=new GridBagLayout(); 	
@@ -99,7 +102,7 @@ public class VueClient extends JPanel implements Observer
     UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
-    UtilitaireRepartition.ajouter(this,modifier,6,3,1,1,GridBagConstraints.NONE,
+    UtilitaireRepartition.ajouter(this,modifier2,6,3,1,1,GridBagConstraints.NONE,
             GridBagConstraints.SOUTH,
             0,0,2,10,2,2,0,0);
     UtilitaireRepartition.ajouter(this,annuler,6,4,1,1,GridBagConstraints.NONE,
@@ -111,6 +114,75 @@ public class VueClient extends JPanel implements Observer
             GridBagConstraints.SOUTH,
             0,0,1,1,10,1,0,0);
   }
+	
+	VueClient(boolean modifier)
+	  {
+		modifier = true;
+		controleur = new ControleurClient((Observer)this);
+		 
+		 GridBagLayout repartiteur=new GridBagLayout(); 	
+		 
+		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
+
+		ajouter.addActionListener(controleur);
+		ajouter.setActionCommand("AJOUTER");	
+		 
+		setLayout(repartiteur); 
+		this.setBackground(Color.LIGHT_GRAY);
+		labelTitre.setPreferredSize(new Dimension(250,20)); 
+		UtilitaireRepartition.ajouter(this,labelTitre,1,0,5,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,2,2,2,2,0,0);
+		UtilitaireRepartition.ajouter(this,labelRien2,0,1,5,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);
+		 UtilitaireRepartition.ajouter(this,labelNom,0,2,1,1,GridBagConstraints.HORIZONTAL,
+		            GridBagConstraints.SOUTH,
+		            0,0,2,2,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,labelAdresse,0,3,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);     
+	    UtilitaireRepartition.ajouter(this,labelMotDePasse,0,4,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,labelCourriel,0,5,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);
+	  
+	    UtilitaireRepartition.ajouter(this,labelRien,0,6,3,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,2,2,2,0,0);
+	    
+	 
+	    UtilitaireRepartition.ajouter(this,textNom,2,2,4,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,15,2,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,textAdresse,2,3,4,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,15,2,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,textMotDePasse,2,4,4,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,15,2,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,textCourriel,2,5,4,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,15,2,2,2,0,0);
+	   
+	    
+	    UtilitaireRepartition.ajouter(this,ajouter,6,2,1,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,10,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,modifier2,6,3,1,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,10,2,2,0,0);
+	    UtilitaireRepartition.ajouter(this,annuler,6,4,1,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,10,2,2,0,0); 
+	    
+	   list.setPreferredSize(new Dimension(250,180));   
+	    UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,1,1,10,1,0,0);
+	  }	
 
 	public String getTextNom() {
 		return textNom.getText();
@@ -131,8 +203,21 @@ public class VueClient extends JPanel implements Observer
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
+		if(modifier){
+			Usager unUser = (Usager) arg0;
+			remplirTableau(unUser);
+		}
+		
+	
 		
 	} 
+	
+	public void remplirTableau(Usager unUser){
+	textNom.setText(unUser.getLoginName());
+	textAdresse.setText(unUser.getInfoDuDude());
+	textMotDePasse.setText(unUser.getPassword());
+	textCourriel.setText(unUser.getInfoDuDude());
+	}
 }
 
 
