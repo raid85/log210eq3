@@ -86,6 +86,17 @@ public class ListeUsagers extends Observable {
 		return tempo;
 		
 	}
+	public void modifierUsager(int index, Usager lUsager) {
+		m.remove(index);
+		m.add(index, lUsager);
+		/*
+		 * Il est important d'indiquer que la classe observée a changé AVANT
+		 * d'aviser les observateurs. 
+		 */
+		setChanged();
+		notifyObservers(m.toArray());
+	}
+	
 	public int getHauteur(){
 	int tempo;
 	tempo=1;
