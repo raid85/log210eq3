@@ -28,6 +28,7 @@ public class VueMenu extends JPanel implements Observer
 	  JButton modifierMenu=new JButton("MODIFIER MENU");
 	  JButton ajouterItem =new JButton("Ajouter item");
 	  JButton retirerItem =new JButton("Retirer item");
+	  JButton modifierItem =new JButton("Modifier item");
 	  
 	  JList listeRestaurants = new JList();	
 	  JList menu = new JList();
@@ -47,7 +48,10 @@ public class VueMenu extends JPanel implements Observer
 
 	  public String getTextPrixItem() {
 		return textPrixItem.getText();
-	  }	
+	  }
+	  public int getSelectionMenu(){
+		  return menu.getSelectedIndex();
+	  }
 	
 	public VueMenu() {
 		ajouterMenu.addActionListener(controleur);
@@ -60,10 +64,14 @@ public class VueMenu extends JPanel implements Observer
 		modifierMenu.setActionCommand("modifierMenu");
 		
 		ajouterItem.addActionListener(controleur);
-		ajouterItem.setActionCommand("ajouterItem");
+		ajouterItem.setActionCommand("AJOUTER");
 		
 		retirerItem.addActionListener(controleur);
-		retirerItem.setActionCommand("retirerItem");
+		retirerItem.setActionCommand("RETIRER");
+		
+		modifierItem.addActionListener(controleur);
+		modifierItem.setActionCommand("MODIFIER");
+		
 
 		repartiteur = new GridBagLayout(); 	
 		
