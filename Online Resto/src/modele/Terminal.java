@@ -103,7 +103,8 @@ public class Terminal {
 		//Client clientTempo = new Client(loginName,password,infoDuDude);
 		//lsClients.ajouterClient(clientTempo);
 		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
-		listeUsager[listeUsager.length]= tempo;
+		listeUsager[listeUsager.length-1]= tempo;
+		
 		lUsager = tempo;
 	}
 	public Usager getlUsager() {
