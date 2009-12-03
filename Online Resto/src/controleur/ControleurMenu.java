@@ -60,7 +60,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 	public ControleurMenu(Observer observateur) {
 		
 		instance=Terminal.getInstance();
-		instance.addRestoObserver(observateur);
+		instance.addMenuObserver(observateur);
 		this.vue = (VueMenu) observateur;
 		texte = "";
 		elementSelectionne = -1;
@@ -78,33 +78,36 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		 * au préalable).
 		 */
 		String action = arg0.getActionCommand();
-		if(action.equalsIgnoreCase("AJOUTER")) {
-			double tempo = Double.parseDouble(vue.getTextPrixItem());
-			
-			instance.ajouterItem(tempo, vue.getTextItemDeMenu());
+		if(action.equalsIgnoreCase("AJOUTER")) {			
+			//if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
+			Double tempo = Double.parseDouble(vue.getTextPrixItem());
+			instance.ajouterItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
+			// vue.doList(instance.getResto());
+			//} 
+
 		} 
-		else if(action.equalsIgnoreCase("RETIRER")) {
+		else if(action.equalsIgnoreCase("ENLEVER")) {	
+			//instance.retirerRestaurant(vue.getNum());
 			if(elementSelectionne != -1) {
-				instance.retirerItem(elementSelectionne);
+				instance.retirerItem(elementSelectionne, vue.getSelectionMenu());
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
 				 */
 				elementSelectionne = -1;
 			}
+			else {
+				JOptionPane.showMessageDialog(null,"La liste est vide");
+			}
+		} 
+
+		else if(action.equalsIgnoreCase("MODIFIER")) {	
+			
+			Double tempo = Double.parseDouble(vue.getTextPrixItem());
+			instance.modifierItem(elementSelectionne, vue.getSelectionMenu(), tempo, vue.getTextItemDeMenu());
 		}
-		else if(action.equalsIgnoreCase("MODIFIER")) {
-			if(elementSelectionne != -1) {
-				double tempo = Double.parseDouble(vue.getTextPrixItem());
-				
-				instance.modifierItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
-				
-				/*
-				 * Lorsque l'élément sélectionné a été retiré, il remettre la
-				 * valeur à -1
-				 */
-				elementSelectionne = -1;
-			}
+		else {
+			System.err.println("L'action '" + action + "' est inconnue...");
 		}
 		
 	}
