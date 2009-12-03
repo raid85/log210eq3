@@ -50,35 +50,46 @@ public class Terminal {
 	
 	
 	//Consctructeur et ce qui attrait a la gestion des obersvateurs
-    Terminal() {}
+    Terminal() {
+    	lsRestos = new ListeRestaurants();
+    	lsLivreurs = new ListeLivreur();
+    	lUsager = new Usager();
+    	letatFen = new EtatFenetre();
+    }
 	
 	public void addRestoObserver(Observer observateur){
-		lsRestos = new ListeRestaurants(observateur);
+		lsRestos.ajouterObserver(observateur);
+		
 	}
 	public void addLivreurObserver(Observer observateur){
-		lsLivreurs = new ListeLivreur(observateur);
+		lsLivreurs.ajouterObserver(observateur);
+		
 	}
 	public void addUsagerObserver(Observer observateur){
-		lUsager = new Usager(observateur);
+		lUsager.ajouterObserver(observateur);
+		
 	}
 	public void addMenuObserver(Observer observateur){
-		lsRestos = new ListeRestaurants(observateur);
+		lsRestos.ajouterObserver(observateur);
+		
 	}
 	public void addFenetreObserver(Observer observateur){
-		letatFen = new EtatFenetre(observateur);
+		letatFen.ajouterObserver(observateur);
+		
 	}
 	
-	public void ajouterItem(Double par1, String par2) {
+	public void ajouterItem(int indexR, Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
-		unResto.ajouterItem(item);
+		
+		lsRestos.ajouterItemMenu(indexR, item);
 	}
-	public void retirerItem(int index) {
-		unResto.retirerItem(index);
+	public void retirerItem(int indexR, int indexIM) {
+		lsRestos.retirerItemMenu(indexR, indexIM);
 	}
-	public void modifierItem(int index, Double par1, String par2) {
+	public void modifierItem(int indexR, int indexIM, Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
-		lsRestos.modifierRestaurant(index,unResto);
-		System.out.println("terminal modifier restaurant"+unResto.getAdresse()+this.toString());
+		lsRestos.modifierItemMenu(indexR, indexIM, item);
+		
 	}
 	
 	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
