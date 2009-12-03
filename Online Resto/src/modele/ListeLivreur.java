@@ -49,6 +49,7 @@ public class ListeLivreur extends Observable {
 	 * @param string
 	 */
 	public void ajouterLivreur(Livreur livreur) {
+		//System.out.println("Livreur ajoute :"+livreur.toString()+" "+livreur.getClass());
 		l.add(livreur);
 		
 		/*
@@ -66,6 +67,7 @@ public class ListeLivreur extends Observable {
 	 * @param index
 	 */
 	public void retirerLivreur(int index) {
+		//System.out.println("Livreur enleve : "+l.get(index).getNom());
 		l.remove(index);
 		
 		/*
