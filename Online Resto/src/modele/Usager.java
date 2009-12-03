@@ -31,9 +31,9 @@ public class Usager extends Observable {
 		notifyObservers(droits);
 	}
 
-	public Usager(Observer observateur) {
+	public Usager() {
 		
-		addObserver(observateur);
+		
 		
 	}
 	
@@ -80,6 +80,12 @@ public class Usager extends Observable {
 		}
 		else	
 		return false;
+	}
+	
+	public void ajouterObserver(Observer observateur) {
+		addObserver(observateur);
+		setChanged();
+
 	}
 	
 	
