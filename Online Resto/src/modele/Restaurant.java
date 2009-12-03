@@ -62,6 +62,19 @@ public class Restaurant {
 	public int getidRestaurant() {
 		return idRestaurant;
 	}
+
+	public String getNom() {
+		return this.nom ;
+	}
+	public String toString(){
+		//String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture
+		String tempo;
+		
+		tempo = nom + " " + adresse + " " + numeroTel;
+		
+		
+		return tempo;
+	}
 	
 	/**
 	 * Cette méthode sert à ajouter une string au Catalogue.
@@ -94,16 +107,15 @@ public class Restaurant {
 		 */
 		
 	}
-	public String getNom() {
-		return this.nom ;
-	}
-	public String toString(){
-		//String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture
-		String tempo;
+	
+	public void modifierItem(int index, ItemMenu item ) {
+		menu.remove(index);
+		menu.add(index, item);
 		
-		tempo = nom + " " + adresse + " " + numeroTel;
+		/*
+		 * Il est important d'indiquer que la classe observée a changé AVANT
+		 * d'aviser les observateurs. 
+		 */
 		
-		
-		return tempo;
 	}
 }
