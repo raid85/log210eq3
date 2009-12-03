@@ -30,7 +30,7 @@ public class ListeClients extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeClients(Observer observateur) {
+	public ListeClients() {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
@@ -42,7 +42,7 @@ public class ListeClients extends Observable {
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
 		 * Catalogue.
 		 */
-		addObserver(observateur);
+		
 	}
 	
 	/**
@@ -88,6 +88,12 @@ public class ListeClients extends Observable {
 	int tempo;
 	tempo=1;
 	return tempo;
+	}
+	
+	public void ajouterObserver(Observer observateur) {
+		addObserver(observateur);
+		setChanged();
+		notifyObservers(m.toArray());
 	}
 }
 	
