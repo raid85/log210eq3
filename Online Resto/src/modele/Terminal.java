@@ -83,7 +83,7 @@ public class Terminal {
 	public void modifierRestaurant(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);
 		lsRestos.modifierRestaurant(index,unResto);
-		System.out.println("terminal modifier restaurant"+unResto.getAdresse()+this.toString());
+		
 	}
 	public void retirerRestaurant(int index) {
 		lsRestos.retirerRestaurant(index);
