@@ -96,7 +96,10 @@ public class Livreur implements Role{
 
 	public String toString(){
 
-		return getNom();
+		String tempo;		
+		tempo = this.Nom + " " + this.Adresse + " " + this.Telephone;		
+		
+		return tempo;
 	}
 
 
