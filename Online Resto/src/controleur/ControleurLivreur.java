@@ -1,9 +1,5 @@
 package controleur;
 
-/**
- * Ces classes permettent au ControleurVue d'agir comme ActionListener,
- * DocumentListener et ListSelectionListener.
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observer;
@@ -17,19 +13,18 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+import vue.VueLivreur;
 import vue.VueRestaurant;
 
 import modele.*;
 
-/**
- * 
- * @author François Caron
- *
- */
-public class ControleurRestaurant implements ActionListener, ListSelectionListener {
+
+public class ControleurLivreur implements ActionListener, ListSelectionListener{
+	
+
 
 	//... The Controller needs to interact with both the Model and View.
-	private VueRestaurant vue ;
+	private VueLivreur vue ;
 	private Terminal instance;
 	private String texte;
 	private int elementSelectionne;
@@ -52,11 +47,11 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 	 * 
 	 * @param observateur 
 	 */
-	public ControleurRestaurant(Observer observateur) {
+	public ControleurLivreur(Observer observateur) {
 
 		instance=Terminal.getInstance();
 		instance.addRestoObserver(observateur);	
-		this.vue = (VueRestaurant) observateur;
+		this.vue = (VueLivreur) observateur;
 
 	}
 
@@ -71,15 +66,15 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {			
 
-			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
-			// vue.doList(instance.getResto());
+			instance.ajouterLivreur(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneCouverture(),vue.getDispo());
+			
 
 
 		} 
 		else if(action.equalsIgnoreCase("ENLEVER")) {	
-			//instance.retirerRestaurant(vue.getNum());
+			
 			if(elementSelectionne != -1) {
-				instance.retirerRestaurant(elementSelectionne);
+				instance.retirerLivreur(elementSelectionne);
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
@@ -90,7 +85,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 
 		else if(action.equalsIgnoreCase("MODIFIER")) {	
 
-			instance.modifierRestaurant(elementSelectionne, vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
+			instance.modifierLivreur(elementSelectionne, vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneCouverture(),vue.getDispo());
 
 		}
 		else {
@@ -117,17 +112,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 			texte = "";
 		}
 	}
-	/* si on utilise le document listener
-	@Override
-	public void insertUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-	}
-
-	@Override
-	public void removeUpdate(DocumentEvent arg0) {
-		changedUpdate(arg0);
-	}
-	 */
+	
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		/*
@@ -136,6 +121,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 		 */
 		elementSelectionne = arg0.getFirstIndex();
 	}
+
 
 
 
