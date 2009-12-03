@@ -30,8 +30,8 @@ public class VueMenu extends JPanel implements Observer
 	  JButton retirerItem =new JButton("Retirer item");
 	  JButton modifierItem =new JButton("Modifier item");
 	  
-	  JList listeRestaurants = new JList();	
-	  JList menu = new JList();
+	  JList listeRestaurants;
+	  JList menu ;
 	  
 	  JLabel labelTitre = new JLabel("          CHOISISSEZ UN RESTAURANT"),	  		 
 	  		 labelItemDeMenu = new JLabel("Item de menu"),
@@ -54,6 +54,9 @@ public class VueMenu extends JPanel implements Observer
 	  }
 	
 	public VueMenu() {
+		menu = new JList();
+		listeRestaurants = new JList();
+		
 		ajouterMenu.addActionListener(controleur);
 		ajouterMenu.setActionCommand("ajouterMenu");
 		
@@ -126,7 +129,7 @@ public class VueMenu extends JPanel implements Observer
 	            GridBagConstraints.SOUTH,
 	            0,0,1,1,10,2,0,0);
 	    
-	   listeRestaurants.setPreferredSize(new Dimension(215,340));   
+	    listeRestaurants.setPreferredSize(new Dimension(215,340));   
 	    UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,1,5,10,2,0,0); 
