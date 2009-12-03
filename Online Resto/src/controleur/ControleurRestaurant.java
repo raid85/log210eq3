@@ -58,7 +58,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 		instance.addRestoObserver(observateur);	
 		this.vue = (VueRestaurant) observateur;
 		texte = "";
-	//	elementSelectionne = -1;
+		elementSelectionne = -1;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -71,10 +71,10 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {			
-			if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
+			//if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
 			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
 			// vue.doList(instance.getResto());
-			} 
+			//} 
 
 		} 
 		else if(action.equalsIgnoreCase("ENLEVER")) {	
@@ -86,6 +86,9 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 				 * valeur à -1
 				 */
 				elementSelectionne = -1;
+			}
+			else {
+				JOptionPane.showMessageDialog(null,"La liste est vide");
 			}
 		} 
 
