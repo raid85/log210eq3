@@ -27,7 +27,7 @@ public class ListeLivreur extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeLivreur(Observer observateur) {
+	public ListeLivreur() {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
@@ -39,7 +39,7 @@ public class ListeLivreur extends Observable {
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
 		 * Catalogue.
 		 */
-		addObserver(observateur);
+		
 	}
 	
 	/**
@@ -84,6 +84,11 @@ public class ListeLivreur extends Observable {
 		 * Il est important d'indiquer que la classe observée a changé AVANT
 		 * d'aviser les observateurs. 
 		 */
+		setChanged();
+		notifyObservers(l.toArray());
+	}
+	public void ajouterObserver(Observer observateur) {
+		addObserver(observateur);
 		setChanged();
 		notifyObservers(l.toArray());
 	}
