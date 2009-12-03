@@ -57,6 +57,7 @@ public class VueRestaurant extends JPanel implements Observer
 	JTextArea texte = new JTextArea();
 	VueRestaurant()
 	{		
+		
 		controleur = new ControleurRestaurant((Observer)this);	
 		repartiteur = new GridBagLayout();		
 		
@@ -71,7 +72,7 @@ public class VueRestaurant extends JPanel implements Observer
 		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		liste.setVisibleRowCount(10);
 		panlist = new JScrollPane(liste);
-
+		
 		
 		CreerGUI();
 
@@ -175,13 +176,15 @@ public class VueRestaurant extends JPanel implements Observer
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
 		liste.setListData((Object[])arg1);
+		
 		textNom.setText("");
 		textAdresse.setText("");
 		textTelephone.setText("");
 		textZoneLivraison.setText("");
 		textHeureOuverture.setText("");
 		
-	
+		
+		System.out.println(arg1.toString());
 	}
 
 
