@@ -30,7 +30,7 @@ public class ListeRestaurants extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeRestaurants(Observer observateur) {
+	public ListeRestaurants() {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
@@ -42,7 +42,7 @@ public class ListeRestaurants extends Observable {
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
 		 * Catalogue.
 		 */
-		addObserver(observateur);
+		
 	}
 	
 	/**
@@ -88,6 +88,39 @@ public class ListeRestaurants extends Observable {
 		setChanged();
 		notifyObservers(m.toArray());
 	}
+	public void ajouterItemMenu(int indexR, ItemMenu item){
+		Restaurant tempo = m.get(indexR);
+		tempo.ajouterItem(item);
+		modifierRestaurant(indexR,tempo);
+		
+		setChanged();
+		notifyObservers(m.toArray());		
+	}
+	public void modifierItemMenu(int indexR, int indexIM, ItemMenu item){
+		Restaurant tempo = m.get(indexR);
+		tempo.modifierItem(indexIM, item);
+		modifierRestaurant(indexR,tempo);
+		
+		setChanged();
+		notifyObservers(m.toArray());			
+	}
+	public void retirerItemMenu(int indexR, int indexIM){
+		Restaurant tempo = m.get(indexR);
+		tempo.retirerItem(indexIM);
+		modifierRestaurant(indexR,tempo);
+		
+		setChanged();
+		notifyObservers(m.toArray());			
+	}
+	
+	public void ajouterObserver(Observer observateur) {
+		
+		addObserver(observateur);
+		
+		setChanged();
+		notifyObservers(m.toArray());
+	}
+
 
 	
 }

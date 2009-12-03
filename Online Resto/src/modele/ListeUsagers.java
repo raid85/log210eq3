@@ -32,7 +32,7 @@ public class ListeUsagers extends Observable {
 	 * liste des ses observateurs.
 	 * @param observateur
 	 */
-	public ListeUsagers(Observer observateur) {
+	public ListeUsagers() {
 		/*
 		 * L'attribut de la classe ignore le type exact de List.
 		 * Dans le cas présent, une ArrayList a été utilisé. Un autre type de
@@ -44,7 +44,7 @@ public class ListeUsagers extends Observable {
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
 		 * Catalogue.
 		 */
-		addObserver(observateur);
+		
 	}
 	
 	/**
@@ -102,5 +102,10 @@ public class ListeUsagers extends Observable {
 	tempo=1;
 	return tempo;
 }
+	public void ajouterObserver(Observer observateur) {
+		addObserver(observateur);
+		setChanged();
+		notifyObservers(m.toArray());
+	}
 }
 	
