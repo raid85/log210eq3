@@ -31,12 +31,14 @@ public class Terminal {
 	private ListeRestaurants lsRestos;
 	private ListeClients lsClients;
 	private ListeUsagers lsUsagers;
+	private ListeLivreur lsLivreurs;
 	private EtatFenetre letatFen;
 	private int indexUser;
 	
 	
 	//Section pour initier les variables des restaurants pour tests
 	private Restaurant unResto ;
+	private Livreur unLivreur ;
 	
 	//Section pour initier les variables des usagers pour tests
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
@@ -82,6 +84,19 @@ public class Terminal {
 	}
 	public void retirerRestaurant(int index) {
 		lsRestos.retirerRestaurant(index);
+	}
+	
+	public void ajouterLivreur(String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
+		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
+		lsLivreurs.ajouterLivreur(unLivreur);
+	}
+	public void modifierLivreur(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
+		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
+		lsLivreurs.modifierLivreur(index, unLivreur);
+		System.out.println("terminal modifier Livreur"+unLivreur.getNom()+this.toString());
+	}
+	public void retirerLivreur(int index) {
+		lsLivreurs.retirerLivreur(index);
 	}
 	
 	public void ajouterClient(String loginName, String password, String infoDuDude) {

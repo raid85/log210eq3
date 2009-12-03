@@ -18,10 +18,10 @@ import javax.swing.text.Document;
 import controleur.* ;
 import modele.*;
 
-public class VueRestaurant extends JPanel implements Observer
+public class VueLivreur extends JPanel implements Observer
 
 {  
-	private ControleurRestaurant controleur;
+	private ControleurLivreur controleur;
 
 	JButton ajouter=new JButton("AJOUTER");	
 	JButton enlever=new JButton("ENLEVER");	
@@ -30,53 +30,46 @@ public class VueRestaurant extends JPanel implements Observer
 	JLabel labelNom = new JLabel("Nom"),	
 	labelAdresse = new JLabel("Adresse"),
 	labelTelephone = new JLabel("Téléphone"),
-	labelZoneLivraison = new JLabel("Zones de livraison"),
-	labelHeureOuverture = new JLabel("Heure d'ouverture"),	
-	labelTitre = new JLabel("                                                ESPACE RESTAURANT");
-	
+	labelZoneCouverture = new JLabel("Zone de couverture"),
+	labelDisponibilite = new JLabel("Disponibilitées"),	
+	labelTitre = new JLabel("                                                ESPACE LIVREUR");
 
 	private JScrollPane panlist ;
 	JList liste = new JList ();
-	
-	private JTextField nomsRestos;
+
+	private JTextField nomsLiveurs;
 
 	JTextField textNom = new JTextField(),	
 	textAdresse = new JTextField(),
 	textTelephone = new JTextField(),
-	textZoneLivraison = new JTextField(),
-	textHeureOuverture = new JTextField();
+	textZoneCouverture = new JTextField(),
+	textDisponibilite = new JTextField();
 	GridBagLayout repartiteur;
-	/*UTILITAIRE
-	textNom	
-	textAdresse
-	textTelephone
-	textZoneLivraison
-	textHeureOuverture
-	*/
+
 
 	JTextArea texte = new JTextArea();
-	VueRestaurant()
+	VueLivreur()
 	{		
-		controleur = new ControleurRestaurant((Observer)this);	
+		controleur = new ControleurLivreur((Observer)this);	
 		repartiteur = new GridBagLayout();		
-		
+
 		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
 
 		ajouter.addActionListener(controleur);
 		enlever.addActionListener(controleur);
 		modifier.addActionListener(controleur);
 		liste.addListSelectionListener(controleur);
-			
-		
+
+
 		liste.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		liste.setVisibleRowCount(10);
 		panlist = new JScrollPane(liste);
 
-		
+
 		CreerGUI();
 
 
-		
+
 	} 
 
 
@@ -96,10 +89,10 @@ public class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,labelTelephone,0,4,1,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,labelZoneLivraison,0,5,1,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,labelZoneCouverture,0,5,1,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,labelHeureOuverture,0,6,1,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,labelDisponibilite,0,6,1,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);		
 		textNom.setPreferredSize(new Dimension(200,20));
@@ -112,10 +105,10 @@ public class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,textTelephone,2,4,4,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,textZoneLivraison,2,5,4,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,textZoneCouverture,2,5,4,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
-		UtilitaireRepartition.ajouter(this,textHeureOuverture,2,6,4,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,textDisponibilite,2,6,4,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.SOUTH,
 				0,0,10,2,2,2,0,0);
 
@@ -128,15 +121,15 @@ public class VueRestaurant extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,modifier,6,4,1,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,2,10,2,2,0,0);    
-		
+
 		UtilitaireRepartition.ajouter(this,panlist,0,8,0,0,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,15,1,15,1,0,0);
-		
+
 	}
 
 
-	
+
 
 	/**Groupe d'accesseurs qui fournissent les infos saisies par la vue sous forme de String
 	 * 
@@ -151,24 +144,20 @@ public class VueRestaurant extends JPanel implements Observer
 	public String getTelephone (){
 		return textTelephone.getText();
 	}
-	public String getZoneLivraison (){
-		return textZoneLivraison.getText();
+	public String getZoneCouverture (){
+		return textZoneCouverture.getText();
 	}
-	public String getHeureOuverture (){
-		return textHeureOuverture.getText();
+	public String getDispo (){
+		return textDisponibilite.getText();
 	}
 
-	
+
 	public String toString(){
 		String tempo = textNom.getText();
 		return tempo;
-	}
+	}	
 
 
-
-	
-
-	
 
 
 	@Override
@@ -178,10 +167,10 @@ public class VueRestaurant extends JPanel implements Observer
 		textNom.setText("");
 		textAdresse.setText("");
 		textTelephone.setText("");
-		textZoneLivraison.setText("");
-		textHeureOuverture.setText("");
-		
-	
+		textZoneCouverture.setText("");
+		textDisponibilite.setText("");
+
+
 	}
 
 
