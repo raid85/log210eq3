@@ -14,7 +14,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, menuC;
     
-    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC, itemLivraison;
+    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC, itemLivraison, itemLivreur;
     private Role droits;
     private JPanel panneauTempo;
 	/**
@@ -85,8 +85,14 @@ public class BarreMenu extends JMenuBar implements Observer{
       //Construire le menu Gestion
         menuG = new JMenu("Gestion");
         this.add(menuG);
+           
+        itemLivreur = new JMenuItem("Livreur");    
+        itemLivreur.addActionListener(controleur);
+        itemLivreur.setActionCommand("LIVREUR");
+			
+        menuG.add(itemLivreur);
         
-   
+        
         itemMenu = new JMenuItem("Menu");    
         itemMenu.addActionListener(controleur);
         itemMenu.setActionCommand("ADDMENU");
@@ -219,6 +225,11 @@ public class BarreMenu extends JMenuBar implements Observer{
 
 	public JPanel getPanneauTempo() {
 		return panneauTempo;
+	}
+
+	public void nouvelleVueLivreur() {
+		panneauTempo = new VueLivreur();
+		
 	}
 
 	
