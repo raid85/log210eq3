@@ -6,13 +6,13 @@ import java.util.Observer;
 
 public class EtatFenetre extends Observable {
 
-	public EtatFenetre(Observer observateur) {
+	public EtatFenetre() {
 				
 		/*
 		 * L'observateur reçu en paramètre est ajouté aux observateurs du
 		 * Catalogue.
 		 */
-		addObserver(observateur);
+		
 	}
 	
 	/**
@@ -31,6 +31,10 @@ public class EtatFenetre extends Observable {
 		notifyObservers(null);
 	}
 	
+	public void ajouterObserver(Observer observateur) {
+		addObserver(observateur);
+		notifyObservers(null);
+	}
 	
 }
 
