@@ -12,9 +12,9 @@ import controleur.ControleurVue;
 
 public class BarreMenu extends JMenuBar implements Observer{
 
-    private JMenu menuF, menuG;
+    private JMenu menuF, menuG, menuC;
     
-    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC;
+    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC, itemLivraison;
     private Role droits;
     private JPanel panneauTempo;
 	/**
@@ -67,21 +67,27 @@ public class BarreMenu extends JMenuBar implements Observer{
 
         
         
-        //Construire le menu Gestion
-        menuG = new JMenu("Gestion");
-        this.add(menuG);
-        
+      
+      //Construire le menu Client
+        menuC = new JMenu("Client");
+        this.add(menuC);
         
         itemMC = new JMenuItem("Modifier compte");        
         itemMC.addActionListener(controleur);
         itemMC.setActionCommand("MODCLIENT");
-        menuG.add(itemMC);
+        menuC.add(itemMC);
 
+        itemSC = new JMenuItem("Supprimer compte");        
+        itemSC.addActionListener(controleur);
+        itemSC.setActionCommand("SUPPCLIENT");
+        menuC.add(itemSC);
         
-        
+      //Construire le menu Gestion
+        menuG = new JMenu("Gestion");
+        this.add(menuG);
         
    
-        itemMenu = new JMenuItem("Créer un Menu");    
+        itemMenu = new JMenuItem("Menu");    
         itemMenu.addActionListener(controleur);
         itemMenu.setActionCommand("ADDMENU");
 			
@@ -89,10 +95,15 @@ public class BarreMenu extends JMenuBar implements Observer{
         
 		
         
-        itemResto = new JMenuItem("Ajouter un restaurant");        
+        itemResto = new JMenuItem("Restaurant");        
         itemResto.addActionListener(controleur);
 		itemResto.setActionCommand("ADDRESTO");
         menuG.add(itemResto);
+        
+        itemLivraison = new JMenuItem("Livraison");        
+        itemLivraison.addActionListener(controleur);
+		itemLivraison.setActionCommand("LIVRAISON");
+        menuG.add(itemLivraison);
         
        
                
@@ -118,6 +129,8 @@ public class BarreMenu extends JMenuBar implements Observer{
     	 	
     	 	itemAC.setEnabled(true);
     	 	itemMC.setEnabled(true);
+    	 	itemLivraison.setEnabled(true);
+    	 	menuC.setVisible(true);
 	}
 
 	//@Override
@@ -137,9 +150,9 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	
 	        	 itemC.setEnabled(true);
 	        	 itemDC.setEnabled(false); 
-	        	 menuG.setEnabled(false);
+	        	 menuG.setVisible(false);
 	        	 itemAC.setEnabled(true);
-	        	
+	        	 menuC.setVisible(false);
 		      
 	        }
 		 
@@ -147,41 +160,45 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
-	       	 	menuG.setEnabled(true);
+	       	 	menuG.setVisible(false);
 	       	  	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(true);
 	       	 	itemMenu.setVisible(false);
 	       	 	itemResto.setVisible(false);
+	       	 	menuC.setVisible(true);
 	        }
 	        else if (droits.isLivreur()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true); 
-	       	 	menuG.setEnabled(true);
+	       	 	menuG.setVisible(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	       	 	itemMenu.setVisible(false);
 	       	 	itemResto.setVisible(false);
+	       	 	menuC.setVisible(false);
 	        }
 	        else if (droits.isGerant()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
-	       	 	menuG.setEnabled(true);
+	       	 	menuG.setVisible(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	       		itemMenu.setVisible(true);
 	       	 	itemResto.setVisible(true);
+	       	 	menuC.setVisible(false);
 	        }
 	        else if (droits.isAdmin()){
 	        	
 	        	itemC.setEnabled(false);
 	       	 	itemDC.setEnabled(true);
-	       	 	menuG.setEnabled(true);
+	       	 	menuG.setVisible(true);
 	       	 	itemAC.setEnabled(false);
 	       	 	itemMC.setEnabled(false);
 	       	 	itemMenu.setVisible(true);
 	       	 	itemResto.setVisible(true);
+	       	 	menuC.setVisible(true);
 	        }
 	}
 	
