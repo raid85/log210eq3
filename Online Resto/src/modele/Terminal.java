@@ -91,7 +91,7 @@ public class Terminal {
 	
 	public void ajouterLivreur(String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
 		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
-		System.out.println("Livreur ajoute  :"+unLivreur.toString());
+		System.out.println("Livreur ajoute  :"+unLivreur.getNom());
 		lsLivreurs.ajouterLivreur(unLivreur);
 	}
 	public void modifierLivreur(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
