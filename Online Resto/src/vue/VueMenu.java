@@ -41,12 +41,12 @@ public class VueMenu extends JPanel implements Observer
 	  JTextField textPrixItem = new JTextField();
 	  GridBagLayout repartiteur;
 	  
-	  public JTextField getTextItemDeMenu() {
-		return textItemDeMenu;
+	  public String getTextItemDeMenu() {
+		return textItemDeMenu.getText();
 	  }
 
-	  public JTextField getTextPrixItem() {
-		return textPrixItem;
+	  public String getTextPrixItem() {
+		return textPrixItem.getText();
 	  }	
 	
 	public VueMenu() {
