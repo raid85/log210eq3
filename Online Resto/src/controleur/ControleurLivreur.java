@@ -20,7 +20,7 @@ import modele.*;
 
 
 public class ControleurLivreur implements ActionListener, ListSelectionListener{
-	
+
 
 
 	//... The Controller needs to interact with both the Model and View.
@@ -64,16 +64,14 @@ public class ControleurLivreur implements ActionListener, ListSelectionListener{
 		 * au préalable).
 		 */
 		String action = arg0.getActionCommand();
-		if(action.equalsIgnoreCase("AJOUTER")) {			
-            
-		
-			instance.ajouterLivreur(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneCouverture(),vue.getDispo());
-			
+		if(action.equalsIgnoreCase("AJOUTER")) {            
+
+			instance.ajouterLivreur(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneCouverture(),vue.getDispo());			
 
 
 		} 
 		else if(action.equalsIgnoreCase("ENLEVER")) {	
-			
+
 			if(elementSelectionne != -1) {
 				instance.retirerLivreur(elementSelectionne);
 				/*
@@ -113,7 +111,7 @@ public class ControleurLivreur implements ActionListener, ListSelectionListener{
 			texte = "";
 		}
 	}
-	
+
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		/*
