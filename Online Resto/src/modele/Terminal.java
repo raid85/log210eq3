@@ -75,6 +75,11 @@ public class Terminal {
 	public void retirerItem(int index) {
 		unResto.retirerItem(index);
 	}
+	public void modifierItem(int index, Double par1, String par2) {
+		ItemMenu item = new ItemMenu(par1,par2);
+		lsRestos.modifierRestaurant(index,unResto);
+		System.out.println("terminal modifier restaurant"+unResto.getAdresse()+this.toString());
+	}
 	
 	public void ajouterRestaurant(String Nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
 		this.unResto = new Restaurant(Nom,adresse,numeroTel,zoneCouverture,heureOuverture);

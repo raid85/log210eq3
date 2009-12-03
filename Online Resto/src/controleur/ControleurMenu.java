@@ -15,6 +15,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+import vue.VueMenu;
+import vue.VueRestaurant;
+
 import modele.*;
 
 /**
@@ -35,6 +38,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 	 */
 	private int elementSelectionne;
 	
+	private VueMenu vue ;
 	/**
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
@@ -57,6 +61,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		
 		instance=Terminal.getInstance();
 		instance.addRestoObserver(observateur);
+		this.vue = (VueMenu) observateur;
 		texte = "";
 		elementSelectionne = -1;
 	     	
@@ -74,11 +79,9 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
-			if(!texte.equals("")) {
-				String tempo[] = texte.split(":");
-				
-				instance.ajouterItem(Double.parseDouble(tempo[0]),tempo[1]);
-			}
+			double tempo = Double.parseDouble(vue.getTextPrixItem());
+			
+			instance.ajouterItem(tempo, vue.getTextItemDeMenu());
 		} 
 		else if(action.equalsIgnoreCase("RETIRER")) {
 			if(elementSelectionne != -1) {
@@ -92,7 +95,10 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		}
 		else if(action.equalsIgnoreCase("MODIFIER")) {
 			if(elementSelectionne != -1) {
-				instance.retirerItem(elementSelectionne);
+				double tempo = Double.parseDouble(vue.getTextPrixItem());
+				
+				instance.modifierItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
+				
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
