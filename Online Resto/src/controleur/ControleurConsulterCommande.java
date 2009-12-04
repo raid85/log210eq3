@@ -25,21 +25,17 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 		instance=Terminal.getInstance();
 		instance.addRestoObserver(observateur);	
 		this.vue = (VueConsulterCommande) observateur;
-		
+
 		esRestos = -1;
 	}
-	
+
 	//@Override
 	public void valueChanged(ListSelectionEvent e) {
-		esRestos = e.getFirstIndex();		
-		//esCommande = this.vue.getSelectionCommande();
 		
-		JList tempo = new JList();
-		tempo.setListData(instance.getResto(esRestos).getCommandes());
-				
+		esRestos = e.getFirstIndex();
 		vue.getCommandes().setListData(instance.getResto(esRestos).getCommandes());
-		
-		
+
+
 	}
 
 	//@Override
@@ -47,11 +43,11 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("Consulter")&& !vue.getCommandes().isSelectionEmpty()) {
 			vue.getInfoCommandes().setListData(instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()).getPlats().toArray());
-			
+
 
 		} 
-		
-		
+
+
 	}
 
 }
