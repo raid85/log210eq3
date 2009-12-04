@@ -84,16 +84,24 @@ public class ControleurClient implements ActionListener {
 			
 		} 
 		else if(action.equalsIgnoreCase("MODIFIER")) {
-				instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
+			String tempo  = "" + vue.getTextAdresse()+":" +vue.getTextCourriel();
+				instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),tempo);
 			
 		}
 		else if(action.equalsIgnoreCase("RETIRER")) {
-		
-			instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
-			int choix = JOptionPane.showConfirmDialog(null, null, "Voulez-vous supprimer votre conte", 1);
+			int choix = 5;
+			try{
+			 choix = JOptionPane.showConfirmDialog(null, "Voulez-vous supprimer votre conte", "Attention", 0);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			if(choix ==0){
+			//instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
 			
 			instance.retirerClient();
 			instance.deconnexion();
+			}
 		}
 		else {
 			System.err.println("L'action '" + action + "' est inconnue...");

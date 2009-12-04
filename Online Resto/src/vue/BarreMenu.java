@@ -14,7 +14,7 @@ public class BarreMenu extends JMenuBar implements Observer{
 
     private JMenu menuF, menuG, menuC;
     
-    private JMenuItem itemC, itemDC, itemQ, itemMenu, itemResto, itemAC, itemMC, itemSC, itemLivraison, itemLivreur, itemConCom;
+    private JMenuItem itemC, itemDC, itemQ, itemPC, itemMenu, itemResto, itemAC, itemMC, itemSC, itemLivraison, itemLivreur, itemConCom;
     private Role droits;
     private JPanel panneauTempo;
 	/**
@@ -76,7 +76,13 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemMC.addActionListener(controleur);
         itemMC.setActionCommand("MODCLIENT");
         menuC.add(itemMC);
-/*
+
+        itemPC = new JMenuItem("Placer Commande");        
+        itemPC.addActionListener(controleur);
+        itemPC.setActionCommand("COMMANDE");
+        menuC.add(itemPC);
+        
+        /*
         itemSC = new JMenuItem("Supprimer compte");        
         itemSC.addActionListener(controleur);
         itemSC.setActionCommand("SUPPCLIENT");
@@ -237,6 +243,9 @@ public class BarreMenu extends JMenuBar implements Observer{
 	}
 	public void nouvelleVueConsulterCommande(){
 		panneauTempo = new VueConsulterCommande();
+	}	
+	public void nouvelleVueCommande(){
+		panneauTempo = new VueCommande();
 	}	
 	public void nouvelleVueLivraison(){
 		panneauTempo = new VueLivraison();

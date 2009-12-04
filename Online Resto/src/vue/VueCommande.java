@@ -1,65 +1,144 @@
 package vue;
+
+
+
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JTextArea;
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.*;
 
-import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
-
-
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
-public class VueCommande extends javax.swing.JFrame {
-	private JTextArea jTextArea1;
-
+import controleur.ControleurMenu;
+import controleur.ControleurRestaurant;
+import controleur.ControlleurCommande;
+public class VueCommande extends JPanel implements Observer
+{  
+	
 	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				VueCommande inst = new VueCommande();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
+	 * 
+	 */
+	//private static final long serialVersionUID = 1L;
+	//private Menu model;
+	  private ControlleurCommande controleur;	
+	
+
+	
+
+
+
+	 
+
+	  
+	  private JScrollPane panlist ;
+	  JList listeRestaurants = new JList();;
+	  JList menu = new JList();
+	    
+	  
+	  JLabel labelTitre = new JLabel("          CHOISISSEZ UN RESTAURANT"),	  		 
+	  		 labelItemDeMenu = new JLabel("Item de menu"),
+	  		 labelPrixItem = new JLabel("Prix item"),
+	  		 labelMenu = new JLabel("                          MENU");
+	  
+	  GridBagLayout repartiteur;
+	  
+	  
+	  public JList getMenu() {
+			return menu;
+		}
+	 
+	  public int getSelectionMenu(){
+		  return menu.getSelectedIndex();
+	  }
 	
 	public VueCommande() {
-		super();
-		initGUI();
-	}
+		controleur = new ControlleurCommande((Observer)this);
+		
+		
+		
+		panlist = new JScrollPane(listeRestaurants);
+		
+		
+		/*
+		retirerItem.addActionListener(controleur);
+		retirerItem.setActionCommand("RETIRERMENU");
+	*/
+		listeRestaurants.addListSelectionListener(controleur);
+
+		repartiteur = new GridBagLayout(); 	
+		
+		creerGUI();
+		
+		
+	    //desactiverSaisieItem();
+  }
 	
-	private void initGUI() {
-		try {
-			GridBagLayout thisLayout = new GridBagLayout();
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-			thisLayout.rowWeights = new double[] {0.0, 0.1, 0.1, 0.1};
-			thisLayout.rowHeights = new int[] {50, 7, 7, 7};
-			thisLayout.columnWeights = new double[] {0.1, 0.1, 0.1, 0.1};
-			thisLayout.columnWidths = new int[] {7, 7, 7, 7};
-			getContentPane().setLayout(thisLayout);
-			{
-				jTextArea1 = new JTextArea();
-				getContentPane().add(jTextArea1, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-				jTextArea1.setText("jTextArea1");
-			}
-			pack();
-			setSize(400, 300);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+	public JList getListeRestaurants() {
+		return listeRestaurants;
 	}
 
+	private void creerGUI() {
+		setLayout(repartiteur); 
+		this.setBackground(Color.LIGHT_GRAY);	
+		UtilitaireRepartition.ajouter(this,labelTitre,1,0,6,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,15,2,15,2,0,0);   
+	    
+	   
+	   /* UtilitaireRepartition.ajouter(this,modifierMenu,7,2,2,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,10,10,2,0,0); 
+	            */
+	    UtilitaireRepartition.ajouter(this,labelItemDeMenu,7,4,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,3,2,3,2,0,0); 
+	   /* UtilitaireRepartition.ajouter(this,textItemDeMenu,8,4,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,3,2,3,2,0,0); 
+	            */
+	    UtilitaireRepartition.ajouter(this,labelPrixItem,7,5,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.NORTH,
+	            0,0,3,2,3,2,0,0); 
+	    
+	    UtilitaireRepartition.ajouter(this,labelMenu,7,7,2,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,3,2,3,2,0,0);
+	    
+	     menu.setPreferredSize(new Dimension(200,155));   
+	    UtilitaireRepartition.ajouter(this,menu,7,8,2,1,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,1,1,10,2,0,0);
+	    
+	    listeRestaurants.setPreferredSize(new Dimension(215,340));   
+	    UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
+	            GridBagConstraints.SOUTH,
+	            0,0,1,5,10,2,0,0); 
+	}
+
+	public void desactiverSaisieItem() {
+	   labelItemDeMenu.setEnabled(false);
+	  
+	   labelPrixItem.setEnabled(false);
+	  
+	   menu.setPreferredSize(new Dimension(180,210));
+	}
+
+	//@Override
+	public void update(Observable arg0, Object arg1) {
+		//JOptionPane.showMessageDialog(null,"UPDATE VUEMENU" + listeRestaurants.getHeight());
+		/*
+		JList tempo = new JList();
+		tempo.setListData((Object[])arg1);
+		JOptionPane.showMessageDialog(null,tempo);
+		*/
+		listeRestaurants.setListData((Object[])arg1);
+		
+		
+		
+		
+	}
 }
+
+

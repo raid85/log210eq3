@@ -144,7 +144,7 @@ public class Terminal {
 		//Client clientTempo = new Client(loginName,password,infoDuDude);
 		//lsClients.ajouterClient(clientTempo);
 		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
-		JOptionPane.showMessageDialog(null,loginName+password+infoDuDude);
+		
 		lsUsagers.ajouterUsager(tempo);
 		indexUser=lsUsagers.getHauteur();
 		lUsager.setUsager(loginName,password,infoDuDude,new RClient());

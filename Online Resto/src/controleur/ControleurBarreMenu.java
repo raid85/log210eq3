@@ -145,6 +145,10 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 			laVue.nouvelleVueConsulterCommande();
 			instance.rafraichierVue();
 		}
+		else if(action.equalsIgnoreCase("COMMANDE")) {
+			laVue.nouvelleVueCommande();
+			instance.rafraichierVue();
+		}
 		else if(action.equalsIgnoreCase("LIVRAISON")) {
 			laVue.nouvelleVueLivraison();
 			instance.rafraichierVue();
