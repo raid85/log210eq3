@@ -141,5 +141,8 @@ public class Restaurant extends Observable {
 		 */
 		
 	}
-
+	public void retirerMenu(){
+	this.menu = new ArrayList<ItemMenu>();
+	}
+	
 }

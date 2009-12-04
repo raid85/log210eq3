@@ -129,6 +129,22 @@ public class ListeRestaurants extends Observable {
 		notifyObservers(m.toArray());
 	}
 
+	public void retirerMenu(int elementSelectionne) {
+		
+		Restaurant tempo;
+		tempo = m.get(elementSelectionne);
+		tempo.retirerMenu();
+		m.remove(elementSelectionne);
+		m.add(elementSelectionne, tempo);
+		/*
+		 * Il est important d'indiquer que la classe observée a changé AVANT
+		 * d'aviser les observateurs. 
+		 */
+		setChanged();
+		notifyObservers(m.toArray());
+		
+	}
+
 
 	
 }

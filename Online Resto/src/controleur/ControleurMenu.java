@@ -83,7 +83,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 			//if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
 			Double tempo = Double.parseDouble(vue.getTextPrixItem());
 			instance.ajouterItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
-			
+			vue.getMenu().setListData(instance.getResto(elementSelectionne).getMenu().toArray());
 			// vue.doList(instance.getResto());
 			//} 
 
@@ -92,22 +92,29 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 			//instance.retirerRestaurant(vue.getNum());
 			if(elementSelectionne != -1) {
 				instance.retirerItem(elementSelectionne, vue.getMenu().getSelectedIndex());
+				vue.getMenu().setListData(instance.getResto(elementSelectionne).getMenu().toArray());
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
 				 */
-				elementSelectionne = -1;
+				
 			}
 			else {
 				JOptionPane.showMessageDialog(null,"La liste est vide");
 			}
 		} 
 
-		else if(action.equalsIgnoreCase("MODIFIER")) {	
+		else if(action.equalsIgnoreCase("MODIFIERITEM")) {	
 			
 			Double tempo = Double.parseDouble(vue.getTextPrixItem());
 			instance.modifierItem(elementSelectionne, vue.getSelectionMenu(), tempo, vue.getTextItemDeMenu());
+			vue.getMenu().setListData(instance.getResto(elementSelectionne).getMenu().toArray());
 		}
+		else if(action.equalsIgnoreCase("RETIRERMENU")) {	
+			
+			instance.retirerMenu(elementSelectionne);
+		}
+		
 		else {
 			System.err.println("L'action '" + action + "' est inconnue...");
 		}
