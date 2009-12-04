@@ -20,6 +20,10 @@ public class Terminal {
 	
 
 
+	public void setlUsager(Usager lUsager) {
+		this.lUsager = lUsager;
+	}
+
 	//Creation de linstance
 	private static Terminal instance = new Terminal();
 	
@@ -127,19 +131,24 @@ public class Terminal {
 		//lsClients.ajouterClient(clientTempo);
 		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
 		listeUsager[listeUsager.length-1]= tempo;
+		indexUser=listeUsager.length-1;
+		lUsager.setUsager(loginName,password,infoDuDude,new RClient());
 		
-		lUsager = tempo;
+		JOptionPane.showMessageDialog(null,"ajouteclein");
+		
 	}
 	public Usager getlUsager() {
 		return lUsager;
 	}
 
 	public void modifierClient(String loginName, String password, String infoDuDude) {
-		lUsager = new Usager(loginName,password,infoDuDude,new RClient());
+		lUsager.setUsager(loginName,password,infoDuDude,new RClient());
 		lsUsagers.modifierUsager(indexUser, lUsager);
+		
 	}
-	public void retirerClient(int index) {
-		unResto.retirerItem(index);
+	public void retirerClient() {
+		listeUsager[indexUser]=null;
+		deconnexion();
 	}
 	
 	public void rafraichierVue(){
@@ -210,6 +219,8 @@ public class Terminal {
 	lsRestos.retirerMenu(elementSelectionne);
 		
 	}
+
+	
 
 
 	
