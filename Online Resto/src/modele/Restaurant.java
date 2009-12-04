@@ -15,6 +15,7 @@ public class Restaurant {
 	
 	
 	private List<ItemMenu> menu;
+	private List<Commande> commandes ;
 	//Constructeur
 	
 	public Restaurant(String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
@@ -28,6 +29,7 @@ public class Restaurant {
 	
 		
 		this.menu = new ArrayList<ItemMenu>();
+		this.commandes = new ArrayList<Commande>();
 	}
 
 	
@@ -40,6 +42,10 @@ public class Restaurant {
 		this.heureOuverture=heureOuverture;
 		this.heureFermeture=heureFermeture;		
 		this.menu=m;
+	}
+	
+	public void ajouterCommande (Commande c){
+		commandes.add(c);		
 	}
 
 
