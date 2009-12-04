@@ -45,11 +45,13 @@ public class Terminal {
 	private Livreur unLivreur ;
 	
 	//Section pour initier les variables des usagers pour tests
+	/*
 	private Usager livreurTest = new Usager("livreur","1234","Tres bo", new Livreur());
 	private Usager gerantTest = new Usager("gerant","1234","pas bo", new Gerant());
 	private Usager adminTest = new Usager("admin","1234","laid", new Admin());
 	private Usager clientTest = new Usager("client","1234","laid", new RClient());
 	private Usager listeUsager[] = {livreurTest,gerantTest,adminTest,clientTest};
+	*/
 	private Usager lUsager;
 	
 	
@@ -59,6 +61,7 @@ public class Terminal {
     	lsLivreurs = new ListeLivreur();
     	lUsager = new Usager();
     	letatFen = new EtatFenetre();
+    	lsUsagers = new ListeUsagers();
     }
 	
 	public void addRestoObserver(Observer observateur){
@@ -112,10 +115,11 @@ public class Terminal {
 		lsRestos.retirerRestaurant(index);
 	}
 	
-	public void ajouterLivreur(String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
-		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
+	public void ajouterLivreur(String nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
+		this.unLivreur = new Livreur(nom,adresse,numeroTel,zoneCouverture,dispo);
 		//System.out.println("Livreur ajoute  :"+unLivreur.getNom());
 		lsLivreurs.ajouterLivreur(unLivreur);
+		ajouterUsager(nom,"1234",adresse, new Livreur());
 	}
 	public void modifierLivreur(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
 		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
@@ -125,13 +129,22 @@ public class Terminal {
 	public void retirerLivreur(int index) {
 		lsLivreurs.retirerLivreur(index);
 	}
+	public void ajouterUsager(String loginName, String password, String infoDuDude, Role droits){
+		lsUsagers.ajouterUsager(new Usager(loginName, password, infoDuDude, droits));
+	}
+	public void modifierUsager(int index, String loginName, String password, String infoDuDude, Role droits ){
+		lsUsagers.modifierUsager(index, new Usager(loginName, password, infoDuDude, droits));
+	}
+	public void retirerUsager(int index){
+		lsUsagers.retirerUsager(index);
+	}
 	
 	public void ajouterClient(String loginName, String password, String infoDuDude) {
 		//Client clientTempo = new Client(loginName,password,infoDuDude);
 		//lsClients.ajouterClient(clientTempo);
 		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
-		listeUsager[listeUsager.length-1]= tempo;
-		indexUser=listeUsager.length-1;
+		lsUsagers.ajouterUsager(tempo);
+		indexUser=lsUsagers.getHauteur();
 		lUsager.setUsager(loginName,password,infoDuDude,new RClient());
 		
 		JOptionPane.showMessageDialog(null,"ajouteclein");
@@ -147,7 +160,7 @@ public class Terminal {
 		
 	}
 	public void retirerClient() {
-		listeUsager[indexUser]=null;
+		lsUsagers.retirerUsager(indexUser);
 		deconnexion();
 	}
 	
@@ -156,7 +169,9 @@ public class Terminal {
 	}
 	
 	public void authentifier() {
-		int sizeTab = 3;
+		lUsager= lsUsagers.authentifier();
+		
+		/*int sizeTab = 3;
 		boolean connected=false;
 		boolean mauvaisPW=false;
 		String ligneEntrer,verif1="master",verif2="chix",tempo[];
@@ -193,9 +208,10 @@ public class Terminal {
 				
 				}
 			}
-		}
+		}*/
 	
 	}
+	
 	public void deconnexion(){
 		
 	lUsager.setDroits(new Null());

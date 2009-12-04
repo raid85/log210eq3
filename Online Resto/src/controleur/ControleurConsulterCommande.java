@@ -45,6 +45,7 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 			vue.getInfoCommandes().setListData(instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()).getPlats().toArray());
 		} 
 		else if(action.equalsIgnoreCase("Accepter") && !vue.getCommandes().isSelectionEmpty()){
+
 			esCommande = vue.getCommandes().getSelectedIndex();
 			if(!instance.getResto(esRestos).getCommande(esCommande).isAccepter()){
 
@@ -55,6 +56,7 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 				}
 			} 
 			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été acceptée par un restaurant");
+
 
 		}
 		else if(action.equalsIgnoreCase("Prête") && !vue.getCommandes().isSelectionEmpty()){
