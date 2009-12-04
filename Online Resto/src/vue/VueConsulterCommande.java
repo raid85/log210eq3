@@ -23,6 +23,8 @@ public class VueConsulterCommande extends JPanel implements Observer
 	
 	private JButton consulter=new JButton("Consulter");
 	private JButton accepter = new JButton("Accepter");
+	private JButton complet = new JButton("Prête");
+	
 	
 	private JList listeRestaurants= new JList();	
 	private JList listeCommandes = new JList();
@@ -48,6 +50,8 @@ public class VueConsulterCommande extends JPanel implements Observer
 		listeRestaurants.addListSelectionListener(controleur);
 		consulter.addActionListener(controleur);
 		accepter.addActionListener(controleur);
+		complet.addActionListener(controleur);
+		
 		
 		repartiteur = new GridBagLayout(); 	
 		
@@ -89,12 +93,17 @@ public class VueConsulterCommande extends JPanel implements Observer
 				0,0,15,2,15,2,0,0);
 		
 		
-		UtilitaireRepartition.ajouter(this,consulter,6,11,2,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,consulter,6,11,1,1,GridBagConstraints.HORIZONTAL,
 	            GridBagConstraints.SOUTH,
-	            0,0,2,10,10,2,0,0);
-		UtilitaireRepartition.ajouter(this,accepter,7,11,2,1,GridBagConstraints.NONE,
+	            0,0,2,1,1,1,0,0);
+		UtilitaireRepartition.ajouter(this,accepter,7,11,1,1,GridBagConstraints.HORIZONTAL,
 	            GridBagConstraints.SOUTH,
-	            0,0,2,10,10,2,0,0);
+	            0,0,2,1,1,1,0,0);
+		UtilitaireRepartition.ajouter(this,complet,8,11,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,1,1,1,0,0);
+		
+		
 		
 		listeCommandes.setPreferredSize(new Dimension(200,155));   
 		UtilitaireRepartition.ajouter(this,panCommandes,7,3,2,1,GridBagConstraints.VERTICAL,

@@ -10,12 +10,12 @@ public class Commande {
 	private String dateVoulue ;
 	private String nomClient ;
 	private String codePostal ;
-	private boolean accepter, livrer,completer;
+	private boolean accepter,completer;
 
 
 	public Commande (String nomClient , String date , String codePostal){
 		setAccepter(false);
-		setLivrer(false);
+		setCompleter(false);
 		this.dateVoulue = date;
 		this.nomClient = nomClient;
 		this.codePostal = codePostal ;
@@ -45,14 +45,6 @@ public class Commande {
 
 	public boolean isAccepter() {
 		return accepter;
-	}
-
-	public void setLivrer(boolean livrer) {
-		this.livrer = livrer;
-	}
-
-	public boolean isLivrer() {
-		return livrer;
 	}
 
 	public void setCompleter(boolean completer) {

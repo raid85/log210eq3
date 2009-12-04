@@ -43,8 +43,6 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("Consulter")&& !vue.getCommandes().isSelectionEmpty()) {
 			vue.getInfoCommandes().setListData(instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()).getPlats().toArray());
-
-
 		} 
 		else if(action.equalsIgnoreCase("Accepter") && !vue.getCommandes().isSelectionEmpty()){
 			esCommande = vue.getCommandes().getSelectedIndex();
@@ -59,6 +57,21 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été acceptée par un restaurant");
 
 		}
+		else if(action.equalsIgnoreCase("Prête") && !vue.getCommandes().isSelectionEmpty()){
+			
+			esCommande = vue.getCommandes().getSelectedIndex();
+			if(!instance.getResto(esRestos).getCommande(esCommande).isCompleter()){
+
+				if(JOptionPane.showConfirmDialog(null, "Confirmez vous que la commande est prête ?","Confirmation", 0)==0){
+					instance.getResto(esRestos).getCommande(esCommande).setCompleter(true);
+					//System.out.println("..."+instance.getResto(esRestos).getCommande(esCommande).toString());
+					System.out.println("complete ??"+instance.getResto(esRestos).getCommande(esCommande).isCompleter());            		 
+				}
+			} 
+			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été complètée");
+
+		}
+		
 
 
 	}
