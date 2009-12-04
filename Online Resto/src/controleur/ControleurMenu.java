@@ -79,18 +79,19 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		 * au préalable).
 		 */
 		String action = arg0.getActionCommand();
-		if(action.equalsIgnoreCase("AJOUTER")) {			
+		if(action.equalsIgnoreCase("AJOUTERITEM")) {			
 			//if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
 			Double tempo = Double.parseDouble(vue.getTextPrixItem());
 			instance.ajouterItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
+			
 			// vue.doList(instance.getResto());
 			//} 
 
 		} 
-		else if(action.equalsIgnoreCase("ENLEVER")) {	
+		else if(action.equalsIgnoreCase("RETIRERITEM")) {	
 			//instance.retirerRestaurant(vue.getNum());
 			if(elementSelectionne != -1) {
-				instance.retirerItem(elementSelectionne, vue.getSelectionMenu());
+				instance.retirerItem(elementSelectionne, vue.getMenu().getSelectedIndex());
 				/*
 				 * Lorsque l'élément sélectionné a été retiré, il remettre la
 				 * valeur à -1
@@ -124,6 +125,11 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		 * contrôleur note l'index de l'item sélectionné.
 		 */
 		elementSelectionne = arg0.getFirstIndex();
+		JList tempo = vue.getMenu();
+		tempo.setListData(instance.getResto(elementSelectionne).getMenu().toArray());
+		
+		//vue.get
+		
 	}
 
 }

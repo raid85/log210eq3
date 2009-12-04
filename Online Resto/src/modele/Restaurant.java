@@ -78,6 +78,11 @@ public class Restaurant extends Observable {
 		return idRestaurant;
 	}
 
+	public List<ItemMenu> getMenu() {
+		return menu;
+	}
+
+
 	public String getNom() {
 		return this.nom ;
 	}
