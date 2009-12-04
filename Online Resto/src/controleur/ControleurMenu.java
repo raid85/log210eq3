@@ -59,6 +59,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 	 */
 	public ControleurMenu(Observer observateur) {
 		
+		
 		instance=Terminal.getInstance();
 		instance.addMenuObserver(observateur);
 		this.vue = (VueMenu) observateur;

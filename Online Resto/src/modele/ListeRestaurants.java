@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 /**
  * Le Catalogue est le point de mire de la Vue.
  * @author François Caron
@@ -121,6 +124,7 @@ public class ListeRestaurants extends Observable {
 		
 		addObserver(observateur);
 		
+
 		setChanged();
 		notifyObservers(m.toArray());
 	}
