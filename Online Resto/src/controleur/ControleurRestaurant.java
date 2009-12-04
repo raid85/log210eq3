@@ -132,7 +132,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 		changedUpdate(arg0);
 	}
 	 */
-	@Override
+	//@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		/*
 		 * Lorsque l'utilisateur sélectionne un élément dans la liste, le
