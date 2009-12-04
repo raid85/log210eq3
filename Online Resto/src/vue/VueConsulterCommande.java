@@ -10,19 +10,19 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
 
+import modele.Terminal;
+
 import controleur.ControleurConsulterCommande;
 import controleur.ControleurMenu;
 public class VueConsulterCommande extends JPanel implements Observer
 {  
 
 	
-	ControleurConsulterCommande controleur;	
-	
-
+	ControleurConsulterCommande controleur;
 	JButton terminer=new JButton("Terminer");
 	JList listeRestaurants;	
 	JList listeCommandes ;
-	JLabel infoCommande ;
+	JList infoCommande ;
 
 	JLabel labelTitre = new JLabel("          Consultation des commandes");	  
 
@@ -38,9 +38,12 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 	public VueConsulterCommande() {
 		
-		infoCommande= new JLabel();
+		infoCommande= new JList();
 		listeRestaurants = new JList();
 		listeCommandes = new JList();
+		
+		listeRestaurants.addListSelectionListener(controleur);
+		listeCommandes.addListSelectionListener(controleur);
 		
 		repartiteur = new GridBagLayout(); 	
 
@@ -49,6 +52,7 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 		
 	}
+	
 
 
 	private void creerGUI() {
