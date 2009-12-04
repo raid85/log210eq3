@@ -36,8 +36,7 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 		
 		JList tempo = new JList();
 		tempo.setListData(instance.getResto(esRestos).getCommandes());
-		JOptionPane.showMessageDialog(null,tempo);
-		
+				
 		vue.getCommandes().setListData(instance.getResto(esRestos).getCommandes());
 		
 		
