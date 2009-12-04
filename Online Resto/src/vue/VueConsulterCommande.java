@@ -86,9 +86,9 @@ public class VueConsulterCommande extends JPanel implements Observer
 		
 
 		infoCommande.setPreferredSize(new Dimension(200,155));   
-		UtilitaireRepartition.ajouter(this,infoCommande,7,8,2,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,infoCommande,7,10,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
-				0,0,1,1,10,2,0,0);
+				0,0,1,10,10,2,0,0);
 
 		listeRestaurants.setPreferredSize(new Dimension(215,340));   
 		UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
