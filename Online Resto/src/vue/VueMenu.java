@@ -9,7 +9,9 @@ import java.awt.GridBagLayout;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.*;
+
 import controleur.ControleurMenu;
+import controleur.ControleurRestaurant;
 public class VueMenu extends JPanel implements Observer
 {  
 	
@@ -18,7 +20,7 @@ public class VueMenu extends JPanel implements Observer
 	 */
 	//private static final long serialVersionUID = 1L;
 	//private Menu model;
-	  ControleurMenu controleur;	
+	  private ControleurMenu controleur;	
 	  public void setTextItemDeMenu(JTextField textItemDeMenu) {
 		this.textItemDeMenu = textItemDeMenu;
 	}
@@ -30,8 +32,10 @@ public class VueMenu extends JPanel implements Observer
 	  JButton retirerItem =new JButton("Retirer item");
 	  JButton modifierItem =new JButton("Modifier item");
 	  
-	  JList listeRestaurants;
+	  private JScrollPane panlist ;
+	  JList listeRestaurants = new JList();;
 	  JList menu ;
+	    
 	  
 	  JLabel labelTitre = new JLabel("          CHOISISSEZ UN RESTAURANT"),	  		 
 	  		 labelItemDeMenu = new JLabel("Item de menu"),
@@ -54,8 +58,11 @@ public class VueMenu extends JPanel implements Observer
 	  }
 	
 	public VueMenu() {
+		controleur = new ControleurMenu((Observer)this);
 		menu = new JList();
-		listeRestaurants = new JList();
+		
+		
+		panlist = new JScrollPane(listeRestaurants);
 		
 		ajouterMenu.addActionListener(controleur);
 		ajouterMenu.setActionCommand("ajouterMenu");
@@ -146,8 +153,13 @@ public class VueMenu extends JPanel implements Observer
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
+		//JOptionPane.showMessageDialog(null,"UPDATE VUEMENU" + listeRestaurants.getHeight());
+		JList tempo = new JList();
+		tempo.setListData((Object[])arg1);
+		JOptionPane.showMessageDialog(null,tempo);
+		
 		listeRestaurants.setListData((Object[])arg1);
-		JOptionPane.showMessageDialog(null,listeRestaurants);
+		
 		
 	}
 }

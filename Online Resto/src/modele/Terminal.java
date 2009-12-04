@@ -72,6 +72,7 @@ public class Terminal {
 	public void addMenuObserver(Observer observateur){
 		lsRestos.ajouterObserver(observateur);
 		
+		
 	}
 	public void addFenetreObserver(Observer observateur){
 		letatFen.ajouterObserver(observateur);
