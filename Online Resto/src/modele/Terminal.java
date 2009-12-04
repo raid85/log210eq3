@@ -78,10 +78,7 @@ public class Terminal {
 		
 	}
 	
-	public void addCCommandeObserver(Observer observateur) {
-		unResto.ajouterObserver(observateur);
-		
-	}
+	
 
 	public void ajouterItem(int indexR, Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
@@ -199,8 +196,8 @@ public class Terminal {
 		return instance;
 	}
 	
-	public Restaurant getResto(){
-		return this.unResto ;
+	public Restaurant getResto(int index){
+		return lsRestos.getResto(index);
 	}
 
 	
