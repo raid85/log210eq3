@@ -52,8 +52,11 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 
 	private void creerGUI() {
+		
 		setLayout(repartiteur); 
+		
 		this.setBackground(Color.LIGHT_GRAY);	
+		
 		UtilitaireRepartition.ajouter(this,labelTitre,1,0,6,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);   
