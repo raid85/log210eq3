@@ -113,6 +113,10 @@ public class ListeRestaurants extends Observable {
 		notifyObservers(m.toArray());			
 	}
 	
+	public Restaurant getResto(int index){
+		return m.get(index);
+	}
+	
 	public void ajouterObserver(Observer observateur) {
 		
 		addObserver(observateur);

@@ -49,6 +49,13 @@ public class Restaurant extends Observable {
 	public void ajouterCommande (Commande c){
 		commandes.add(c);		
 	}
+	
+	public Object[] getCommandes (){
+		return this.commandes.toArray();
+	}
+	public Object getCommande (int index){
+		return commandes.get(index);
+	}
 
 
 	public String getAdresse() {
@@ -126,11 +133,5 @@ public class Restaurant extends Observable {
 		 */
 		
 	}
-public void ajouterObserver(Observer observateur) {
-		
-		addObserver(observateur);
-		
-		setChanged();
-		notifyObservers(commandes.toArray());
-	}
+
 }
