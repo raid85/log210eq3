@@ -25,6 +25,10 @@ public class VueConsulterCommande extends JPanel implements Observer
 	JList infoCommande ;
 
 	JLabel labelTitre = new JLabel("          Consultation des commandes");	  
+	JLabel labelRestaurant = new JLabel("Restaurants");
+	JLabel labelCommandes = new JLabel("Commandes");
+	JLabel labelInfoCommande = new JLabel("Détails de la commande");
+	
 
 	GridBagLayout repartiteur;
 
@@ -74,6 +78,11 @@ public class VueConsulterCommande extends JPanel implements Observer
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);   
 		
+		UtilitaireRepartition.ajouter(this,labelCommandes,7,5,2,1,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
+		
+		
 		UtilitaireRepartition.ajouter(this,consulter,7,0,2,1,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,2,10,10,2,0,0);
@@ -82,18 +91,23 @@ public class VueConsulterCommande extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,listeCommandes,7,8,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
-
 		
 
 		infoCommande.setPreferredSize(new Dimension(200,155));   
 		UtilitaireRepartition.ajouter(this,infoCommande,7,10,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
+		UtilitaireRepartition.ajouter(this,labelInfoCommande,7,9,2,1,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
 
 		listeRestaurants.setPreferredSize(new Dimension(215,340));   
 		UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
 				GridBagConstraints.SOUTH,
-				0,0,1,5,10,2,0,0); 
+				0,0,1,5,5,2,0,0); 
+		UtilitaireRepartition.ajouter(this,labelRestaurant,0,1,5,10,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
 	}
 
 	
