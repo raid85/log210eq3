@@ -13,6 +13,7 @@ public class Livreur implements Role{
 	private String ZoneCouverture ;
 	private String Disponibilite ;
 	private List<Livraison> livraisons ;
+	private String idResto;
 	
 	Livreur() {
 		// TODO Auto-generated constructor stub
@@ -120,6 +121,14 @@ public class Livreur implements Role{
 		tempo = this.Nom + " " + this.Adresse + " " + this.Telephone;		
 		
 		return tempo;
+	}
+
+	public void setIdResto(String idResto) {
+		this.idResto = idResto;
+	}
+
+	public String getIdResto() {
+		return idResto;
 	}
 
 
