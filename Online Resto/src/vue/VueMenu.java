@@ -25,14 +25,14 @@ public class VueMenu extends JPanel implements Observer
 		this.textItemDeMenu = textItemDeMenu;
 	}
 
-	JButton ajouterMenu=new JButton("AJOUTER MENU");
-	  JButton retirerMenu=new JButton("  RETIRER MENU");
-	  JButton modifierMenu=new JButton("MODIFIER MENU");
+	JButton ajouterMenu=new JButton("Ajouter item");
+	  JButton retirerMenu=new JButton("Retirer item");
+	  JButton modifierMenu=new JButton("Modifier item");
 
 
-	JButton ajouterItem =new JButton("Ajouter item");
-	  JButton retirerItem =new JButton("Retirer item");
-	  JButton modifierItem =new JButton("Modifier item");
+
+	  JButton retirerItem =new JButton("Retirer menu");
+
 	  
 	  private JScrollPane panlist ;
 	  JList listeRestaurants = new JList();;
@@ -69,22 +69,17 @@ public class VueMenu extends JPanel implements Observer
 		panlist = new JScrollPane(listeRestaurants);
 		
 		ajouterMenu.addActionListener(controleur);
-		ajouterMenu.setActionCommand("ajouterMenu");
+		ajouterMenu.setActionCommand("AJOUTERITEM");
 		
 		retirerMenu.addActionListener(controleur);
-		retirerMenu.setActionCommand("retirerMenu");
+		retirerMenu.setActionCommand("RETIRERITEM");
 		
 		modifierMenu.addActionListener(controleur);
-		modifierMenu.setActionCommand("modifierMenu");
-		
-		ajouterItem.addActionListener(controleur);
-		ajouterItem.setActionCommand("AJOUTERITEM");
+		modifierMenu.setActionCommand("MODIFIERITEM");
 		
 		retirerItem.addActionListener(controleur);
-		retirerItem.setActionCommand("RETIRERITEM");
-		
-		modifierItem.addActionListener(controleur);
-		modifierItem.setActionCommand("MODIFIER");
+		retirerItem.setActionCommand("RETIRERMENU");
+	
 		listeRestaurants.addListSelectionListener(controleur);
 
 		repartiteur = new GridBagLayout(); 	
@@ -128,9 +123,6 @@ public class VueMenu extends JPanel implements Observer
 	    UtilitaireRepartition.ajouter(this,textPrixItem,8,5,1,1,GridBagConstraints.HORIZONTAL,
 	            GridBagConstraints.NORTH,
 	            0,0,3,2,3,2,0,0); 
-	    UtilitaireRepartition.ajouter(this,ajouterItem,7,6,1,1,GridBagConstraints.NONE,
-	            GridBagConstraints.SOUTH,
-	            0,0,1,2,10,2,0,0); 
 	    UtilitaireRepartition.ajouter(this,retirerItem,8,6,1,1,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,1,2,10,2,0,0); 
@@ -155,7 +147,6 @@ public class VueMenu extends JPanel implements Observer
 	   textItemDeMenu.setEnabled(false);
 	   labelPrixItem.setEnabled(false);
 	   textPrixItem.setEnabled(false);
-	   ajouterItem.setEnabled(false);
 	   menu.setPreferredSize(new Dimension(180,210));
 	}
 
@@ -168,6 +159,9 @@ public class VueMenu extends JPanel implements Observer
 		JOptionPane.showMessageDialog(null,tempo);
 		*/
 		listeRestaurants.setListData((Object[])arg1);
+		
+		textItemDeMenu.setText("");
+		 textPrixItem.setText("");
 		
 		
 	}

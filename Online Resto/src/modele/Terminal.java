@@ -201,6 +201,16 @@ public class Terminal {
 		return lsRestos.getResto(index);
 	}
 
+	public void updateVueMenu() {
+		//lsRestos
+		
+	}
+
+	public void retirerMenu(int elementSelectionne) {
+	lsRestos.retirerMenu(elementSelectionne);
+		
+	}
+
 	
 
 
