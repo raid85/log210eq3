@@ -75,7 +75,7 @@ public class ControleurRestaurant implements ActionListener, ListSelectionListen
 			instance.ajouterRestaurant(vue.getNom(),vue.getAdresse(),vue.getTelephone(),vue.getZoneLivraison(),vue.getHeureOuverture());
 			// vue.doList(instance.getResto());
 			//} 
-
+			
 		} 
 		else if(action.equalsIgnoreCase("ENLEVER")) {	
 			//instance.retirerRestaurant(vue.getNum());
