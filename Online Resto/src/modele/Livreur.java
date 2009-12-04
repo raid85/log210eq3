@@ -1,5 +1,8 @@
 package modele;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Livreur implements Role{
 
@@ -9,6 +12,7 @@ public class Livreur implements Role{
 	private String Telephone;
 	private String ZoneCouverture ;
 	private String Disponibilite ;
+	private List<Livraison> livraisons ;
 	
 	Livreur() {
 		// TODO Auto-generated constructor stub
@@ -21,14 +25,18 @@ public class Livreur implements Role{
 		this.setTelephone(telephone);
 		this.setZoneCouverture(zoneCouverture);
 		this.setDisponibilite(disponibilite);
+		this.livraisons =  new ArrayList<Livraison>();
 	}	
 
+
+	public void ajouterLivraison (Livraison l){
+		livraisons.add(l);		
+	}
 
 	public void setDisponibilite(String disponibilite) {
 		Disponibilite = disponibilite;
 	}
-
-
+	
 	public void setZoneCouverture(String zoneCouverture) {
 		ZoneCouverture = zoneCouverture;
 	}
@@ -71,6 +79,14 @@ public class Livreur implements Role{
 
 	public String getNom() {
 		return Nom;
+	}
+	
+	public Livraison getLivraison(int index){
+		return livraisons.get(index);
+	}
+	
+	public Object[] getLivraisons(){
+		return livraisons.toArray();
 	}
 
 

@@ -19,18 +19,18 @@ import controleur.ControleurRestaurant;
 public class VueLivraison extends JPanel implements Observer
 {  
 
-	
+
 	ControleurLivraison controleur;
-	
+
 	private JButton consulter=new JButton("Consulter");
 	private JButton accepter = new JButton("Accepter");
 	private JButton complet = new JButton("Livrée");
-	
-	
+
+
 	private JList listeLivreurs= new JList();	
 	private JList listeLivraison = new JList();
-	private JList infoCommande = new JList();
-	
+	private JList infoLivraison = new JList();
+
 	private JScrollPane panResto ;
 	private JScrollPane panCommandes ;
 	private JScrollPane panInfo ;
@@ -39,81 +39,78 @@ public class VueLivraison extends JPanel implements Observer
 	private JLabel labelRestaurant = new JLabel("Restaurants");
 	private JLabel labelCommandes = new JLabel("Livraison");
 	private JLabel labelInfoCommande = new JLabel("Détails de la livraion");
-	
+
 
 	GridBagLayout repartiteur;
 
 
 	public VueLivraison() {		
-		
+
 		controleur = new ControleurLivraison((Observer)this);		
-		
+
 		listeLivreurs.addListSelectionListener(controleur);
 		consulter.addActionListener(controleur);
 		accepter.addActionListener(controleur);
 		complet.addActionListener(controleur);
-		
-		
+
+
 		repartiteur = new GridBagLayout(); 	
-		
+
 		panResto = new JScrollPane(listeLivreurs);
 		panCommandes= new JScrollPane(listeLivraison);
-		panInfo = new JScrollPane(infoCommande);
-	
+		panInfo = new JScrollPane(infoLivraison);
+
 		creerGUI();
-	
-	
-		
+
+
+
 	}
-	public int getSelectionResto(){
+	public int getSelectionLivreur(){
 		return listeLivreurs.getSelectedIndex();
 	}
-	public int getSelectionCommande(){
+	public int getSelectionLivraison(){
 		return listeLivraison.getSelectedIndex();
 	}
-	public JList getCommandes(){
+	public JList getLivraisons(){
 		return this.listeLivraison ;
 	}
-	public JList getInfoCommandes (){
-		return this.infoCommande;
+	public JList getInfoLivraison (){
+		return this.infoLivraison;
 	}
-	
+
 
 	private void creerGUI() {
-		
+
 		setLayout(repartiteur); 
-		
+
 		this.setBackground(Color.LIGHT_GRAY);	
-		
+
 		UtilitaireRepartition.ajouter(this,labelTitre,3,0,6,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);   
-		
+
 		UtilitaireRepartition.ajouter(this,labelCommandes,7,2,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);
 		UtilitaireRepartition.ajouter(this,complet,8,11,1,1,GridBagConstraints.HORIZONTAL,
-	            GridBagConstraints.SOUTH,
-	            0,0,2,1,1,1,0,0);
-		
-		
+				GridBagConstraints.SOUTH,
+				0,0,2,1,1,1,0,0);		
+
 		UtilitaireRepartition.ajouter(this,consulter,6,11,1,1,GridBagConstraints.HORIZONTAL,
-	            GridBagConstraints.SOUTH,
-	            0,0,2,1,1,1,0,0);
+				GridBagConstraints.SOUTH,
+				0,0,2,1,1,1,0,0);
 		UtilitaireRepartition.ajouter(this,accepter,7,11,1,1,GridBagConstraints.HORIZONTAL,
-	            GridBagConstraints.SOUTH,
-	            0,0,2,1,1,1,0,0);
-		
-		
-		
-		
+				GridBagConstraints.SOUTH,
+				0,0,2,1,1,1,0,0);	
+
+
 		listeLivraison.setPreferredSize(new Dimension(200,155));   
 		UtilitaireRepartition.ajouter(this,panCommandes,7,3,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
-		
 
-		infoCommande.setPreferredSize(new Dimension(200,155));   
+
+		infoLivraison.setPreferredSize(new Dimension(200,155));   
 		UtilitaireRepartition.ajouter(this,panInfo,7,10,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
@@ -130,13 +127,13 @@ public class VueLivraison extends JPanel implements Observer
 				0,0,15,2,15,2,0,0);
 	}
 
-	
+
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
-		
+
 		listeLivreurs.setListData((Object[])arg1);
-		
+
 
 	}
 }

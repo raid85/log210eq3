@@ -50,7 +50,7 @@ public class ControleurLivreur implements ActionListener, ListSelectionListener{
 	public ControleurLivreur(Observer observateur) {
 
 		instance=Terminal.getInstance();
-		instance.addLivreurObserver(observateur);	
+		instance.addLivreursObserver(observateur);	
 		this.vue = (VueLivreur) observateur;
 
 	}

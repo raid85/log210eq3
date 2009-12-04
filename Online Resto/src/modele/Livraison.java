@@ -1,5 +1,5 @@
 package modele;
-
+import java.util.*;
 public class Livraison {
 	
 	private String dateVoulue ;
@@ -29,6 +29,17 @@ public class Livraison {
 	}
 	public boolean isDelivered() {
 		return isDelivered;
+	}
+	public String toString (){
+		return ("Date Voulue :"+this.dateVoulue+" Nom du Client: "+this.nomClient);
+	}
+	public Object[] toArray (){
+		List l = new ArrayList();
+		l.add(this.dateVoulue);
+		l.add(this.nomClient);
+		l.add(this.codePostal);
+		l.add(this.commande.toString());
+		return l.toArray();
 	}
 
 }

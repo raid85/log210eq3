@@ -68,7 +68,7 @@ public class Terminal {
 		lsRestos.ajouterObserver(observateur);
 		
 	}
-	public void addLivreurObserver(Observer observateur){
+	public void addLivreursObserver(Observer observateur){
 		lsLivreurs.ajouterObserver(observateur);
 		
 	}
@@ -226,6 +226,10 @@ public class Terminal {
 	
 	public Restaurant getResto(int index){
 		return lsRestos.getResto(index);
+	}
+	
+	public Livreur getLivreur(int index){
+		return lsLivreurs.getLivreur(index);
 	}
 
 	public void updateVueMenu() {
