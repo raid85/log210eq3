@@ -10,11 +10,12 @@ public class Commande {
 	private String dateVoulue ;
 	private String nomClient ;
 	private String codePostal ;
-
+	private boolean accepter, livrer;
 
 
 	public Commande (String nomClient , String date , String codePostal){
-
+		setAccepter(false);
+		setLivrer(false);
 		this.dateVoulue = date;
 		this.nomClient = nomClient;
 		this.codePostal = codePostal ;
@@ -37,4 +38,21 @@ public class Commande {
 	public List<ItemMenu> getPlats() {
 		return plats;
 	}
+
+	public void setAccepter(boolean accepter) {
+		this.accepter = accepter;
+	}
+
+	public boolean isAccepter() {
+		return accepter;
+	}
+
+	public void setLivrer(boolean livrer) {
+		this.livrer = livrer;
+	}
+
+	public boolean isLivrer() {
+		return livrer;
+	}
+	
 }
