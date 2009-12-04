@@ -6,20 +6,20 @@ import java.util.List;
 public class Commande {
 
 	private List<ItemMenu> plats;
+	private String idCommande ;
 
-	private String dateVoulue ;
-	private String nomClient ;
-	private String codePostal ;
+	
 	private boolean accepter,completer;
 
+   public Commande(){
+		
+	}
 
-	public Commande (String nomClient , String date , String codePostal){
+	public Commande (String idCommande){
 		setAccepter(false);
 		setCompleter(false);
-		this.dateVoulue = date;
-		this.nomClient = nomClient;
-		this.codePostal = codePostal ;
 		plats = new ArrayList<ItemMenu> () ;
+		this.idCommande =idCommande;
 
 	}
 
@@ -31,9 +31,7 @@ public class Commande {
 	public void enleverPlat (int index){
 		plats.remove(index);
 	}
-	public String toString(){
-		return "" + dateVoulue + " " + nomClient + " " + codePostal;
-	}
+	
 
 	public List<ItemMenu> getPlats() {
 		return plats;
