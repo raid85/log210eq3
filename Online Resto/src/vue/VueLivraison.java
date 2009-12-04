@@ -1,61 +1,144 @@
 package vue;
 
+
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.DefaultComboBoxModel;
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.*;
 
-import javax.swing.WindowConstants;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JScrollBar;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
+import modele.Terminal;
 
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
-public class VueLivraison extends javax.swing.JPanel {
+import controleur.ControleurConsulterCommande;
+import controleur.ControleurLivraison;
+import controleur.ControleurMenu;
+import controleur.ControleurRestaurant;
+public class VueLivraison extends JPanel implements Observer
+{  
 
-	/**
-	* Auto-generated main method to display this 
-	* JPanel inside a new JFrame.
-	*/
-	public static void main(String[] args) {
-		JFrame frame = new JFrame();
-		frame.getContentPane().add(new VueLivraison());
-		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
+	
+	ControleurLivraison controleur;
+	
+	private JButton consulter=new JButton("Consulter");
+	private JButton accepter = new JButton("Accepter");
+	private JButton complet = new JButton("Livrée");
+	
+	
+	private JList listeLivreurs= new JList();	
+	private JList listeLivraison = new JList();
+	private JList infoCommande = new JList();
+	
+	private JScrollPane panResto ;
+	private JScrollPane panCommandes ;
+	private JScrollPane panInfo ;
+
+	private JLabel labelTitre = new JLabel("Consultation des Livraisons");	  
+	private JLabel labelRestaurant = new JLabel("Restaurants");
+	private JLabel labelCommandes = new JLabel("Livraison");
+	private JLabel labelInfoCommande = new JLabel("Détails de la livraion");
+	
+
+	GridBagLayout repartiteur;
+
+
+	public VueLivraison() {		
+		
+		controleur = new ControleurLivraison((Observer)this);		
+		
+		listeLivreurs.addListSelectionListener(controleur);
+		consulter.addActionListener(controleur);
+		accepter.addActionListener(controleur);
+		complet.addActionListener(controleur);
+		
+		
+		repartiteur = new GridBagLayout(); 	
+		
+		panResto = new JScrollPane(listeLivreurs);
+		panCommandes= new JScrollPane(listeLivraison);
+		panInfo = new JScrollPane(infoCommande);
+	
+		creerGUI();
+	
+	
+		
+	}
+	public int getSelectionResto(){
+		return listeLivreurs.getSelectedIndex();
+	}
+	public int getSelectionCommande(){
+		return listeLivraison.getSelectedIndex();
+	}
+	public JList getCommandes(){
+		return this.listeLivraison ;
+	}
+	public JList getInfoCommandes (){
+		return this.infoCommande;
 	}
 	
-	public VueLivraison() {
-		super();
-		initGUI();
-	}
-	
-	private void initGUI() {
-		try {
-			GridBagLayout thisLayout = new GridBagLayout();
-setPreferredSize(new Dimension(400, 300));
-			thisLayout.rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.1};
-			thisLayout.rowHeights = new int[] {75, 91, 49, 39, 7};
-			thisLayout.columnWeights = new double[] {0.1, 0.1, 0.1, 0.1};
-			thisLayout.columnWidths = new int[] {7, 7, 7, 7};
-			this.setLayout(thisLayout);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+	private void creerGUI() {
+		
+		setLayout(repartiteur); 
+		
+		this.setBackground(Color.LIGHT_GRAY);	
+		
+		UtilitaireRepartition.ajouter(this,labelTitre,3,0,6,1,GridBagConstraints.VERTICAL,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);   
+		
+		UtilitaireRepartition.ajouter(this,labelCommandes,7,2,2,1,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
+		UtilitaireRepartition.ajouter(this,complet,8,11,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,1,1,1,0,0);
+		
+		
+		UtilitaireRepartition.ajouter(this,consulter,6,11,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,1,1,1,0,0);
+		UtilitaireRepartition.ajouter(this,accepter,7,11,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,1,1,1,0,0);
+		
+		
+		
+		
+		listeLivraison.setPreferredSize(new Dimension(200,155));   
+		UtilitaireRepartition.ajouter(this,panCommandes,7,3,2,1,GridBagConstraints.VERTICAL,
+				GridBagConstraints.SOUTH,
+				0,0,1,10,10,2,0,0);
+		
+
+		infoCommande.setPreferredSize(new Dimension(200,155));   
+		UtilitaireRepartition.ajouter(this,panInfo,7,10,2,1,GridBagConstraints.VERTICAL,
+				GridBagConstraints.SOUTH,
+				0,0,1,10,10,2,0,0);
+		UtilitaireRepartition.ajouter(this,labelInfoCommande,7,9,2,1,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
+
+		listeLivreurs.setPreferredSize(new Dimension(215,340));   
+		UtilitaireRepartition.ajouter(this,panResto,0,3,5,10,GridBagConstraints.VERTICAL,
+				GridBagConstraints.SOUTH,
+				0,0,1,10,10,2,0,0); 
+		UtilitaireRepartition.ajouter(this,labelRestaurant,0,2,5,1,GridBagConstraints.NONE,
+				GridBagConstraints.NORTH,
+				0,0,15,2,15,2,0,0);
 	}
 
+	
+
+	//@Override
+	public void update(Observable arg0, Object arg1) {
+		
+		listeLivreurs.setListData((Object[])arg1);
+		
+
+	}
 }
+
+
