@@ -112,7 +112,7 @@ public class ControleurLivreur implements ActionListener, ListSelectionListener{
 		}
 	}
 
-	@Override
+	//@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		/*
 		 * Lorsque l'utilisateur sélectionne un élément dans la liste, le

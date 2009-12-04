@@ -141,7 +141,10 @@ public class ControleurBarreMenu implements ActionListener, DocumentListener, Li
 			
 		}
 		
-		
+		else if(action.equalsIgnoreCase("CONCOM")) {
+			laVue.nouvelleVueConsulterCommande();
+			instance.rafraichierVue();
+		}
 		else {
 			System.err.println("L'action '" + action + "' est inconnue...");
 		}

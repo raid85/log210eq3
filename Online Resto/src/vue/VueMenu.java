@@ -147,7 +147,7 @@ public class VueMenu extends JPanel implements Observer
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 		listeRestaurants.setListData((Object[])arg1);
-		
+		JOptionPane.showMessageDialog(null,listeRestaurants);
 		
 	}
 }
