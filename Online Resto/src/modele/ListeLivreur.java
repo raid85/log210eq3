@@ -87,6 +87,10 @@ public class ListeLivreur extends Observable {
 		setChanged();
 		notifyObservers(l.toArray());
 	}
+	
+	public Livreur getLivreur (int index){
+		return l.get(index);
+	}
 	public void ajouterObserver(Observer observateur) {
 		addObserver(observateur);
 		setChanged();

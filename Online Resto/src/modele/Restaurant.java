@@ -18,7 +18,7 @@ public class Restaurant extends Observable {
 	
 	private List<ItemMenu> menu;
 	private List<Commande> commandes ;
-	private List<Livraison> livraisons ;
+	
 	//Constructeur
 	
 	public Restaurant(String nom ,String adresse, String numeroTel,String zoneCouverture,String heureOuverture) {
@@ -33,7 +33,7 @@ public class Restaurant extends Observable {
 		
 		this.menu = new ArrayList<ItemMenu>();
 		this.commandes = new ArrayList<Commande>();
-		this.livraisons =  new ArrayList<Livraison>();
+		
 		
 		Commande c = new Commande ("Commande1");
 		Commande c1 = new Commande ("Commande2");
@@ -54,9 +54,7 @@ public class Restaurant extends Observable {
 	public void ajouterCommande (Commande c){
 		commandes.add(c);		
 	}
-	public void ajouterLivraison (Livraison l){
-		livraisons.add(l);		
-	}
+	
 	
 	public Object[] getCommandes (){
 		return this.commandes.toArray();
