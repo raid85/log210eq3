@@ -20,20 +20,44 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 	
 	ControleurConsulterCommande controleur;
-	JButton consulter=new JButton("Consulter");
-	JList listeRestaurants= new JList();	
-	JList listeCommandes = new JList();
-	JList infoCommande = new JList();
+	
+	private JButton consulter=new JButton("Consulter");
+	
+	private JList listeRestaurants= new JList();	
+	private JList listeCommandes = new JList();
+	private JList infoCommande = new JList();
+	
+	private JScrollPane panResto ;
+	private JScrollPane panCommandes ;
+	private JScrollPane panInfo ;
 
-	JLabel labelTitre = new JLabel("          Consultation des commandes");	  
-	JLabel labelRestaurant = new JLabel("Restaurants");
-	JLabel labelCommandes = new JLabel("Commandes");
-	JLabel labelInfoCommande = new JLabel("Détails de la commande");
+	private JLabel labelTitre = new JLabel("          Consultation des commandes");	  
+	private JLabel labelRestaurant = new JLabel("Restaurants");
+	private JLabel labelCommandes = new JLabel("Commandes");
+	private JLabel labelInfoCommande = new JLabel("Détails de la commande");
 	
 
 	GridBagLayout repartiteur;
 
 
+	public VueConsulterCommande() {		
+		
+		controleur = new ControleurConsulterCommande((Observer)this);		
+		
+		listeRestaurants.addListSelectionListener(controleur);
+		consulter.addActionListener(controleur);		
+		
+		repartiteur = new GridBagLayout(); 	
+		
+		panResto = new JScrollPane(listeRestaurants);
+		panCommandes= new JScrollPane(listeCommandes);
+		panInfo = new JScrollPane(infoCommande);
+	
+		creerGUI();
+	
+	
+		
+	}
 	public int getSelectionResto(){
 		return listeRestaurants.getSelectedIndex();
 	}
@@ -47,27 +71,6 @@ public class VueConsulterCommande extends JPanel implements Observer
 		return this.infoCommande;
 	}
 	
-
-	public VueConsulterCommande() {
-		
-		
-		
-		controleur = new ControleurConsulterCommande((Observer)this);
-		
-		listeRestaurants.addListSelectionListener(controleur);
-		consulter.addActionListener(controleur);
-		//listeCommandes.addListSelectionListener(controleur);
-		
-		repartiteur = new GridBagLayout(); 	
-
-		creerGUI();
-
-
-		
-	}
-	
-	
-
 
 	private void creerGUI() {
 		
@@ -89,13 +92,13 @@ public class VueConsulterCommande extends JPanel implements Observer
 	            0,0,2,10,10,2,0,0);
 		
 		listeCommandes.setPreferredSize(new Dimension(200,155));   
-		UtilitaireRepartition.ajouter(this,listeCommandes,7,3,2,1,GridBagConstraints.VERTICAL,
+		UtilitaireRepartition.ajouter(this,panCommandes,7,3,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
 		
 
 		infoCommande.setPreferredSize(new Dimension(200,155));   
-		UtilitaireRepartition.ajouter(this,infoCommande,7,10,2,1,GridBagConstraints.VERTICAL,
+		UtilitaireRepartition.ajouter(this,panInfo,7,10,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
 		UtilitaireRepartition.ajouter(this,labelInfoCommande,7,9,2,1,GridBagConstraints.NONE,
@@ -103,7 +106,7 @@ public class VueConsulterCommande extends JPanel implements Observer
 				0,0,15,2,15,2,0,0);
 
 		listeRestaurants.setPreferredSize(new Dimension(215,340));   
-		UtilitaireRepartition.ajouter(this,listeRestaurants,0,3,5,10,GridBagConstraints.VERTICAL,
+		UtilitaireRepartition.ajouter(this,panResto,0,3,5,10,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0); 
 		UtilitaireRepartition.ajouter(this,labelRestaurant,0,2,5,1,GridBagConstraints.NONE,
