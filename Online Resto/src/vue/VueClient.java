@@ -25,10 +25,10 @@ public class VueClient extends JPanel implements Observer
 	ControleurClient controleur;
 	
 	boolean modifier;
-	  JButton ajouter=new JButton(" Ajouter ");
-	  JButton modifier2=new JButton("modifier");
-	  JButton annuler=new JButton("annuler ");
-	  JList list = new JList();
+	  JButton ajouter=new JButton(" Ajouter compte");
+	  JButton modifier2=new JButton("Modifier compte");
+	  JButton annuler=new JButton("Supprimer compte ");
+	  int ifmodifier;
 	  
 	  JTextArea texte=new JTextArea();
 	  
@@ -49,6 +49,7 @@ public class VueClient extends JPanel implements Observer
 	  
 	VueClient()
   {
+		ifmodifier=0;
 	modifier = false;
 	controleur = new ControleurClient((Observer)this);
 	 
@@ -57,11 +58,41 @@ public class VueClient extends JPanel implements Observer
 	//ajout du controleur comme écouter des actions des boutons enlever et ajouter
 
 	ajouter.addActionListener(controleur);
-	ajouter.setActionCommand("AJOUTER");	
+	ajouter.setActionCommand("AJOUTER");
 	 
 	createGUI();
 
-  }
+	modifier2.setVisible(false);
+	annuler.setVisible(false);
+	
+  }	
+	VueClient(int modifier)
+  {
+		//unUser=lusager;
+		ifmodifier=1;
+		controleur = new ControleurClient((Observer)this);
+		 
+		repartiteur=new GridBagLayout(); 	
+		 
+		//ajout du controleur comme écouter des actions des boutons enlever et ajouter
+
+		modifier2.addActionListener(controleur);
+		modifier2.setActionCommand("MODIFIER");	
+		annuler.addActionListener(controleur);
+		annuler.setActionCommand("RETIRER");	
+		 
+		createGUI();
+
+		ajouter.setVisible(false);
+		JOptionPane.showMessageDialog(null,"between setter les infos");
+		JOptionPane.showMessageDialog(null, unUser);
+		String tempo[]= unUser.getInfoDuDude().split(":");
+		
+		textNom.setText(unUser.getLoginName());
+		textAdresse.setText(tempo[0]);
+		textMotDePasse.setText(unUser.getPassword());
+		textCourriel.setText(tempo[1]);
+	  }
 	
 	
 	public void createGUI(){
@@ -116,10 +147,7 @@ public class VueClient extends JPanel implements Observer
 	            GridBagConstraints.SOUTH,
 	            0,0,2,10,2,2,0,0); 
 	    
-	   list.setPreferredSize(new Dimension(250,180));   
-	    UtilitaireRepartition.ajouter(this,list,0,7,7,1,GridBagConstraints.NONE,
-	            GridBagConstraints.SOUTH,
-	            0,0,1,1,10,1,0,0);
+	
 	}
 
 	public String getTextNom() {
@@ -141,10 +169,23 @@ public class VueClient extends JPanel implements Observer
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		 
-			unUser = (Usager) arg0;
+		JOptionPane.showMessageDialog(null,"update: " + ifmodifier);
+		if(ifmodifier==1){
+			 unUser = (Usager) arg1;
+				JOptionPane.showMessageDialog(null,"yo" + unUser);
+				remplirTableau(unUser);
+		 }
+		 else{
+			textNom.setText("");
+			textAdresse.setText("");
+			textMotDePasse.setText("");
+			textCourriel.setText("");
+			 
+		 }
 			
-			remplirTableau(unUser);
+			
+			
+			
 	}
 		
 	

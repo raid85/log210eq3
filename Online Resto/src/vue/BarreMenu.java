@@ -76,12 +76,12 @@ public class BarreMenu extends JMenuBar implements Observer{
         itemMC.addActionListener(controleur);
         itemMC.setActionCommand("MODCLIENT");
         menuC.add(itemMC);
-
+/*
         itemSC = new JMenuItem("Supprimer compte");        
         itemSC.addActionListener(controleur);
         itemSC.setActionCommand("SUPPCLIENT");
         menuC.add(itemSC);
-        
+*/    
       //Construire le menu Gestion
         menuG = new JMenu("Gestion");
         this.add(menuG);
@@ -216,9 +216,14 @@ public class BarreMenu extends JMenuBar implements Observer{
 	        }
 	}
 	
-	public void nouvelleVueClient(){
-
-		panneauTempo = new VueClient();
+	public void nouvelleVueClient(boolean modifier){
+		if (!modifier){
+			panneauTempo = new VueClient();
+		}
+		else{
+			panneauTempo = new VueClient(1);
+		}
+		
 		
 	}
 	public void nouvelleVueMenu(){

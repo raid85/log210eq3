@@ -59,7 +59,7 @@ public class ControleurClient implements ActionListener {
 	public ControleurClient(Observer observateur) {
 		
 		instance=Terminal.getInstance();
-		instance.addRestoObserver(observateur);
+		instance.addUsagerObserver(observateur);
 
 		 
 		this.vue = (VueClient) observateur;
@@ -81,10 +81,22 @@ public class ControleurClient implements ActionListener {
 			String tempo = vue.getTextAdresse()+":" +vue.getTextCourriel();
 			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),tempo);
 			
+			
 		} 
 		else if(action.equalsIgnoreCase("MODIFIER")) {
 				instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
 			
+		}
+		else if(action.equalsIgnoreCase("RETIRER")) {
+			JOptionPane.showMessageDialog(null,"retirer clien");
+			instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
+			int choix = JOptionPane.showConfirmDialog(null, null, "Voulez-vous supprimer votre conte", 1);
+			
+			instance.retirerClient();
+			instance.deconnexion();
+		}
+		else {
+			System.err.println("L'action '" + action + "' est inconnue...");
 		}
 		
 	}
