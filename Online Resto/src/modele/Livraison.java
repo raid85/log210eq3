@@ -31,7 +31,7 @@ public class Livraison {
 		return isDelivered;
 	}
 	public String toString (){
-		return ("Date Voulue :"+this.dateVoulue+" Nom du Client: "+this.nomClient);
+		return (""+this.dateVoulue+" "+this.nomClient);
 	}
 	public Object[] toArray (){
 		List l = new ArrayList();
