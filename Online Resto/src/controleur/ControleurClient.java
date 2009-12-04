@@ -79,7 +79,7 @@ public class ControleurClient implements ActionListener {
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTER")) {
 			String tempo = vue.getTextAdresse()+":" +vue.getTextCourriel();
-			instance.ajouterClient(vue.getName(),vue.getTextMotDePasse(),tempo);
+			instance.ajouterClient(vue.getTextNom(),vue.getTextMotDePasse(),tempo);
 			
 			
 		} 
@@ -88,7 +88,7 @@ public class ControleurClient implements ActionListener {
 			
 		}
 		else if(action.equalsIgnoreCase("RETIRER")) {
-			JOptionPane.showMessageDialog(null,"retirer clien");
+		
 			instance.modifierClient(vue.getName(),vue.getTextMotDePasse(),vue.getTextAdresse()+":" +vue.getTextCourriel());
 			int choix = JOptionPane.showConfirmDialog(null, null, "Voulez-vous supprimer votre conte", 1);
 			

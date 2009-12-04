@@ -84,8 +84,8 @@ public class VueClient extends JPanel implements Observer
 		createGUI();
 
 		ajouter.setVisible(false);
-		JOptionPane.showMessageDialog(null,"between setter les infos");
-		JOptionPane.showMessageDialog(null, unUser);
+		
+		JOptionPane.showMessageDialog(null, unUser.getLoginName());
 		String tempo[]= unUser.getInfoDuDude().split(":");
 		
 		textNom.setText(unUser.getLoginName());
