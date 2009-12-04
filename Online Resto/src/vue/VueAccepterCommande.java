@@ -12,16 +12,17 @@ import javax.swing.*;
 
 import modele.Terminal;
 
+import controleur.ControleurAccepterCommande;
 import controleur.ControleurConsulterCommande;
 import controleur.ControleurMenu;
 import controleur.ControleurRestaurant;
-public class VueConsulterCommande extends JPanel implements Observer
+public class VueAccepterCommande extends JPanel implements Observer
 {  
 
 	
-	ControleurConsulterCommande controleur;
+	ControleurAccepterCommande controleur;
 	
-	private JButton consulter=new JButton("Consulter");
+	private JButton consulter= new JButton("Consulter");
 	private JButton accepter = new JButton("Accepter");
 	
 	private JList listeRestaurants= new JList();	
@@ -32,7 +33,7 @@ public class VueConsulterCommande extends JPanel implements Observer
 	private JScrollPane panCommandes ;
 	private JScrollPane panInfo ;
 
-	private JLabel labelTitre = new JLabel("Consultation des commandes");	  
+	private JLabel labelTitre = new JLabel("          Consultation des commandes");	  
 	private JLabel labelRestaurant = new JLabel("Restaurants");
 	private JLabel labelCommandes = new JLabel("Commandes");
 	private JLabel labelInfoCommande = new JLabel("Détails de la commande");
@@ -41,9 +42,9 @@ public class VueConsulterCommande extends JPanel implements Observer
 	GridBagLayout repartiteur;
 
 
-	public VueConsulterCommande() {		
+	public VueAccepterCommande() {		
 		
-		controleur = new ControleurConsulterCommande((Observer)this);		
+		controleur = new ControleurAccepterCommande((Observer)this);		
 		
 		listeRestaurants.addListSelectionListener(controleur);
 		consulter.addActionListener(controleur);
@@ -80,19 +81,18 @@ public class VueConsulterCommande extends JPanel implements Observer
 		
 		this.setBackground(Color.LIGHT_GRAY);	
 		
-		UtilitaireRepartition.ajouter(this,labelTitre,3,0,6,1,GridBagConstraints.VERTICAL,
+		UtilitaireRepartition.ajouter(this,labelTitre,1,0,6,1,GridBagConstraints.HORIZONTAL,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);   
 		
 		UtilitaireRepartition.ajouter(this,labelCommandes,7,2,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.NORTH,
-				0,0,15,2,15,2,0,0);
+				0,0,15,2,15,2,0,0);		
 		
-		
-		UtilitaireRepartition.ajouter(this,consulter,6,11,2,1,GridBagConstraints.HORIZONTAL,
+		UtilitaireRepartition.ajouter(this,consulter,7,0,2,1,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,2,10,10,2,0,0);
-		UtilitaireRepartition.ajouter(this,accepter,7,11,2,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,accepter,7,1,2,1,GridBagConstraints.NONE,
 	            GridBagConstraints.SOUTH,
 	            0,0,2,10,10,2,0,0);
 		
