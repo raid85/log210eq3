@@ -32,19 +32,22 @@ public class Restaurant extends Observable {
 		
 		this.menu = new ArrayList<ItemMenu>();
 		this.commandes = new ArrayList<Commande>();
+		
+		Commande c = new Commande ("Germain","Demain","H7T2Z8");
+		Commande c1 = new Commande ("Germ2","Dem2","H7T2");
+		
+		ItemMenu tempo = new ItemMenu(33,"Poulet");
+		ItemMenu tempo2 = new ItemMenu(332,"Poulet2");
+		c.ajouterPlat(tempo);
+		c.ajouterPlat(tempo2);
+		c1.ajouterPlat(tempo);
+		c1.ajouterPlat(tempo2);
+		commandes.add(c);
+		commandes.add(c1);
 	}
 
 	
-	public Restaurant(String nom,String adresse, String numeroTel,String zoneCouverture,String heureOuverture,String heureFermeture,ArrayList<ItemMenu> m) {
-		super();
-		this.nom = nom ;
-		this.adresse = adresse;
-		this.numeroTel = numeroTel;
-		this.zoneCouverture=zoneCouverture;
-		this.heureOuverture=heureOuverture;
-		this.heureFermeture=heureFermeture;		
-		this.menu=m;
-	}
+
 	
 	public void ajouterCommande (Commande c){
 		commandes.add(c);		
@@ -53,7 +56,7 @@ public class Restaurant extends Observable {
 	public Object[] getCommandes (){
 		return this.commandes.toArray();
 	}
-	public Object getCommande (int index){
+	public Commande getCommande (int index){
 		return commandes.get(index);
 	}
 

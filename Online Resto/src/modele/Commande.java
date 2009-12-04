@@ -30,5 +30,11 @@ public class Commande {
 	public void enleverPlat (int index){
 		plats.remove(index);
 	}
+	public String toString(){
+		return "" + dateVoulue + " " + nomClient + " " + codePostal;
+	}
 
+	public List<ItemMenu> getPlats() {
+		return plats;
+	}
 }
