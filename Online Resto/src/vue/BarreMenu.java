@@ -238,7 +238,10 @@ public class BarreMenu extends JMenuBar implements Observer{
 	public void nouvelleVueConsulterCommande(){
 		panneauTempo = new VueConsulterCommande();
 	}	
-
+	public void nouvelleVueLivraison(){
+		panneauTempo = new VueLivraison();
+	}
+	
 	public JPanel getPanneauTempo() {
 		return panneauTempo;
 	}

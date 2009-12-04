@@ -53,4 +53,8 @@ public class Commande {
 		return completer;
 	}
 	
+	public String toString() {
+		return idCommande ;
+	}
+	
 }

@@ -26,6 +26,10 @@ public class Livreur implements Role{
 		this.setZoneCouverture(zoneCouverture);
 		this.setDisponibilite(disponibilite);
 		this.livraisons =  new ArrayList<Livraison>();
+		Commande c = new Commande ("Commande test");
+		Livraison l = new Livraison ("Date test","nom test","CP test",c);
+		livraisons.add(l);
+		System.out.println("livr ajoutée :"+l.toString());
 	}	
 
 
