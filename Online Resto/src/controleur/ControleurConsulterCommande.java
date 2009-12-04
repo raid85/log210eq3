@@ -45,7 +45,7 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 	//@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String action = arg0.getActionCommand();
-		if(action.equalsIgnoreCase("Consulter")) {
+		if(action.equalsIgnoreCase("Consulter")&& !vue.getCommandes().isSelectionEmpty()) {
 			vue.getInfoCommandes().setListData(instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()).getPlats().toArray());
 			
 
