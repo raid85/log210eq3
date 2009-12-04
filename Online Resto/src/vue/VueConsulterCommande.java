@@ -79,7 +79,7 @@ public class VueConsulterCommande extends JPanel implements Observer
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);   
 		
-		UtilitaireRepartition.ajouter(this,labelCommandes,7,5,2,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,labelCommandes,7,2,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);
 		
@@ -89,13 +89,13 @@ public class VueConsulterCommande extends JPanel implements Observer
 	            0,0,2,10,10,2,0,0);
 		
 		listeCommandes.setPreferredSize(new Dimension(200,155));   
-		UtilitaireRepartition.ajouter(this,listeCommandes,7,8,2,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,listeCommandes,7,3,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
 		
 
 		infoCommande.setPreferredSize(new Dimension(200,155));   
-		UtilitaireRepartition.ajouter(this,infoCommande,7,10,2,1,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,infoCommande,7,10,2,1,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
 				0,0,1,10,10,2,0,0);
 		UtilitaireRepartition.ajouter(this,labelInfoCommande,7,9,2,1,GridBagConstraints.NONE,
@@ -103,10 +103,10 @@ public class VueConsulterCommande extends JPanel implements Observer
 				0,0,15,2,15,2,0,0);
 
 		listeRestaurants.setPreferredSize(new Dimension(215,340));   
-		UtilitaireRepartition.ajouter(this,listeRestaurants,0,1,5,10,GridBagConstraints.NONE,
+		UtilitaireRepartition.ajouter(this,listeRestaurants,0,3,5,10,GridBagConstraints.VERTICAL,
 				GridBagConstraints.SOUTH,
-				0,0,1,5,5,2,0,0); 
-		UtilitaireRepartition.ajouter(this,labelRestaurant,0,1,5,10,GridBagConstraints.NONE,
+				0,0,1,10,10,2,0,0); 
+		UtilitaireRepartition.ajouter(this,labelRestaurant,0,2,5,1,GridBagConstraints.NONE,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);
 	}
