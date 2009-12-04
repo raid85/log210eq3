@@ -41,6 +41,7 @@ public class DefaultVue extends JPanel implements Observer{
 		contraintes.gridwidth = 2;
 		JTextArea bienvenue = new JTextArea("Bienvenue, si vous etes un nouveau client,\n" +
 				"veuillez créer un nouveau compte dans le menu Fichier.");
+		bienvenue.setEditable(false);
 		pane1.add(bienvenue);
 	}
 

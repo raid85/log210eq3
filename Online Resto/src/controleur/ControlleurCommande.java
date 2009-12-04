@@ -26,7 +26,7 @@ import modele.*;
  * @author François Caron
  *
  */
-public class ControleurMenu implements ActionListener, ListSelectionListener {
+public class ControlleurCommande implements ActionListener, ListSelectionListener {
 	
 	/**
 	 * Cet attribut sert à stocker le texte.
@@ -39,7 +39,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 	 */
 	private int elementSelectionne;
 	
-	private VueMenu vue ;
+	private VueCommande vue ;
 	/**
 	 * Le Terminal est la classe du modèle avec laquelle le contrôleur
 	 * communique.
@@ -58,12 +58,12 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 	 * 
 	 * @param observateur
 	 */
-	public ControleurMenu(Observer observateur) {
+	public ControlleurCommande(Observer observateur) {
 		
 		
 		instance=Terminal.getInstance();
 		instance.addMenuObserver(observateur);
-		this.vue = (VueMenu) observateur;
+		this.vue = (VueCommande) observateur;
 		texte = "";
 		elementSelectionne = -1;
 	     	
@@ -81,12 +81,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 		 */
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("AJOUTERITEM")) {			
-			//if(vue.getNom().equals("") || vue.getAdresse().equals("") ){
-			Double tempo = Double.parseDouble(vue.getTextPrixItem());
-			instance.ajouterItem(elementSelectionne, tempo, vue.getTextItemDeMenu());
-			vue.getMenu().setListData(instance.getResto(elementSelectionne).getMenu().toArray());
-			// vue.doList(instance.getResto());
-			//} 
+		
 
 		} 
 		else if(action.equalsIgnoreCase("RETIRERITEM")) {	
@@ -107,10 +102,7 @@ public class ControleurMenu implements ActionListener, ListSelectionListener {
 
 		else if(action.equalsIgnoreCase("MODIFIERITEM")) {	
 			
-			Double tempo = Double.parseDouble(vue.getTextPrixItem());
-			instance.modifierItem(elementSelectionne, vue.getSelectionMenu(), tempo, vue.getTextItemDeMenu());
-			vue.getMenu().setListData(instance.getResto(elementSelectionne).getMenu().toArray());
-		}
+			}
 		else if(action.equalsIgnoreCase("RETIRERMENU")) {	
 			
 			instance.retirerMenu(elementSelectionne);

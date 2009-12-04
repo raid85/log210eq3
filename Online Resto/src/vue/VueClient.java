@@ -85,13 +85,14 @@ public class VueClient extends JPanel implements Observer
 
 		ajouter.setVisible(false);
 		
-		JOptionPane.showMessageDialog(null, unUser.getLoginName());
+		/*
 		String tempo[]= unUser.getInfoDuDude().split(":");
 		
 		textNom.setText(unUser.getLoginName());
 		textAdresse.setText(tempo[0]);
 		textMotDePasse.setText(unUser.getPassword());
 		textCourriel.setText(tempo[1]);
+		*/
 	  }
 	
 	
@@ -169,19 +170,19 @@ public class VueClient extends JPanel implements Observer
 	//@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		JOptionPane.showMessageDialog(null,"update: " + ifmodifier);
-		if(ifmodifier==1){
+		//JOptionPane.showMessageDialog(null,"update: " + ifmodifier);
+		/*if(ifmodifier==1){
 			 unUser = (Usager) arg1;
 				JOptionPane.showMessageDialog(null,"yo" + unUser);
 				remplirTableau(unUser);
 		 }
-		 else{
+		 else{*/
 			textNom.setText("");
 			textAdresse.setText("");
 			textMotDePasse.setText("");
 			textCourriel.setText("");
 			 
-		 }
+		// }
 			
 			
 			
