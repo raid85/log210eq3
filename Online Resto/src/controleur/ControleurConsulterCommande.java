@@ -47,13 +47,17 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 
 		} 
 		else if(action.equalsIgnoreCase("Accepter") && !vue.getCommandes().isSelectionEmpty()){
-             esCommande = vue.getCommandes().getSelectedIndex();
-             if(!instance.getResto(esRestos).getCommande(esCommande).isAccepter()){
-            	 instance.getResto(esRestos).getCommande(esCommande).setAccepter(true);
-            	 System.out.println("..."+instance.getResto(esRestos).getCommande(esCommande).isAccepter());
-            	 
-             }
-             
+			esCommande = vue.getCommandes().getSelectedIndex();
+			if(!instance.getResto(esRestos).getCommande(esCommande).isAccepter()){
+
+				if(JOptionPane.showConfirmDialog(null, "Confirmez vous l'acceptation de la commande ?","Confirmation", 0)==0){
+					instance.getResto(esRestos).getCommande(esCommande).setAccepter(true);
+					System.out.println("..."+instance.getResto(esRestos).getCommande(esCommande).toString());
+					System.out.println("..."+instance.getResto(esRestos).getCommande(esCommande).isAccepter());            		 
+				}
+			} 
+			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été acceptée par un restaurant");
+
 		}
 
 
