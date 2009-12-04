@@ -78,6 +78,11 @@ public class Terminal {
 		
 	}
 	
+	public void addCCommandeObserver(Observer observateur) {
+		unResto.ajouterObserver(observateur);
+		
+	}
+
 	public void ajouterItem(int indexR, Double par1, String par2) {
 		ItemMenu item = new ItemMenu(par1,par2);
 		

@@ -2,8 +2,10 @@ package modele;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Restaurant {
+public class Restaurant extends Observable {
 	
 	private String nom ;
 	private String adresse;
@@ -123,5 +125,12 @@ public class Restaurant {
 		 * d'aviser les observateurs. 
 		 */
 		
+	}
+public void ajouterObserver(Observer observateur) {
+		
+		addObserver(observateur);
+		
+		setChanged();
+		notifyObservers(commandes.toArray());
 	}
 }
