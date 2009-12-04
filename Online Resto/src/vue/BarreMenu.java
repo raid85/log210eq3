@@ -127,8 +127,8 @@ public class BarreMenu extends JMenuBar implements Observer{
         
         
         // SWITCH QUI PERMET DE POUVOIR AVOIR ACCES A TOUT SANS SE LOGGUER (enlever avant production ;) )
-        //verifDroits(droits);
-       DroitsTempo();
+        verifDroits(droits);
+       //DroitsTempo();
 	}
     
 	private void DroitsTempo() {

@@ -91,8 +91,8 @@ public class Usager extends Observable {
 		setChanged();
 	}
 
-	public void setUsager(String loginName2, String password2,
-			String infoDuDude2, RClient rClient) {
+	public void setUsager(String loginName, String password,
+			String infoDuDude, Role droits) {
 		
 		this.loginName = loginName;
 		this.password = password;

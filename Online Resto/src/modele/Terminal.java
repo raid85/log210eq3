@@ -121,9 +121,10 @@ public class Terminal {
 		lsLivreurs.ajouterLivreur(unLivreur);
 		ajouterUsager(nom,"1234",adresse, new Livreur());
 	}
-	public void modifierLivreur(int index, String Nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
-		this.unLivreur = new Livreur(Nom,adresse,numeroTel,zoneCouverture,dispo);
+	public void modifierLivreur(int index, String nom,String adresse, String numeroTel,String zoneCouverture,String dispo) {
+		this.unLivreur = new Livreur(nom,adresse,numeroTel,zoneCouverture,dispo);
 		lsLivreurs.modifierLivreur(index, unLivreur);
+		modifierUsager(index,nom, "1234",adresse, new Livreur());
 		//System.out.println("terminal modifier Livreur"+unLivreur.getNom()+this.toString());
 	}
 	public void retirerLivreur(int index) {
@@ -143,11 +144,11 @@ public class Terminal {
 		//Client clientTempo = new Client(loginName,password,infoDuDude);
 		//lsClients.ajouterClient(clientTempo);
 		Usager tempo = new Usager(loginName,password,infoDuDude,new RClient());
+		JOptionPane.showMessageDialog(null,loginName+password+infoDuDude);
 		lsUsagers.ajouterUsager(tempo);
 		indexUser=lsUsagers.getHauteur();
 		lUsager.setUsager(loginName,password,infoDuDude,new RClient());
 		
-		JOptionPane.showMessageDialog(null,"ajouteclein");
 		
 	}
 	public Usager getlUsager() {
@@ -169,8 +170,9 @@ public class Terminal {
 	}
 	
 	public void authentifier() {
-		lUsager= lsUsagers.authentifier();
-		
+		Usager tempo= lsUsagers.authentifier();
+		Role rTempo = tempo.getDroits();
+		lUsager.setUsager(tempo.getLoginName(), tempo.getPassword(), tempo.getInfoDuDude(),rTempo);
 		/*int sizeTab = 3;
 		boolean connected=false;
 		boolean mauvaisPW=false;
