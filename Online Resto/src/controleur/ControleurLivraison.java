@@ -54,7 +54,7 @@ public class ControleurLivraison implements ListSelectionListener,ActionListener
 					//System.out.println("..."+instance.getResto(esRestos).getCommande(esCommande).isAccepter());            		 
 				}
 			} 
-			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été livrée par un autre livreur");
+			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été acceptée");
 
 
 		}
@@ -69,7 +69,7 @@ public class ControleurLivraison implements ListSelectionListener,ActionListener
 					//System.out.println("complete ??"+instance.getResto(esRestos).getCommande(esCommande).isCompleter());            		 
 				}
 			} 
-			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été Livrée");
+			else JOptionPane.showMessageDialog(null, "La commande sélectionée à déja été livrée");
 
 		}
 		

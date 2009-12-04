@@ -36,7 +36,7 @@ public class VueLivraison extends JPanel implements Observer
 	private JScrollPane panInfo ;
 
 	private JLabel labelTitre = new JLabel("Consultation des Livraisons");	  
-	private JLabel labelRestaurant = new JLabel("Restaurants");
+	private JLabel labelRestaurant = new JLabel("Livreurs");
 	private JLabel labelCommandes = new JLabel("Livraison");
 	private JLabel labelInfoCommande = new JLabel("Détails de la livraion");
 
