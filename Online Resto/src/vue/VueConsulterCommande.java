@@ -14,15 +14,16 @@ import modele.Terminal;
 
 import controleur.ControleurConsulterCommande;
 import controleur.ControleurMenu;
+import controleur.ControleurRestaurant;
 public class VueConsulterCommande extends JPanel implements Observer
 {  
 
 	
 	ControleurConsulterCommande controleur;
 	JButton consulter=new JButton("Consulter");
-	JList listeRestaurants;	
-	JList listeCommandes ;
-	JList infoCommande ;
+	JList listeRestaurants= new JList();	
+	JList listeCommandes = new JList();
+	JList infoCommande = new JList();
 
 	JLabel labelTitre = new JLabel("          Consultation des commandes");	  
 	JLabel labelRestaurant = new JLabel("Restaurants");
@@ -49,9 +50,9 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 	public VueConsulterCommande() {
 		
-		infoCommande= new JList();
-		listeRestaurants = new JList();
-		listeCommandes = new JList();
+		
+		
+		controleur = new ControleurConsulterCommande((Observer)this);
 		
 		listeRestaurants.addListSelectionListener(controleur);
 		consulter.addActionListener(controleur);
@@ -114,8 +115,9 @@ public class VueConsulterCommande extends JPanel implements Observer
 
 	//@Override
 	public void update(Observable arg0, Object arg1) {
+		
 		listeRestaurants.setListData((Object[])arg1);
-
+		
 
 	}
 }

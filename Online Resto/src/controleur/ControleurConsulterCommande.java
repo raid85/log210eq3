@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observer;
 
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -28,20 +29,25 @@ public class ControleurConsulterCommande implements ListSelectionListener,Action
 		esRestos = -1;
 	}
 	
-	@Override
+	//@Override
 	public void valueChanged(ListSelectionEvent e) {
 		esRestos = e.getFirstIndex();		
 		//esCommande = this.vue.getSelectionCommande();
+		
+		JList tempo = new JList();
+		tempo.setListData(instance.getResto(esRestos).getCommandes());
+		JOptionPane.showMessageDialog(null,tempo);
+		
 		vue.getCommandes().setListData(instance.getResto(esRestos).getCommandes());
 		
 		
 	}
 
-	@Override
+	//@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String action = arg0.getActionCommand();
 		if(action.equalsIgnoreCase("Consulter")) {
-			vue.getInfoCommandes().setListData((Object[]) instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()));
+			vue.getInfoCommandes().setListData(instance.getResto(esRestos).getCommande(vue.getCommandes().getSelectedIndex()).getPlats().toArray());
 			
 
 		} 
