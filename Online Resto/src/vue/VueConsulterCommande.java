@@ -91,6 +91,9 @@ public class VueConsulterCommande extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,labelCommandes,7,2,2,1,GridBagConstraints.NONE,
 				GridBagConstraints.NORTH,
 				0,0,15,2,15,2,0,0);
+		UtilitaireRepartition.ajouter(this,complet,8,11,1,1,GridBagConstraints.HORIZONTAL,
+	            GridBagConstraints.SOUTH,
+	            0,0,2,1,1,1,0,0);
 		
 		
 		UtilitaireRepartition.ajouter(this,consulter,6,11,1,1,GridBagConstraints.HORIZONTAL,
@@ -99,9 +102,7 @@ public class VueConsulterCommande extends JPanel implements Observer
 		UtilitaireRepartition.ajouter(this,accepter,7,11,1,1,GridBagConstraints.HORIZONTAL,
 	            GridBagConstraints.SOUTH,
 	            0,0,2,1,1,1,0,0);
-		UtilitaireRepartition.ajouter(this,complet,8,11,1,1,GridBagConstraints.HORIZONTAL,
-	            GridBagConstraints.SOUTH,
-	            0,0,2,1,1,1,0,0);
+		
 		
 		
 		
